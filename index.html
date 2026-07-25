@@ -3,53 +3,50 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Адиль — финансовый консультант · финмодели и разборы ниш</title>
-<meta name="description" content="Финансовые модели по нишам, разборы экономики бизнеса и управленческий учёт. Считаю до того, как вложены деньги.">
-<meta property="og:title" content="Адиль — финансовый консультант">
+<title>Адиль Алдабергенов — финансовый консультант · финмодели и разборы ниш</title>
+<meta name="description" content="Финансовые модели по нишам, разборы экономики малого бизнеса Казахстана и управленческий учёт. Считаю до того, как вложены деньги.">
+<meta property="og:title" content="Адиль Алдабергенов — финансовый консультант">
 <meta property="og:description" content="Финансовые модели по нишам и разборы экономики бизнеса.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='9' fill='%233F56DE'/><text x='16' y='22' font-size='17' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>А</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2332302C'/><text x='16' y='22' font-size='17' font-family='Georgia,serif' font-weight='bold' fill='%23F7F7F5' text-anchor='middle'>А</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 /* ===========================================================
-   Дизайн-система: формат pimenov.ai/cases.
-   Светлая тема, сайдбар слева, колонка 900px,
-   карточки-разборы лентой, кикеры капсом, синий акцент.
+   Дизайн-система: формат pimenov.ai/cases, палитра Notion.
+   Тёплый серый, белые поверхности, красный акцент.
+   Заголовки Playfair Display, текст Source Sans 3.
    =========================================================== */
 
 :root{
-  --base-100:#fafbfc;      /* фон контента */
-  --base-200:#f1f3f6;      /* фон сайдбара и подложек */
-  --base-300:#dde1e8;      /* границы */
-  --content:#24262c;       /* основной текст */
-  --primary:#3f56de;       /* синий акцент */
-  --primary-content:#fafbfc;
-  --radius-box:1.75rem;    /* поверхности */
-  --radius-card:2rem;      /* карточки-разборы */
-  --radius-field:.9rem;    /* кнопки */
-  --font:'Onest',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
-}
-@supports (color: oklch(53% 0.215 265)){
-  :root{
-    --base-100:oklch(98.7% .004 260);
-    --base-200:oklch(96.2% .006 255);
-    --base-300:oklch(90.4% .01 252);
-    --content:oklch(22% .016 260);
-    --primary:oklch(53% .215 265);
-    --primary-content:oklch(98.5% .004 260);
-  }
+  --bg:#F7F7F5;            /* фон страницы */
+  --bg-side:#F1F0ED;       /* сайдбар */
+  --surface:#FFFFFF;       /* поверхности и карточки */
+  --surface-2:#FBFBFA;     /* лёгкая подложка */
+  --border:#E6E4DF;        /* границы */
+  --border-strong:#D9D6D0;
+  --ink:#26241F;           /* основной текст */
+  --ink-2:#5C5A54;         /* вторичный текст */
+  --ink-3:#8B887F;         /* подписи */
+  --red:#D44C47;           /* акцент */
+  --red-dark:#B8403C;
+  --red-tint:#FBF0EF;      /* красная подложка */
+  --r-surface:1.5rem;
+  --r-card:1.25rem;
+  --r-btn:11px;
+  --font-body:'Source Sans 3',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-display:'Playfair Display',Georgia,'Times New Roman',serif;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-  font-family:var(--font);
-  background:var(--base-100);
-  color:var(--content);
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--ink);
   line-height:1.6;
-  font-size:16px;
+  font-size:16.5px;
   -webkit-font-smoothing:antialiased;
 }
 a{color:inherit;text-decoration:none}
@@ -63,9 +60,10 @@ ul{list-style:none}
   .app{display:flex}
   .sidebar{
     display:flex;flex-direction:column;
-    width:250px;flex-shrink:0;
+    width:252px;flex-shrink:0;
     min-height:100vh;position:sticky;top:0;height:100vh;
-    background:var(--base-200);
+    background:var(--bg-side);
+    border-right:1px solid var(--border);
     overflow-y:auto;
   }
   .content{flex:1;min-width:0}
@@ -76,265 +74,283 @@ ul{list-style:none}
 
 /* ---------- сайдбар ---------- */
 .sidebar__avatar{
-  width:8.5rem;height:8.5rem;border-radius:50%;
-  margin:28px auto 20px;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,var(--primary),#7b8cf0);
-  color:#fff;font-size:3.4rem;font-weight:900;
-  box-shadow:0 14px 30px -18px var(--primary);
+  width:7.75rem;height:7.75rem;border-radius:50%;
+  margin:30px auto 18px;display:flex;align-items:center;justify-content:center;
+  background:var(--ink);
+  color:var(--bg);font-family:var(--font-display);font-size:3.1rem;font-weight:700;
+  border:1px solid var(--border-strong);
+  box-shadow:0 12px 26px -18px rgba(38,36,31,.55);
   transition:transform .2s ease;
 }
 a:hover>.sidebar__avatar{transform:scale(1.02)}
-.sidebar__name{text-align:center;font-weight:800;margin-bottom:4px}
-.sidebar__role{text-align:center;font-size:.8rem;opacity:.55;margin-bottom:18px;padding:0 20px}
+.sidebar__name{text-align:center;font-weight:700;font-size:1.02rem;letter-spacing:.01em}
+.sidebar__role{text-align:center;font-size:.78rem;color:var(--ink-3);margin:4px 0 20px;padding:0 20px}
 .menu{padding:0 12px;flex:1}
 .menu a{
-  display:block;padding:11px 16px;border-radius:.8rem;
-  font-size:.98rem;transition:background .15s;
+  position:relative;display:block;padding:10px 16px;border-radius:9px;
+  font-size:.95rem;color:var(--ink-2);transition:background .15s,color .15s;
 }
-.menu a:hover{background:color-mix(in srgb,var(--content) 6%,transparent)}
-.menu a.is-active{background:color-mix(in srgb,var(--content) 9%,transparent);font-weight:700}
-.sidebar__foot{
-  padding:14px 12px 20px;display:flex;justify-content:center;gap:8px;
+.menu a:hover{background:rgba(38,36,31,.05);color:var(--ink)}
+.menu a.is-active{background:rgba(38,36,31,.07);color:var(--ink);font-weight:700}
+.menu a.is-active::before{
+  content:'';position:absolute;left:0;top:9px;bottom:9px;width:3px;
+  border-radius:2px;background:var(--red);
 }
+.sidebar__foot{padding:14px 12px 22px;display:flex;justify-content:center;gap:8px}
 .sidebar__foot a,.drawer__foot a{
   display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;
-  border-radius:50%;opacity:.6;transition:opacity .15s,background .15s;
+  border-radius:50%;color:var(--ink-3);transition:color .15s,background .15s;
 }
-.sidebar__foot a:hover,.drawer__foot a:hover{opacity:1;background:color-mix(in srgb,var(--content) 8%,transparent)}
-.sidebar__foot svg,.drawer__foot svg{width:19px;height:19px;fill:currentColor}
+.sidebar__foot a:hover,.drawer__foot a:hover{color:var(--red);background:rgba(38,36,31,.06)}
+.sidebar__foot svg,.drawer__foot svg{width:18px;height:18px;fill:currentColor}
 
 /* ---------- мобильная шапка и меню ---------- */
 .mobile-header{
   position:sticky;top:0;z-index:30;
   display:flex;align-items:center;justify-content:space-between;
-  height:60px;padding:0 14px;
-  background:color-mix(in srgb,var(--base-100) 92%,transparent);
+  height:58px;padding:0 14px;
+  background:rgba(247,247,245,.92);
   backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--base-300);
+  border-bottom:1px solid var(--border);
 }
 @media(min-width:900px){.mobile-header{display:none}}
-.mobile-header__brand{font-weight:800;display:flex;align-items:center;gap:10px}
+.mobile-header__brand{font-weight:700;display:flex;align-items:center;gap:10px;font-size:.98rem}
 .mobile-header__mark{
-  width:32px;height:32px;border-radius:10px;flex-shrink:0;
-  background:linear-gradient(135deg,var(--primary),#7b8cf0);
-  color:#fff;display:flex;align-items:center;justify-content:center;
-  font-weight:900;font-size:.95rem;
+  width:30px;height:30px;border-radius:8px;flex-shrink:0;
+  background:var(--ink);color:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:700;font-size:.95rem;
 }
 .burger{
-  border:1px solid var(--base-300);background:transparent;color:inherit;
-  font:inherit;font-size:.9rem;font-weight:600;
-  padding:7px 14px;border-radius:var(--radius-field);cursor:pointer;
+  border:1px solid var(--border-strong);background:transparent;color:inherit;
+  font:inherit;font-size:.87rem;font-weight:600;
+  padding:6px 14px;border-radius:var(--r-btn);cursor:pointer;
 }
-.drawer{
-  position:fixed;inset:0;z-index:60;display:none;
-}
+.drawer{position:fixed;inset:0;z-index:60;display:none}
 .drawer.is-open{display:block}
-.drawer__scrim{position:absolute;inset:0;background:rgba(20,22,30,.4)}
+.drawer__scrim{position:absolute;inset:0;background:rgba(38,36,31,.35)}
 .drawer__panel{
   position:absolute;top:0;left:0;bottom:0;width:min(300px,85vw);
-  background:var(--base-200);overflow-y:auto;
+  background:var(--bg-side);overflow-y:auto;
   display:flex;flex-direction:column;
+  border-right:1px solid var(--border);
   animation:drawer-in .2s ease;
 }
 @keyframes drawer-in{from{transform:translateX(-24px);opacity:0}to{transform:none;opacity:1}}
-.drawer__panel .sidebar__avatar{width:6.5rem;height:6.5rem;font-size:2.6rem;margin-top:24px}
+.drawer__panel .sidebar__avatar{width:6rem;height:6rem;font-size:2.4rem;margin-top:26px}
 .drawer__foot{padding:14px 12px 24px;display:flex;justify-content:center;gap:8px}
 
 /* ---------- типографика ---------- */
 .kicker{
-  text-transform:uppercase;letter-spacing:.14em;
-  opacity:.55;font-size:.75rem;font-weight:800;
+  display:flex;align-items:center;gap:10px;
+  text-transform:uppercase;letter-spacing:.13em;
+  color:var(--red);font-size:.72rem;font-weight:700;
 }
+.kicker::before{content:'';width:22px;height:2px;background:var(--red);flex-shrink:0}
 h1{
-  margin-top:12px;
-  font-size:clamp(2.1rem,5vw,3rem);
-  font-weight:900;letter-spacing:-.02em;line-height:1.08;
+  margin-top:14px;
+  font-family:var(--font-display);
+  font-size:clamp(1.9rem,4.6vw,2.75rem);
+  font-weight:800;letter-spacing:-.01em;line-height:1.14;
 }
-.section-title{font-size:1.6rem;font-weight:700;line-height:1.15;margin-top:8px}
-@media(min-width:768px){.section-title{font-size:1.875rem}}
-.lead{opacity:.8;line-height:1.8;margin-top:16px;max-width:48rem}
-@media(min-width:768px){.lead{font-size:1.06rem}}
+.section-title{
+  font-family:var(--font-display);
+  font-size:1.45rem;font-weight:700;line-height:1.2;margin-top:10px;
+}
+@media(min-width:768px){.section-title{font-size:1.7rem}}
+.lead{color:var(--ink-2);line-height:1.75;margin-top:14px;max-width:46rem}
+@media(min-width:768px){.lead{font-size:1.05rem}}
 
 /* ---------- поверхности ---------- */
 .surface{
-  background:var(--base-100);
-  border:1px solid color-mix(in srgb,var(--base-300) 90%,transparent);
-  border-radius:var(--radius-box);
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--r-surface);
   padding:24px;
-  margin-top:32px;
+  margin-top:28px;
 }
 @media(min-width:768px){.surface{padding:36px}}
-.surface--gradient{
-  background:
-    radial-gradient(120% 140% at 0% 0%,color-mix(in srgb,var(--primary) 7%,transparent),transparent 55%),
-    radial-gradient(120% 140% at 100% 100%,color-mix(in srgb,var(--primary) 5%,transparent),transparent 55%),
-    var(--base-100);
+.surface--hero{
+  background:linear-gradient(180deg,#FFFFFF 0%,#FCFBFA 100%);
+  border-color:var(--border-strong);
 }
 .page>.surface:first-child{margin-top:0}
 
+/* факты в hero */
+.facts{
+  margin-top:28px;padding-top:22px;border-top:1px solid var(--border);
+  display:grid;gap:16px;
+}
+@media(min-width:640px){.facts{grid-template-columns:repeat(3,1fr);gap:24px}}
+.fact{font-size:.9rem;color:var(--ink-2);line-height:1.5}
+.fact strong{display:block;font-size:1rem;color:var(--ink);font-weight:700;margin-bottom:2px}
+
 /* ---------- кнопки ---------- */
-.actions{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px}
+.actions{margin-top:26px;display:flex;flex-wrap:wrap;gap:11px}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;
-  padding:12px 22px;border-radius:var(--radius-field);
-  font-weight:700;font-size:.95rem;line-height:1.25;
+  padding:11px 22px;border-radius:var(--r-btn);
+  font-weight:700;font-size:.93rem;line-height:1.25;
   border:1px solid transparent;
-  transition:transform .18s,box-shadow .18s,background .18s,border-color .18s;
+  transition:transform .16s,box-shadow .16s,background .16s,border-color .16s,color .16s;
   cursor:pointer;font-family:inherit;
 }
 .btn:hover{transform:translateY(-1px)}
 .btn--primary{
-  background:var(--primary);color:var(--primary-content);
-  box-shadow:0 14px 26px -18px var(--primary);
+  background:var(--red);color:#fff;
+  box-shadow:0 12px 22px -16px var(--red);
 }
-.btn--ghost{border-color:var(--base-300)}
-.btn--ghost:hover{background:color-mix(in srgb,var(--content) 5%,transparent)}
-.btn--sm{padding:8px 16px;font-size:.87rem}
+.btn--primary:hover{background:var(--red-dark)}
+.btn--ghost{border-color:var(--border-strong);color:var(--ink)}
+.btn--ghost:hover{background:rgba(38,36,31,.04)}
+.btn--sm{padding:7px 15px;font-size:.85rem}
 
-/* ---------- карточка-разбор (формат pimenov /cases/) ---------- */
-.case-list{margin-top:24px;display:grid;gap:20px}
+/* ---------- карточка-разбор ---------- */
+.case-list{margin-top:22px;display:grid;gap:16px}
 .case{
-  background:var(--base-100);
-  border:1px solid var(--base-300);
-  border-radius:var(--radius-card);
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--r-card);
   padding:24px;
-  transition:transform .18s,border-color .18s,box-shadow .18s;
+  transition:transform .16s,border-color .16s,box-shadow .16s;
 }
-@media(min-width:768px){.case{padding:28px}}
+@media(min-width:768px){.case{padding:28px 30px}}
 .case:hover{
   transform:translateY(-2px);
-  border-color:color-mix(in srgb,var(--primary) 40%,transparent);
-  box-shadow:0 20px 40px -24px rgba(30,36,70,.35);
+  border-color:rgba(212,76,71,.45);
+  box-shadow:0 18px 36px -24px rgba(38,36,31,.28);
 }
 .case__title{
-  margin-top:8px;font-size:1.4rem;font-weight:700;line-height:1.3;
+  margin-top:10px;
+  font-family:var(--font-display);
+  font-size:1.28rem;font-weight:700;line-height:1.3;
 }
-@media(min-width:768px){.case__title{font-size:1.7rem}}
+@media(min-width:768px){.case__title{font-size:1.5rem}}
 .case__title a{transition:color .15s}
-.case__title a:hover{color:var(--primary)}
-.case__text{margin-top:14px;line-height:1.75;opacity:.8;max-width:46rem}
-.case__actions{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.case__title a:hover{color:var(--red)}
+.case__text{margin-top:12px;line-height:1.7;color:var(--ink-2);max-width:44rem}
+.case__actions{margin-top:18px;display:flex;flex-wrap:wrap;gap:9px;align-items:center}
 
 /* ---------- сетки компактных карточек ---------- */
-.grid-2{margin-top:24px;display:grid;gap:16px}
+.grid-2{margin-top:22px;display:grid;gap:14px}
 @media(min-width:700px){.grid-2{grid-template-columns:1fr 1fr}}
 .mini{
-  display:block;background:var(--base-100);
-  border:1px solid var(--base-300);border-radius:1.4rem;
+  display:block;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r-card);
   padding:20px 22px;
-  transition:transform .18s,border-color .18s,box-shadow .18s;
+  transition:transform .16s,border-color .16s,box-shadow .16s;
 }
 .mini:hover{
   transform:translateY(-2px);
-  border-color:color-mix(in srgb,var(--primary) 40%,transparent);
-  box-shadow:0 18px 34px -24px rgba(30,36,70,.3);
+  border-color:rgba(212,76,71,.45);
+  box-shadow:0 16px 30px -22px rgba(38,36,31,.25);
 }
-.mini__title{margin-top:6px;font-weight:700;font-size:1.08rem;line-height:1.35}
-.mini__text{margin-top:8px;font-size:.93rem;line-height:1.65;opacity:.75}
-.mini__foot{margin-top:12px;font-size:.88rem;font-weight:700;color:var(--primary)}
-.price{font-weight:800}
+.mini .kicker{font-size:.67rem}
+.mini__title{margin-top:8px;font-weight:700;font-size:1.05rem;line-height:1.35}
+.mini__text{margin-top:7px;font-size:.91rem;line-height:1.6;color:var(--ink-2)}
+.mini__foot{margin-top:12px;font-size:.86rem;font-weight:700;color:var(--red)}
 
 /* ---------- список-чек ---------- */
-.checks{margin-top:20px;display:grid;gap:12px}
-@media(min-width:700px){.checks--2{grid-template-columns:1fr 1fr;gap:12px 36px}}
-.checks li{
-  position:relative;padding-left:28px;line-height:1.65;opacity:.85;
-}
+.checks{margin-top:20px;display:grid;gap:11px}
+@media(min-width:700px){.checks--2{grid-template-columns:1fr 1fr;gap:11px 36px}}
+.checks li{position:relative;padding-left:26px;line-height:1.6;color:var(--ink-2)}
+.checks li strong{color:var(--ink)}
 .checks li::before{
-  content:'';position:absolute;left:0;top:.42em;
-  width:16px;height:16px;border-radius:50%;
-  background:color-mix(in srgb,var(--primary) 14%,transparent);
-}
-.checks li::after{
-  content:'';position:absolute;left:4.5px;top:calc(.42em + 4.5px);
-  width:7px;height:4px;
-  border-left:2px solid var(--primary);border-bottom:2px solid var(--primary);
-  transform:rotate(-45deg);
+  content:'';position:absolute;left:2px;top:.52em;
+  width:7px;height:7px;border-radius:2px;
+  background:var(--red);transform:rotate(45deg);
 }
 
 /* ---------- заметки, цитаты, теги, таймлайн ---------- */
 .note{
-  background:var(--base-200);border-radius:1.2rem;
-  padding:18px 20px;font-size:.95rem;line-height:1.7;
+  background:var(--surface-2);border:1px solid var(--border);
+  border-radius:var(--r-card);
+  padding:18px 20px;font-size:.93rem;line-height:1.7;color:var(--ink-2);
 }
-.note--accent{background:color-mix(in srgb,var(--primary) 8%,var(--base-100))}
+.note strong{color:var(--ink)}
+.note--red{background:var(--red-tint);border-color:#F0D5D3}
 .quote{
-  border-left:3px solid var(--primary);
-  padding:6px 0 6px 20px;
-  font-size:1.08rem;line-height:1.8;opacity:.85;
+  border-left:3px solid var(--red);
+  padding:4px 0 4px 20px;
+  font-family:var(--font-display);
+  font-size:1.12rem;line-height:1.7;color:var(--ink);
+  font-style:italic;
 }
-.stack{display:grid;gap:16px}
-.cols{margin-top:24px;display:grid;gap:24px}
+.stack{display:grid;gap:14px}
+.cols{margin-top:22px;display:grid;gap:22px}
 @media(min-width:760px){.cols{grid-template-columns:1fr 1fr;align-items:start}}
 .tags{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
 .tag{
-  display:inline-block;padding:6px 14px;border-radius:999px;
-  border:1px solid var(--base-300);font-size:.85rem;font-weight:600;
-  background:var(--base-100);
+  display:inline-block;padding:5px 13px;border-radius:999px;
+  border:1px solid var(--border-strong);font-size:.82rem;font-weight:600;
+  color:var(--ink-2);background:var(--surface);
 }
-.timeline{margin-top:24px;display:grid;gap:0}
+.timeline{margin-top:24px}
 .tl{
-  position:relative;padding:0 0 26px 26px;
-  border-left:2px solid var(--base-300);margin-left:6px;
+  position:relative;padding:0 0 24px 24px;
+  border-left:1px solid var(--border-strong);margin-left:5px;
 }
-.tl:last-child{padding-bottom:4px}
+.tl:last-child{padding-bottom:2px;border-left-color:transparent}
 .tl::before{
-  content:'';position:absolute;left:-7px;top:2px;
-  width:12px;height:12px;border-radius:50%;
-  background:var(--primary);
-  box-shadow:0 0 0 4px color-mix(in srgb,var(--primary) 18%,transparent);
+  content:'';position:absolute;left:-5.5px;top:4px;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--red);
+  box-shadow:0 0 0 3px var(--red-tint);
 }
-.tl__date{font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;opacity:.55}
-.tl__role{font-weight:700;margin-top:4px}
-.tl__text{margin-top:6px;font-size:.94rem;line-height:1.65;opacity:.75}
+.tl__date{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-3)}
+.tl__role{font-weight:700;margin-top:3px}
+.tl__text{margin-top:5px;font-size:.92rem;line-height:1.65;color:var(--ink-2)}
 
 /* ---------- форма ---------- */
-.field{display:block;margin-bottom:14px}
-.field span{display:block;font-size:.82rem;font-weight:700;opacity:.65;margin-bottom:6px}
+.field{display:block;margin-bottom:13px}
+.field span{display:block;font-size:.79rem;font-weight:700;color:var(--ink-3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
 .field input,.field select,.field textarea{
-  width:100%;padding:11px 14px;
-  border:1px solid var(--base-300);border-radius:var(--radius-field);
-  background:var(--base-100);color:inherit;
-  font:inherit;font-size:.95rem;
+  width:100%;padding:10px 14px;
+  border:1px solid var(--border-strong);border-radius:var(--r-btn);
+  background:var(--surface);color:inherit;
+  font:inherit;font-size:.94rem;
 }
 .field textarea{min-height:110px;resize:vertical}
 .field input:focus,.field select:focus,.field textarea:focus{
-  outline:2px solid color-mix(in srgb,var(--primary) 45%,transparent);outline-offset:1px;
+  outline:2px solid rgba(212,76,71,.4);outline-offset:1px;
 }
-.tiny{font-size:.78rem;opacity:.55;margin-top:12px}
+.tiny{font-size:.76rem;color:var(--ink-3);margin-top:12px}
 
-/* ---------- нижний CTA (формат pimenov) ---------- */
-.cta__actions{margin-top:24px;display:grid;gap:12px}
-@media(min-width:640px){.cta__actions{grid-template-columns:1fr 1fr;max-width:620px}}
+/* ---------- нижний CTA ---------- */
+.cta__actions{margin-top:24px;display:grid;gap:11px}
+@media(min-width:640px){.cta__actions{grid-template-columns:1fr 1fr;max-width:600px}}
 .cta-btn{
   display:inline-flex;align-items:center;justify-content:center;text-align:center;
-  min-height:3.5rem;padding:.95rem 1.25rem;border-radius:999px;
+  min-height:3.3rem;padding:.9rem 1.25rem;border-radius:12px;
   font-weight:700;line-height:1.2;border:1px solid transparent;
-  transition:transform .22s,box-shadow .22s,background .22s,border-color .22s;
+  transition:transform .18s,box-shadow .18s,background .18s,border-color .18s;
 }
 .cta-btn:hover{transform:translateY(-1px)}
 .cta-btn--primary{
-  background:var(--primary);color:var(--primary-content);
-  box-shadow:0 18px 30px -22px var(--primary);
+  background:var(--red);color:#fff;
+  box-shadow:0 14px 26px -18px var(--red);
 }
-.cta-btn--secondary{border-color:var(--base-300);background:var(--base-100)}
-.cta-btn--secondary:hover{background:color-mix(in srgb,var(--content) 5%,transparent)}
+.cta-btn--primary:hover{background:var(--red-dark)}
+.cta-btn--secondary{border-color:var(--border-strong);background:var(--surface)}
+.cta-btn--secondary:hover{background:rgba(38,36,31,.04)}
 
 /* ---------- подвал ---------- */
 .site-footer{
   margin-top:40px;padding:20px 4px 0;
-  border-top:1px solid var(--base-300);
+  border-top:1px solid var(--border);
   display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;
-  font-size:.82rem;opacity:.6;
+  font-size:.8rem;color:var(--ink-3);
 }
 .site-footer a{text-decoration:underline;text-underline-offset:3px}
+.site-footer a:hover{color:var(--red)}
 
 /* ---------- роутинг ---------- */
 .page{display:none}
 .page.is-current{display:block;animation:page-in .25s ease}
 @keyframes page-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.link-arrow{font-weight:700;font-size:.9rem;color:var(--primary);white-space:nowrap}
+.link-arrow{font-weight:700;font-size:.88rem;color:var(--red);white-space:nowrap}
+.link-red{color:var(--red);font-weight:700}
 </style>
 </head>
 <body>
@@ -344,7 +360,7 @@ h1{
   <!-- ===== Сайдбар (десктоп) ===== -->
   <aside class="sidebar">
     <a href="#/"><div class="sidebar__avatar">А</div></a>
-    <div class="sidebar__name">Адиль</div>
+    <div class="sidebar__name">Адиль Алдабергенов</div>
     <div class="sidebar__role">финансовый консультант · Казахстан</div>
     <nav class="menu" data-menu>
       <a href="#/" data-route="/">Главная</a>
@@ -357,7 +373,7 @@ h1{
     </nav>
     <div class="sidebar__foot">
       <a href="#" data-tg aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.9 4.6c.3-1.2-.9-2.2-2-1.7L2.7 9.6c-1.2.5-1.1 2.2.1 2.6l4.4 1.4 1.7 5.5c.3 1 1.6 1.3 2.4.5l2.5-2.5 4.5 3.3c.9.7 2.2.2 2.4-.9l3.2-14.9zM8.5 12.9l8.9-5.5c.4-.2.7.3.4.6l-7.3 6.6-.3 3.2-1.7-4.9z"/></svg></a>
-      <a href="#" data-wa aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.2-5-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4-.1.7.5.2.6.8 2 .9 2.1.1.1.1.3 0 .5-.1.2-.2.3-.3.5l-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1.1.3.2.5.2.6.4.1.1.1.7-.1 1.4z"/></svg></a>
+      <a href="https://wa.me/77064068804" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.2-5-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4-.1.7.5.2.6.8 2 .9 2.1.1.1.1.3 0 .5-.1.2-.2.3-.3.5l-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1.1.3.2.5.2.6.4.1.1.1.7-.1 1.4z"/></svg></a>
       <a href="mailto:small.economy.kaz@gmail.com" aria-label="Почта"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5v2.2z"/></svg></a>
     </div>
   </aside>
@@ -368,7 +384,7 @@ h1{
     <header class="mobile-header">
       <a class="mobile-header__brand" href="#/">
         <span class="mobile-header__mark">А</span>
-        <span>Адиль · финансы</span>
+        <span>Адиль Алдабергенов</span>
       </a>
       <button class="burger" id="burger" aria-label="Открыть меню">Меню</button>
     </header>
@@ -376,16 +392,21 @@ h1{
     <main class="main-col" id="main">
 
     <!-- ================= ГЛАВНАЯ ================= -->
-    <section class="page" data-route="/" data-title="Адиль — финансовый консультант">
+    <section class="page" data-route="/" data-title="Адиль Алдабергенов — финансовый консультант">
 
-      <section class="surface surface--gradient">
+      <section class="surface surface--hero">
         <p class="kicker">Финансовый консультант · Казахстан</p>
         <h1>Считаю экономику бизнеса до того, как в него вложены деньги</h1>
-        <p class="lead">Разбираю ниши, собираю финансовые модели и показываю, где проект зарабатывает, а где тихо течёт. Без теории — только те расчёты, которые меняют решения.</p>
+        <p class="lead">Разбираю ниши, собираю финансовые модели и показываю, где проект зарабатывает, а где тихо течёт. Я не обещаю успех — я показываю математику. Чужие ошибки бесплатны, свои обычно начинаются от двух миллионов.</p>
         <div class="actions">
           <a class="btn btn--primary" href="#/services">Смотреть финмодели</a>
           <a class="btn btn--ghost" href="#/blog">Читать разборы</a>
           <a class="btn btn--ghost" href="#/work">Работа со мной</a>
+        </div>
+        <div class="facts">
+          <div class="fact"><strong>20 лет в финансах</strong>Корпоративные финансы, консалтинг и собственные проекты — от киоска до завода.</div>
+          <div class="fact"><strong>Малый бизнес Казахстана</strong>Ниши, которые открывают на свои 2–15 миллионов тенге: общепит, услуги, розница, производство.</div>
+          <div class="fact"><strong>Расчёты, а не мнения</strong>Модели с открытыми формулами, которые выдерживают вопросы инвестора и банка.</div>
         </div>
       </section>
 
@@ -409,7 +430,7 @@ h1{
           <a class="mini" href="#/blog">
             <p class="kicker">Маршрут</p>
             <div class="mini__title">Хочу разобраться сам</div>
-            <div class="mini__text">Разборы ниш, ошибки в расчётах и объяснения нормальным языком, без учебника по корпфинансам.</div>
+            <div class="mini__text">Разборы реальных историй, ошибки в расчётах и объяснения нормальным языком, без учебника по корпфинансам.</div>
             <div class="mini__foot">Читать разборы</div>
           </a>
           <a class="mini" href="#/contacts">
@@ -429,33 +450,33 @@ h1{
           </div>
           <a class="link-arrow" href="#/blog">Все разборы →</a>
         </div>
-        <p class="lead">Пишу о том, что считаю сам: ниши, ошибки в моделях, деньги и решения.</p>
+        <p class="lead">Реальные истории малого бизнеса Казахстана, доведённые до цифр. Имён нет, математика настоящая.</p>
         <div class="case-list">
           <article class="case">
-            <p class="kicker">Разбор ниши</p>
-            <h2 class="case__title"><a href="#/blog">Кофейня: почему точка с очередью может быть убыточной</a></h2>
-            <p class="case__text">Разбор того, как считается реальная юнит-экономика чашки — с арендой, списаниями и зарплатой бариста, а не «кофе стоит 200 тенге, продаём за 1200».</p>
+            <p class="kicker">Разбор · Кофейня</p>
+            <h2 class="case__title"><a href="#/blog">Открыл кофейню на буме +24% — и оказался седьмым на одной улице</a></h2>
+            <p class="case__text">Рынок рос, вход стоил 3–5 миллионов тенге, безубыток — около 140 чашек в день. Разбор того, почему рост рынка не спасает конкретную точку.</p>
             <div class="case__actions">
               <a class="btn btn--primary btn--sm" href="#/blog">Открыть разбор</a>
-              <a class="btn btn--ghost btn--sm" href="#/services">Финмодель кофейни в каталоге</a>
+              <a class="btn btn--ghost btn--sm" href="#/services">Финмодель кофейни</a>
             </div>
           </article>
           <article class="case">
-            <p class="kicker">Ошибки</p>
-            <h2 class="case__title"><a href="#/blog">Пять ошибок, которые я вижу в каждой второй финмодели</a></h2>
-            <p class="case__text">Разбор того, как ломаются расчёты: выручка растёт линейно, расходы забыты, налог посчитан «примерно». По пунктам, с примерами из реальных таблиц.</p>
+            <p class="kicker">Разбор · Салон и общепит</p>
+            <h2 class="case__title"><a href="#/blog">Зарплаты мастеров выросли на треть — а маржа 5–7% этого не пережила</a></h2>
+            <p class="case__text">Фонд оплаты труда — главная статья расходов в услугах. Разбор того, что происходит с тонкой маржой, когда рынок труда дорожает быстрее, чем ваш прайс.</p>
             <div class="case__actions">
               <a class="btn btn--primary btn--sm" href="#/blog">Открыть разбор</a>
-              <a class="btn btn--ghost btn--sm" href="#/contacts">Проверить свою модель</a>
+              <a class="btn btn--ghost btn--sm" href="#/work">Посчитать свой ФОТ</a>
             </div>
           </article>
           <article class="case">
-            <p class="kicker">Инструменты</p>
-            <h2 class="case__title"><a href="#/blog">Как проверить чужую финмодель за 15 минут</a></h2>
-            <p class="case__text">Короткий чек-лист, который защищает от красивых таблиц с плохими допущениями. Работает и для своих моделей тоже.</p>
+            <p class="kicker">Разбор · Розница</p>
+            <h2 class="case__title"><a href="#/blog">Построил год на Kaspi Жұма — и скидками убил собственную маржу</a></h2>
+            <p class="case__text">Оборот рос, касса радовала, прибыль исчезала. Разбор того, как акции превращаются в привычку, а привычка — в работу в ноль.</p>
             <div class="case__actions">
               <a class="btn btn--primary btn--sm" href="#/blog">Открыть разбор</a>
-              <a class="btn btn--ghost btn--sm" href="#/blog">Все материалы блога</a>
+              <a class="btn btn--ghost btn--sm" href="#/contacts">Проверить свою экономику</a>
             </div>
           </article>
         </div>
@@ -496,7 +517,7 @@ h1{
         </div>
       </section>
 
-      <section class="surface surface--gradient">
+      <section class="surface surface--hero">
         <p class="kicker">Следующий шаг</p>
         <h2 class="section-title">Не уверены, какой расчёт вам нужен — просто напишите</h2>
         <p class="lead">Опишите ситуацию в двух предложениях. Отвечу, нужна ли вам финмодель, разбор или ничего из этого.</p>
@@ -511,10 +532,10 @@ h1{
     <!-- ================= С ЧЕГО НАЧАТЬ ================= -->
     <section class="page" data-route="/start" data-title="С чего начать">
 
-      <section class="surface surface--gradient">
+      <section class="surface surface--hero">
         <p class="kicker">С чего начать</p>
         <h1>Как пользоваться этим сайтом</h1>
-        <p class="lead">Здесь собраны разборы ниш, готовые финмодели и форматы работы. Эта страница нужна, чтобы вы не читали всё подряд, а сразу попали туда, где ответ на ваш вопрос.</p>
+        <p class="lead">Здесь собраны разборы реальных историй, готовые финмодели и форматы работы. Эта страница нужна, чтобы вы не читали всё подряд, а сразу попали туда, где ответ на ваш вопрос.</p>
         <div class="actions">
           <a class="btn btn--primary" href="#/services">Каталог финмоделей</a>
           <a class="btn btn--ghost" href="#/blog">Разборы</a>
@@ -530,8 +551,8 @@ h1{
           <a class="mini" href="#/services">
             <p class="kicker">Ситуация</p>
             <div class="mini__title">Я только думаю открыть бизнес</div>
-            <div class="mini__text">Пока нет ни точки, ни команды — есть идея и вопрос «сколько нужно денег». Начните с разбора ниши: там видно, сходится экономика или нет.</div>
-            <div class="mini__foot">Разборы ниш</div>
+            <div class="mini__text">Пока нет ни точки, ни команды — есть идея и вопрос «сколько нужно денег». Начните с финмодели ниши: там видно, сходится экономика или нет.</div>
+            <div class="mini__foot">Финмодели по нишам</div>
           </a>
           <a class="mini" href="#/work">
             <p class="kicker">Ситуация</p>
@@ -548,7 +569,7 @@ h1{
           <a class="mini" href="#/blog">
             <p class="kicker">Ситуация</p>
             <div class="mini__title">Хочу научиться считать сам</div>
-            <div class="mini__text">Читайте разборы: там ниши, типовые ошибки и объяснения без академического языка.</div>
+            <div class="mini__text">Читайте разборы: реальные истории, типовые ошибки и объяснения без академического языка.</div>
             <div class="mini__foot">Читать разборы</div>
           </a>
         </div>
@@ -566,7 +587,7 @@ h1{
           </ul>
           <div class="note">
             <strong>Важно понимать сразу.</strong><br><br>
-            Финансовая модель не гарантирует, что бизнес получится. Она показывает, при каких условиях он выходит в плюс и что должно случиться, чтобы этого не произошло. Дальше решение всё равно за вами — но оно уже осознанное.
+            Финансовая модель не гарантирует, что бизнес получится. Она показывает, при каких условиях он выходит в плюс и что должно случиться, чтобы этого не произошло. Хороший расчёт иногда отговаривает от бизнеса — и это тоже результат: не потерянные миллионы.
           </div>
         </div>
       </section>
@@ -579,19 +600,19 @@ h1{
           <a class="mini" href="#/services">
             <p class="kicker">Инструмент</p>
             <div class="mini__title">Каталог финмоделей</div>
-            <div class="mini__text">Готовые расчёты под конкретные ниши. К каждой — разбор бизнеса, риски и минутное видео по самой модели, чтобы вы видели, что покупаете.</div>
+            <div class="mini__text">Готовые расчёты под конкретные ниши — от кофейни и барбершопа до автосервиса и стоматологии. К каждой — состав модели и объяснение простым языком.</div>
             <div class="mini__foot">Открыть каталог</div>
           </a>
           <a class="mini" href="#/blog">
             <p class="kicker">Инструмент</p>
             <div class="mini__title">Разборы и материалы</div>
-            <div class="mini__text">Материалы по нишам, ошибкам в расчётах и управленческому учёту. Здесь же — темы, по которым можно двигаться веткой, а не лентой.</div>
+            <div class="mini__text">Реальные истории потерь и выводов: где бизнес ломается, что этому предшествует в цифрах и как это увидеть заранее.</div>
             <div class="mini__foot">Читать разборы</div>
           </a>
         </div>
       </section>
 
-      <section class="surface surface--gradient">
+      <section class="surface surface--hero">
         <p class="kicker">Следующий шаг</p>
         <h2 class="section-title">Если ваша ситуация не подошла ни под один маршрут</h2>
         <p class="lead">Напишите в двух предложениях, что у вас происходит. Отвечу, чем это решается — и решается ли вообще у меня.</p>
@@ -603,13 +624,13 @@ h1{
 
     </section>
 
-    <!-- ================= РАЗБОРЫ (формат pimenov.ai/cases) ================= -->
+    <!-- ================= РАЗБОРЫ ================= -->
     <section class="page" data-route="/blog" data-title="Разборы">
 
-      <section class="surface surface--gradient">
+      <section class="surface surface--hero">
         <p class="kicker">Разборы</p>
         <h1>Что я уже посчитал и проверил</h1>
-        <p class="lead">Это не лента статей ради статей. Это разборы, которые я довёл до цифр: экономика конкретных ниш, ошибки в чужих и своих моделях, управленческий учёт и решения, которые из этих цифр следуют.</p>
+        <p class="lead">Это не статьи ради статей. Это разборы, где ошибка стоила кому-то денег: реальные истории малого бизнеса Казахстана, доведённые до цифр. Имён и адресов нет — математика настоящая.</p>
         <div class="actions">
           <a class="btn btn--primary" href="#catalog-razbor">Смотреть разборы</a>
           <a class="btn btn--ghost" href="#/contacts">Обсудить похожую задачу</a>
@@ -621,9 +642,9 @@ h1{
         <div class="case-list">
 
           <article class="case">
-            <p class="kicker">Разбор ниши · 12 мин</p>
-            <h2 class="case__title"><a href="#">Кофейня: почему точка с очередью может быть убыточной</a></h2>
-            <p class="case__text">Разбор того, как считается юнит-экономика чашки честно: аренда, списания, зарплата бариста и то, что обычно забывают в расчётах. И почему очередь у кассы ничего не говорит о прибыли.</p>
+            <p class="kicker">Разбор · Кофейня · Астана</p>
+            <h2 class="case__title"><a href="#">Открыл кофейню на буме +24% — и оказался седьмым на одной улице</a></h2>
+            <p class="case__text">Рынок кофеен рос на четверть в год, вход стоил 3–5 миллионов тенге, и это выглядело как беспроигрышный билет. Разбор того, почему безубыток в 140 чашек в день оказался недостижимым, когда на одной улице наливают семеро.</p>
             <div class="case__actions">
               <a class="btn btn--primary btn--sm" href="#">Открыть разбор</a>
               <a class="btn btn--ghost btn--sm" href="#/services">Финмодель кофейни в каталоге</a>
@@ -631,19 +652,9 @@ h1{
           </article>
 
           <article class="case">
-            <p class="kicker">Ошибки · 8 мин</p>
-            <h2 class="case__title"><a href="#">Пять ошибок, которые я вижу в каждой второй финмодели</a></h2>
-            <p class="case__text">Разбор того, как ломается весь расчёт: линейный рост выручки, забытые расходы, налог «примерно» и ещё две вещи, из-за которых красивая таблица врёт хозяину.</p>
-            <div class="case__actions">
-              <a class="btn btn--primary btn--sm" href="#">Открыть разбор</a>
-              <a class="btn btn--ghost btn--sm" href="#/contacts">Проверить свою модель</a>
-            </div>
-          </article>
-
-          <article class="case">
-            <p class="kicker">Разбор ниши · 10 мин</p>
-            <h2 class="case__title"><a href="#">Барбершоп: где именно уходит маржа при полной записи</a></h2>
-            <p class="case__text">Разбор того, почему высокая загрузка не равна прибыли: мастера на проценте, простои по будням и структура расходов, которую не видно из кассы.</p>
+            <p class="kicker">Разбор · Барбершоп</p>
+            <h2 class="case__title"><a href="#">Мастера ушли в аренду кресла — и забрали базу, которую он считал своей</a></h2>
+            <p class="case__text">Разбор того, чья на самом деле клиентская база в салоне и почему зарплатная модель мастеров — это не строка расходов, а вопрос выживания бизнеса.</p>
             <div class="case__actions">
               <a class="btn btn--primary btn--sm" href="#">Открыть разбор</a>
               <a class="btn btn--ghost btn--sm" href="#/services">Финмодель барбершопа в каталоге</a>
@@ -651,42 +662,53 @@ h1{
           </article>
 
           <article class="case">
-            <p class="kicker">Инструменты · 6 мин</p>
-            <h2 class="case__title"><a href="#">Как проверить чужую финмодель за 15 минут</a></h2>
-            <p class="case__text">Чек-лист, который защищает от красивых таблиц с плохими допущениями. Работает и для своих моделей тоже.</p>
+            <p class="kicker">Разбор · Салон и общепит</p>
+            <h2 class="case__title"><a href="#">Зарплаты мастеров выросли на треть — а маржа 5–7% этого не пережила</a></h2>
+            <p class="case__text">Фонд оплаты труда — главная статья расходов в услугах и общепите. Разбор того, что происходит с тонкой маржой, когда рынок труда дорожает быстрее вашего прайса, и при каком ФОТ бизнес перестаёт быть бизнесом.</p>
             <div class="case__actions">
               <a class="btn btn--primary btn--sm" href="#">Открыть разбор</a>
-              <a class="btn btn--ghost btn--sm" href="#/services">Как устроены мои модели</a>
+              <a class="btn btn--ghost btn--sm" href="#/work">Посчитать свой ФОТ</a>
             </div>
           </article>
 
           <article class="case">
-            <p class="kicker">Управленческий учёт · 9 мин</p>
-            <h2 class="case__title"><a href="#">Три отчёта, без которых вы не управляете бизнесом</a></h2>
-            <p class="case__text">Разбор того, что показывают P&amp;L, движение денег и баланс — и почему одного отчёта всегда мало, даже если бухгалтер говорит обратное.</p>
+            <p class="kicker">Разбор · Ресторан</p>
+            <h2 class="case__title"><a href="#">Открыл премиум в год, когда страна ушла в эконом</a></h2>
+            <p class="case__text">Продукт был хорош, сервис — тоже. Разбор того, почему сегмент и тайминг решают больше, чем качество: что происходит с премиальным чеком, когда покупатель массово переходит в эконом.</p>
             <div class="case__actions">
               <a class="btn btn--primary btn--sm" href="#">Открыть разбор</a>
-              <a class="btn btn--ghost btn--sm" href="#/work">Сопровождение и отчётность</a>
+              <a class="btn btn--ghost btn--sm" href="#/contacts">Проверить свой сегмент</a>
             </div>
           </article>
 
           <article class="case">
-            <p class="kicker">Разбор ниши · 11 мин</p>
-            <h2 class="case__title"><a href="#">Пекарня полного цикла: себестоимость, которую все считают неправильно</a></h2>
-            <p class="case__text">Разбор того, из чего на самом деле складывается цена булки: рецептуры, списания, брак и фонд оплаты труда — а не «мука плюс наценка».</p>
+            <p class="kicker">Разбор · Кафе</p>
+            <h2 class="case__title"><a href="#">Пересел на агрегатор ради объёма — и комиссия съела всю маржу</a></h2>
+            <p class="case__text">Заказов стало больше, денег — меньше. Разбор простой математики, которую надо было сделать до подключения: комиссия агрегатора около трети при собственной марже около 12 процентов.</p>
             <div class="case__actions">
               <a class="btn btn--primary btn--sm" href="#">Открыть разбор</a>
-              <a class="btn btn--ghost btn--sm" href="#/services">Финмодель пекарни в каталоге</a>
+              <a class="btn btn--ghost btn--sm" href="#/services">Финмодель с каналами продаж</a>
+            </div>
+          </article>
+
+          <article class="case">
+            <p class="kicker">Разбор · Розница</p>
+            <h2 class="case__title"><a href="#">Построил год на Kaspi Жұма — и скидками убил собственную маржу</a></h2>
+            <p class="case__text">Каждая пятница давала рекордную кассу, и казалось, что схема работает. Разбор того, как регулярные акции переучивают покупателя, съедают наценку и превращают оборот в работу в ноль.</p>
+            <div class="case__actions">
+              <a class="btn btn--primary btn--sm" href="#">Открыть разбор</a>
+              <a class="btn btn--ghost btn--sm" href="#/contacts">Проверить свою экономику</a>
             </div>
           </article>
 
         </div>
+        <p class="tiny" style="margin-top:20px">Разборы основаны на реальных историях из моей практики и открытых источников. Детали изменены так, чтобы никого нельзя было узнать; цифры — нет.</p>
       </section>
 
-      <section class="surface surface--gradient">
+      <section class="surface surface--hero">
         <p class="kicker">Следующий шаг</p>
-        <h2 class="section-title">Разобрал вашу нишу — а дальше?</h2>
-        <p class="lead">К большинству разборов есть готовая финансовая модель. Заполняете свои цифры и сразу видите результат.</p>
+        <h2 class="section-title">Узнали свою ситуацию — а дальше?</h2>
+        <p class="lead">К большинству ниш из разборов есть готовая финансовая модель. Заполняете свои цифры и сразу видите, где вы на этой карте.</p>
         <div class="cta__actions">
           <a class="cta-btn cta-btn--primary" href="#/services">Каталог финмоделей</a>
           <a class="cta-btn cta-btn--secondary" href="#/contacts">Задать вопрос</a>
@@ -698,10 +720,10 @@ h1{
     <!-- ================= ФИНМОДЕЛИ ================= -->
     <section class="page" data-route="/services" data-title="Финансовые модели по нишам">
 
-      <section class="surface surface--gradient">
+      <section class="surface surface--hero">
         <p class="kicker">Финмодели</p>
         <h1>Финансовые модели по нишам</h1>
-        <p class="lead">Готовый расчёт под конкретный тип бизнеса. Вы подставляете свои цифры — аренду, чек, трафик — и видите, при каких условиях проект выходит в плюс, а при каких нет.</p>
+        <p class="lead">Готовый расчёт под конкретный тип бизнеса. Вы подставляете свои цифры — аренду, чек, трафик — и видите, при каких условиях проект выходит в плюс, а при каких нет. Дешевле одной ошибки в аренде.</p>
         <div class="actions">
           <a class="btn btn--primary" href="#catalog">Смотреть каталог</a>
           <a class="btn btn--ghost" href="#/work">Нужен расчёт под меня</a>
@@ -711,74 +733,89 @@ h1{
       <section class="surface" id="catalog">
         <p class="kicker">Каталог</p>
         <h2 class="section-title">Выберите свою нишу</h2>
-        <p class="lead">К каждой модели — разбор бизнеса, риски в цифрах и минутное видео по самому файлу.</p>
+        <p class="lead">Модели построены на реальных данных казахстанского рынка: аренда, зарплаты, налоги, сезонность. В каталоге — ниши от пекарни и автосервиса до стоматологии.</p>
         <div class="grid-2">
-          <a class="mini" href="#">
-            <p class="kicker">Общепит · видео-обзор 60 сек</p>
+          <a class="mini" href="#/contacts">
+            <p class="kicker">Общепит</p>
             <div class="mini__title">Кофейня</div>
-            <div class="mini__text">Точка 40 м², две смены бариста. Трафик по будням и выходным, средний чек, списания.</div>
-            <div class="mini__foot"><span class="price">18 900 ₸</span> · Подробнее</div>
+            <div class="mini__text">Чеков в день, средний чек, себестоимость чашки, аренда и смены бариста. Безубыток в чашках — главная цифра модели.</div>
+            <div class="mini__foot">Запросить модель</div>
           </a>
-          <a class="mini" href="#">
-            <p class="kicker">Услуги · видео-обзор 60 сек</p>
+          <a class="mini" href="#/contacts">
+            <p class="kicker">Услуги</p>
             <div class="mini__title">Барбершоп</div>
-            <div class="mini__text">4 кресла, мастера на проценте, аренда и расходники. Загрузка по дням недели.</div>
-            <div class="mini__foot"><span class="price">18 900 ₸</span> · Подробнее</div>
+            <div class="mini__text">Мастера, загрузка кресел, чек и доля мастера. Модель показывает, при какой зарплатной схеме салон живёт, а при какой — кормит только мастеров.</div>
+            <div class="mini__foot">Запросить модель</div>
           </a>
-          <a class="mini" href="#">
-            <p class="kicker">Производство · видео-обзор 60 сек</p>
-            <div class="mini__title">Пекарня полного цикла</div>
-            <div class="mini__text">Себестоимость по рецептурам, брак, фонд оплаты труда, продажа через свою точку.</div>
-            <div class="mini__foot"><span class="price">24 900 ₸</span> · Подробнее</div>
+          <a class="mini" href="#/contacts">
+            <p class="kicker">Производство и продажа</p>
+            <div class="mini__title">Пекарня</div>
+            <div class="mini__text">Себестоимость по рецептурам, списания, брак и фонд оплаты труда. Из чего на самом деле складывается цена булки.</div>
+            <div class="mini__foot">Запросить модель</div>
           </a>
-          <a class="mini" href="#">
-            <p class="kicker">Розница · видео-обзор 60 сек</p>
-            <div class="mini__title">Магазин у дома</div>
-            <div class="mini__text">Оборачиваемость, наценка по категориям, товарные остатки и кассовый разрыв.</div>
-            <div class="mini__foot"><span class="price">22 900 ₸</span> · Подробнее</div>
+          <a class="mini" href="#/contacts">
+            <p class="kicker">Мощность</p>
+            <div class="mini__title">Автосервис</div>
+            <div class="mini__text">Посты, заполняемость, средний чек нормо-часа. Модель считает, сколько машин в день кормит аренду, а сколько — уже вас.</div>
+            <div class="mini__foot">Запросить модель</div>
           </a>
-          <a class="mini" href="#">
-            <p class="kicker">Услуги · видео-обзор 60 сек</p>
+          <a class="mini" href="#/contacts">
+            <p class="kicker">Мощность</p>
             <div class="mini__title">Автомойка</div>
             <div class="mini__text">Пропускная способность, сезонность, химия и вода в себестоимости, зарплата мойщиков.</div>
-            <div class="mini__foot"><span class="price">18 900 ₸</span> · Подробнее</div>
+            <div class="mini__foot">Запросить модель</div>
           </a>
-          <a class="mini" href="#">
-            <p class="kicker">Онлайн · видео-обзор 60 сек</p>
-            <div class="mini__title">Интернет-магазин</div>
-            <div class="mini__text">Юнит-экономика заказа: трафик, конверсия, стоимость привлечения, возвраты, логистика.</div>
-            <div class="mini__foot"><span class="price">24 900 ₸</span> · Подробнее</div>
+          <a class="mini" href="#/contacts">
+            <p class="kicker">Услуги с мастерами</p>
+            <div class="mini__title">Стоматология</div>
+            <div class="mini__text">Кресла, загрузка врачей, средний чек по видам работ и дорогой CAPEX, который надо окупить до того, как устареет.</div>
+            <div class="mini__foot">Запросить модель</div>
           </a>
+          <a class="mini" href="#/contacts">
+            <p class="kicker">Абонементы</p>
+            <div class="mini__title">Фитнес-клуб</div>
+            <div class="mini__text">Активная база, средний платёж и отток. Модель показывает, сколько клиентов должно продлиться, чтобы клуб пережил январский наплыв и февральскую тишину.</div>
+            <div class="mini__foot">Запросить модель</div>
+          </a>
+          <a class="mini" href="#/contacts">
+            <p class="kicker">Розница и сервис</p>
+            <div class="mini__title">Пункт выдачи заказов</div>
+            <div class="mini__text">Поток посылок, ставки маркетплейсов, аренда и график. Модель отвечает на главный вопрос: пассивный доход или работа без выходных.</div>
+            <div class="mini__foot">Запросить модель</div>
+          </a>
+        </div>
+        <div class="note" style="margin-top:18px">
+          Это не весь список — моделей заметно больше: донерная, маникюрный салон, аптека, продуктовый магазин, шиномонтаж, частный детский сад и другие. <a class="link-red" href="#/contacts">Напишите свою нишу</a> — скажу, есть ли готовая модель, или соберу под вас.
         </div>
       </section>
 
       <section class="surface">
         <p class="kicker">Состав</p>
         <h2 class="section-title">Что внутри каждой модели</h2>
-        <p class="lead">Структура одинаковая во всех нишах — меняются только допущения и статьи расходов.</p>
+        <p class="lead">Структура одинаковая во всех нишах — меняются допущения, статьи расходов и отраслевые ориентиры.</p>
         <div class="cols">
           <ul class="checks">
-            <li><strong>Исходные данные</strong> — все допущения в одном месте, меняете цифры только там.</li>
-            <li><strong>Выручка</strong> — по каналам, с сезонностью и выходом на плановую загрузку.</li>
-            <li><strong>Расходы</strong> — переменные и постоянные разделены честно, а не одной строкой.</li>
-            <li><strong>P&amp;L по месяцам</strong> — на 24 месяца вперёд, с накопительным итогом.</li>
+            <li><strong>Горизонт 12–60 месяцев</strong> — с выходом на плановую загрузку, а не «сразу сто клиентов в день».</li>
+            <li><strong>P&amp;L по месяцам</strong> — с накопительным итогом и честным разделением расходов.</li>
             <li><strong>Движение денег</strong> — где возникает кассовый разрыв и сколько нужно подушки.</li>
-            <li><strong>Точка безубыточности</strong> — сколько чеков в день нужно, чтобы не работать в минус.</li>
-            <li><strong>Сценарии</strong> — пессимистичный, базовый, оптимистичный. Одним переключателем.</li>
+            <li><strong>Точка безубыточности</strong> — в чашках, чеках, креслах или машинах, смотря что вы продаёте.</li>
+            <li><strong>Стресс-тест и чувствительность</strong> — что будет, если чек упадёт, а аренда вырастет.</li>
+            <li><strong>Сезонность</strong> — по данным ниши, с математикой, а не «летом хуже».</li>
+            <li><strong>Маркетинговый бюджет и кредитный блок</strong> — если стартуете на заёмные.</li>
             <li><strong>Окупаемость</strong> — срок возврата вложений и что на него влияет сильнее всего.</li>
           </ul>
           <div class="stack">
             <div class="note">
+              <strong>Заполнять почти ничего не нужно.</strong><br>
+              Во входных данных около 40 параметров, но руками вы заполняете примерно 18 — остальное подставляется из базы по вашей нише, формату и городу. К модели идёт объяснение простым языком: что означает каждая цифра.
+            </div>
+            <div class="note">
               <strong>Формат файла.</strong><br>
               Excel / Google Таблицы. Все формулы открыты — можно смотреть, менять и достраивать под себя. Ничего не заблокировано и не спрятано.
             </div>
-            <div class="note note--accent">
+            <div class="note note--red">
               <strong>Чего в модели нет.</strong><br>
-              Обещания прибыли. Модель считает вашу гипотезу, а не гарантирует результат. Если исходные цифры взяты с потолка — итог будет таким же.
-            </div>
-            <div class="note">
-              <strong>Нужна доработка под себя?</strong><br>
-              Можно взять шаблон и заказать настройку под ваши условия: свои каналы продаж, своя структура расходов, свой режим налогообложения. <a href="#/work" style="color:var(--primary);font-weight:700">Форматы работы →</a>
+              Обещания прибыли. Модель считает вашу гипотезу, а не гарантирует результат. Хороший расчёт иногда отговаривает от бизнеса — это тоже результат.
             </div>
           </div>
         </div>
@@ -790,24 +827,24 @@ h1{
         <div class="grid-2">
           <div class="mini">
             <div class="mini__title">Я не финансист. Разберусь?</div>
-            <div class="mini__text">Да. Заполняются только жёлтые ячейки на первом листе — остальное считается само. К каждой модели есть видео, где я прохожу по ней вслух.</div>
+            <div class="mini__text">Да. Заполняются только выделенные ячейки на первом листе — остальное считается само. К каждой модели идёт объяснение результата простым языком, без «юнит-экономики» и «рамп-апа».</div>
           </div>
           <div class="mini">
             <div class="mini__title">Модель под Казахстан или универсальная?</div>
-            <div class="mini__text">Налоговый блок настроен под казахстанские режимы. Всё остальное — универсально, валюту и ставки можно поменять.</div>
+            <div class="mini__text">Под Казахстан: налоговые режимы, ориентиры аренды и зарплат по городам. Валюту и ставки при желании можно поменять.</div>
           </div>
           <div class="mini">
             <div class="mini__title">А если моей ниши нет в списке?</div>
-            <div class="mini__text">Напишите — если запрос повторяется, я делаю модель для этой ниши. Либо соберу индивидуально под ваш бизнес.</div>
+            <div class="mini__text">Напишите — список пополняется постоянно. Если готовой модели нет, соберу индивидуально под ваш бизнес.</div>
           </div>
           <div class="mini">
-            <div class="mini__title">Что если модель не подойдёт?</div>
-            <div class="mini__text">Посмотрите видео-обзор до покупки: там видно всю структуру. Если после покупки что-то не сходится — пишите, разберёмся.</div>
+            <div class="mini__title">Чем это отличается от шаблона из интернета?</div>
+            <div class="mini__text">Шаблон считает формулы. Модель считает вашу нишу: в ней уже сидят реальные ориентиры рынка, сезонность и типовые ошибки, на которых ломаются такие проекты.</div>
           </div>
         </div>
       </section>
 
-      <section class="surface surface--gradient">
+      <section class="surface surface--hero">
         <p class="kicker">Следующий шаг</p>
         <h2 class="section-title">Не нашли свою нишу?</h2>
         <p class="lead">Напишите, какой у вас бизнес. Если модели под него нет — соберу индивидуально под ваши условия.</p>
@@ -822,7 +859,7 @@ h1{
     <!-- ================= РАБОТА СО МНОЙ ================= -->
     <section class="page" data-route="/work" data-title="Работа со мной">
 
-      <section class="surface surface--gradient">
+      <section class="surface surface--hero">
         <p class="kicker">Работа со мной</p>
         <h1>Форматы работы</h1>
         <p class="lead">Большинство запросов начинается не с ясной задачи, а с ощущения, что «с цифрами что-то не так». Моя работа — сначала понять, что именно нужно посчитать, а уже потом считать.</p>
@@ -849,7 +886,7 @@ h1{
           <article class="case">
             <p class="kicker">Формат</p>
             <h2 class="case__title"><a href="#/contacts">Финмодель под ваш бизнес</a></h2>
-            <p class="case__text">Индивидуальный расчёт: ваши каналы, ваша структура расходов, ваш налоговый режим. Со сценариями, точкой безубыточности и потребностью в деньгах.</p>
+            <p class="case__text">Индивидуальный расчёт: ваши каналы, ваша структура расходов, ваш налоговый режим. Со сценариями, точкой безубыточности, стресс-тестом и объяснением каждой цифры. Для работающего бизнеса и нестандартных форматов.</p>
             <div class="case__actions">
               <a class="btn btn--primary btn--sm" href="#/contacts">Обсудить задачу</a>
               <a class="btn btn--ghost btn--sm" href="#/services">Сначала посмотреть готовые</a>
@@ -857,8 +894,8 @@ h1{
           </article>
           <article class="case">
             <p class="kicker">Формат</p>
-            <h2 class="case__title"><a href="#/contacts">Расчёт для инвестора или банка</a></h2>
-            <p class="case__text">Модель, которая выдерживает вопросы: обоснованные допущения, чувствительность к параметрам и защита цифр при разговоре.</p>
+            <h2 class="case__title"><a href="#/contacts">Расчёт для инвестора, банка или гранта</a></h2>
+            <p class="case__text">Модель и бизнес-план, которые выдерживают вопросы: обоснованные допущения, чувствительность к параметрам и защита цифр при разговоре. В том числе под государственные программы поддержки предпринимательства.</p>
             <div class="case__actions">
               <a class="btn btn--primary btn--sm" href="#/contacts">Обсудить задачу</a>
             </div>
@@ -904,19 +941,19 @@ h1{
               <strong>3.</strong> Называю срок и стоимость. Если задача не моя — говорю прямо.<br>
               <strong>4.</strong> Делаю, показываю, объясняю каждую цифру.
             </div>
-            <div class="note note--accent">
-              Цены зависят от объёма и срока. Ориентир называю после первого разговора — обычно в тот же день.
+            <div class="note note--red">
+              Индивидуальная финмодель — от 100 долларов, дальше зависит от объёма и срока. Ориентир называю после первого разговора — обычно в тот же день.
             </div>
           </div>
         </div>
       </section>
 
-      <section class="surface surface--gradient">
+      <section class="surface surface--hero">
         <p class="kicker">Следующий шаг</p>
         <h2 class="section-title">Начнём с разговора</h2>
         <p class="lead">Опишите ситуацию в двух предложениях. Дальше разберёмся, нужен ли разбор, модель или ничего из этого.</p>
         <div class="cta__actions">
-          <a class="cta-btn cta-btn--primary" href="#/contacts">Написать в Telegram</a>
+          <a class="cta-btn cta-btn--primary" href="#/contacts">Написать</a>
           <a class="cta-btn cta-btn--secondary" href="#/blog">Сначала почитать</a>
         </div>
       </section>
@@ -926,10 +963,10 @@ h1{
     <!-- ================= ОБО МНЕ ================= -->
     <section class="page" data-route="/about" data-title="Обо мне">
 
-      <section class="surface surface--gradient">
+      <section class="surface surface--hero">
         <p class="kicker">Обо мне</p>
-        <h1>Адиль [фамилия] — финансист, считаю бизнес до того, как в него вложены деньги</h1>
-        <p class="lead">[Заполнить: одна сильная фраза о себе. Не «опытный специалист», а конкретная линия — что вы делали все эти годы и почему это одна и та же работа.]</p>
+        <h1>Адиль Алдабергенов — финансист, считаю бизнес до того, как в него вложены деньги</h1>
+        <p class="lead">Двадцать лет в корпоративных финансах и финансовом моделировании — от витрины в один квадратный метр в торговом центре до инвестиционного проекта на сто миллионов долларов. Между этими точками — собственные бизнесы, консалтинг и много чужих ошибок, которые я теперь помогаю не повторять.</p>
         <div class="actions">
           <a class="btn btn--primary" href="#/work">Форматы работы</a>
           <a class="btn btn--ghost" href="#/services">Финмодели</a>
@@ -940,11 +977,11 @@ h1{
       <section class="surface">
         <div class="cols">
           <div class="stack">
-            <p class="lead" style="margin-top:0">[Заполнить: 2–3 абзаца нарратива. Не резюме списком, а история. Откуда пришли в финансы, что поняли по дороге, почему делаете именно это.]</p>
-            <p class="lead" style="margin-top:0">[Второй абзац: что для вас важно в работе. Например — что цифры нужны не для отчёта, а для решения.]</p>
-            <p class="lead" style="margin-top:0">Параллельно развиваю <strong>TerenLabs</strong> — [заполнить: что это и зачем].</p>
+            <p class="lead" style="margin-top:0">Первые уроки экономики я получил не в университете, а за прилавком: студентом торговал телефонами с витрины в один квадратный метр и возил арбузы, которые обвалились в цене прямо в сезон. Потом было финансовое образование и двадцать лет практики: корпоративные финансы, инвестиционные расчёты и консалтинг в Казахстане и России — от клининга и розницы до завода стройматериалов и энергетики.</p>
+            <p class="lead" style="margin-top:0">Был и собственный большой урок: кофейня, в которую я вложил девятнадцать миллионов тенге и на которой выучил главное правило этого сайта — наличие капитала не заменяет наличие рынка. С тех пор я сначала считаю, потом вкладываю. И того же требую от каждого расчёта, который делаю клиенту: цифры нужны не для отчёта, а для решения.</p>
+            <p class="lead" style="margin-top:0">Параллельно развиваю <strong>TerenLabs</strong> — платформу, которая защищает предпринимателей Казахстана от потери денег: обзоры ниш, финансовые модели и база реальных кейсов о том, где бизнес ломается.</p>
           </div>
-          <div class="quote">[Заполнить: одна фраза-кредо. То, во что вы верите в работе с деньгами. Коротко и своими словами — эта цитата делает больше, чем весь остальной текст.]</div>
+          <div class="quote">Я не обещаю успех. Я показываю математику. Хороший расчёт иногда отговаривает от бизнеса — и это лучший результат из возможных: минус одна потерянная квартира.</div>
         </div>
       </section>
 
@@ -959,7 +996,7 @@ h1{
         <ul class="checks checks--2">
           <li><strong>Финансовое моделирование</strong> — юнит-экономика, сценарии, чувствительность, окупаемость</li>
           <li><strong>Управленческий учёт</strong> — P&amp;L, движение денег, баланс, регулярная отчётность</li>
-          <li><strong>Экономика ниш</strong> — как устроены деньги в конкретных типах бизнеса</li>
+          <li><strong>Экономика ниш</strong> — как устроены деньги в конкретных типах малого бизнеса</li>
           <li><strong>Инвестиционные расчёты</strong> — обоснование вложений и защита цифр перед инвестором</li>
           <li><strong>Себестоимость и ценообразование</strong> — от рецептуры до наценки по категориям</li>
           <li><strong>Автоматизация расчётов</strong> — таблицы и модели, которые считают сами</li>
@@ -971,24 +1008,24 @@ h1{
         <h2 class="section-title">Как это собиралось на практике</h2>
         <div class="timeline">
           <div class="tl">
-            <div class="tl__date">[год] — сегодня</div>
+            <div class="tl__date">2000-е</div>
+            <div class="tl__role">Первые собственные бизнесы</div>
+            <div class="tl__text">Студенческая торговля: витрина с телефонами в торговом центре, сезонная бахча. Первые столкновения с конкуренцией, обвалом цены и тем, что выручка — это ещё не прибыль.</div>
+          </div>
+          <div class="tl">
+            <div class="tl__date">2006 — 2020-е</div>
+            <div class="tl__role">Корпоративные финансы и консалтинг · Казахстан и Россия</div>
+            <div class="tl__text">Финансовые модели, инвестиционные расчёты и управленческий учёт для бизнесов от клининга и сети из сорока микромаркетов до завода стройматериалов и энергетического проекта на сто миллионов долларов, где две девальвации сдвинули окупаемость с десяти лет до двадцати пяти.</div>
+          </div>
+          <div class="tl">
+            <div class="tl__date">2010-е</div>
+            <div class="tl__role">Собственная кофейня</div>
+            <div class="tl__text">Главный личный урок ценой в девятнадцать миллионов тенге: капитал не заменяет рынок. Именно после этого проекта появилось правило «сначала посчитай».</div>
+          </div>
+          <div class="tl">
+            <div class="tl__date">Сегодня</div>
             <div class="tl__role">Независимый финансовый консультант · TerenLabs</div>
-            <div class="tl__text">[Заполнить: чем занимаетесь сейчас, какие задачи берёте, сколько проектов за плечами.]</div>
-          </div>
-          <div class="tl">
-            <div class="tl__date">[годы]</div>
-            <div class="tl__role">[Должность] — [Компания]</div>
-            <div class="tl__text">[Заполнить: за что отвечали, какие цифры вели, что построили. Одно-два предложения, с конкретикой.]</div>
-          </div>
-          <div class="tl">
-            <div class="tl__date">[годы]</div>
-            <div class="tl__role">[Должность] — [Компания]</div>
-            <div class="tl__text">[Заполнить.]</div>
-          </div>
-          <div class="tl">
-            <div class="tl__date">[годы]</div>
-            <div class="tl__role">[Образование или первый опыт]</div>
-            <div class="tl__text">[Заполнить.]</div>
+            <div class="tl__text">Финмодели и разборы ниш для малого бизнеса Казахстана. Параллельно — TerenLabs: платформа с обзорами ниш, финансовыми инструментами и базой реальных кейсов.</div>
           </div>
         </div>
       </section>
@@ -1012,7 +1049,7 @@ h1{
         </div>
       </section>
 
-      <section class="surface surface--gradient">
+      <section class="surface surface--hero">
         <p class="kicker">Следующий шаг</p>
         <h2 class="section-title">Если хотите обсудить задачу — начнём с разговора</h2>
         <p class="lead">Можно прийти без идеального ТЗ. Достаточно коротко описать, что происходит с деньгами в вашем бизнесе.</p>
@@ -1027,7 +1064,7 @@ h1{
     <!-- ================= КОНТАКТЫ ================= -->
     <section class="page" data-route="/contacts" data-title="Контакты">
 
-      <section class="surface surface--gradient">
+      <section class="surface surface--hero">
         <p class="kicker">Контакты</p>
         <h1>Напишите — разберёмся, что вам нужно</h1>
         <p class="lead">Можно без подготовки и без идеального описания задачи. Достаточно пары предложений о том, что происходит.</p>
@@ -1037,17 +1074,17 @@ h1{
         <p class="kicker">Каналы</p>
         <h2 class="section-title">Как со мной связаться</h2>
         <div class="grid-2">
-          <a class="mini" href="#" data-tg>
+          <a class="mini" href="https://wa.me/77064068804">
             <p class="kicker">Быстрее всего</p>
-            <div class="mini__title">Telegram</div>
-            <div class="mini__text">Основной канал. Пишите сразу по делу — отвечаю в течение дня.</div>
-            <div class="mini__foot">@[username]</div>
-          </a>
-          <a class="mini" href="#" data-wa>
-            <p class="kicker">Мессенджер</p>
             <div class="mini__title">WhatsApp</div>
+            <div class="mini__text">Основной канал. Пишите сразу по делу — отвечаю в течение дня.</div>
+            <div class="mini__foot">+7 706 406 8804</div>
+          </a>
+          <a class="mini" href="#" data-tg>
+            <p class="kicker">Мессенджер</p>
+            <div class="mini__title">Telegram</div>
             <div class="mini__text">Если удобнее здесь — пишите сюда, разницы нет.</div>
-            <div class="mini__foot">+7 [номер]</div>
+            <div class="mini__foot">@[username]</div>
           </a>
           <a class="mini" href="mailto:small.economy.kaz@gmail.com" style="grid-column:1/-1">
             <p class="kicker">Для документов</p>
@@ -1064,7 +1101,7 @@ h1{
         <div class="cols">
           <form onsubmit="return false">
             <label class="field"><span>Как к вам обращаться</span><input type="text" placeholder="Имя"></label>
-            <label class="field"><span>Telegram или телефон</span><input type="text" placeholder="@username или +7"></label>
+            <label class="field"><span>WhatsApp или Telegram</span><input type="text" placeholder="+7 или @username"></label>
             <label class="field"><span>Что за бизнес</span>
               <select>
                 <option>Пока только планирую открыть</option>
@@ -1078,7 +1115,7 @@ h1{
             <p class="tiny">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.</p>
           </form>
           <div class="stack">
-            <div class="note note--accent">
+            <div class="note note--red">
               <strong>Что писать, чтобы разговор был полезным.</strong><br><br>
               Не нужно готовить ТЗ. Хватит трёх вещей: что за бизнес, что сейчас непонятно с деньгами и какое решение вы хотите принять. Всё остальное я спрошу сам.
             </div>
@@ -1087,20 +1124,17 @@ h1{
               Обычно в течение дня, в будни быстрее. Если не ответил за сутки — продублируйте, сообщение потерялось.
             </div>
             <div class="note">
-              <strong>Реквизиты.</strong><br>
-              ИП «[название]»<br>
-              БИН/ИИН: [указать]<br>
-              Адрес: [город, Казахстан]<br>
-              Работаю по договору, оплата на расчётный счёт.
+              <strong>Условия работы.</strong><br>
+              Работаю по договорённости, задачу и стоимость фиксируем письменно до начала работы. Детали расчётов обсуждаются при знакомстве.
             </div>
           </div>
         </div>
       </section>
 
-      <section class="surface surface--gradient">
+      <section class="surface surface--hero">
         <p class="kicker">Следующий шаг</p>
         <h2 class="section-title">Пока не готовы писать?</h2>
-        <p class="lead">Посмотрите разборы ниш или каталог финмоделей — часто ответ находится там.</p>
+        <p class="lead">Посмотрите разборы или каталог финмоделей — часто ответ находится там.</p>
         <div class="cta__actions">
           <a class="cta-btn cta-btn--primary" href="#/services">Каталог финмоделей</a>
           <a class="cta-btn cta-btn--secondary" href="#/blog">Читать разборы</a>
@@ -1110,7 +1144,7 @@ h1{
     </section>
 
     <footer class="site-footer">
-      <div>© 2026 Адиль [фамилия] · ИП «[название]» · БИН/ИИН [указать]</div>
+      <div>© 2026 Адиль Алдабергенов · финансовые модели и разборы ниш</div>
       <div><a href="#">Политика обработки персональных данных</a></div>
     </footer>
 
@@ -1123,7 +1157,7 @@ h1{
   <div class="drawer__scrim" data-close-drawer></div>
   <div class="drawer__panel">
     <a href="#/"><div class="sidebar__avatar">А</div></a>
-    <div class="sidebar__name">Адиль</div>
+    <div class="sidebar__name">Адиль Алдабергенов</div>
     <div class="sidebar__role">финансовый консультант · Казахстан</div>
     <nav class="menu" data-menu>
       <a href="#/" data-route="/">Главная</a>
@@ -1136,7 +1170,7 @@ h1{
     </nav>
     <div class="drawer__foot">
       <a href="#" data-tg aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.9 4.6c.3-1.2-.9-2.2-2-1.7L2.7 9.6c-1.2.5-1.1 2.2.1 2.6l4.4 1.4 1.7 5.5c.3 1 1.6 1.3 2.4.5l2.5-2.5 4.5 3.3c.9.7 2.2.2 2.4-.9l3.2-14.9zM8.5 12.9l8.9-5.5c.4-.2.7.3.4.6l-7.3 6.6-.3 3.2-1.7-4.9z"/></svg></a>
-      <a href="#" data-wa aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.2-5-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4-.1.7.5.2.6.8 2 .9 2.1.1.1.1.3 0 .5-.1.2-.2.3-.3.5l-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1.1.3.2.5.2.6.4.1.1.1.7-.1 1.4z"/></svg></a>
+      <a href="https://wa.me/77064068804" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.2-5-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4-.1.7.5.2.6.8 2 .9 2.1.1.1.1.3 0 .5-.1.2-.2.3-.3.5l-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1.1.3.2.5.2.6.4.1.1.1.7-.1 1.4z"/></svg></a>
       <a href="mailto:small.economy.kaz@gmail.com" aria-label="Почта"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5v2.2z"/></svg></a>
     </div>
   </div>
@@ -1148,7 +1182,7 @@ h1{
   var navLinks = Array.prototype.slice.call(document.querySelectorAll('[data-menu] a'));
   var drawer = document.getElementById('drawer');
   var burger = document.getElementById('burger');
-  var base = 'Адиль — финансовый консультант';
+  var base = 'Адиль Алдабергенов — финансовый консультант';
 
   function route() {
     var hash = location.hash.replace(/^#/, '') || '/';
