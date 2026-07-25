@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Адиль — финансовый консультант · финмодели и разборы ниш</title>
+<meta name="description" content="Финансовые модели по нишам, разборы экономики бизнеса и управленческий учёт. Считаю до того, как вложены деньги.">
+<meta property="og:title" content="Адиль — финансовый консультант">
+<meta property="og:description" content="Финансовые модели по нишам и разборы экономики бизнеса.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23D44C47'/><text x='16' y='22' font-size='17' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>А</text></svg>">
+<style>
+/* ===========================================================
+   Дизайн-система сайта. Одна тема: серый Notion.
+   Акценты: красный, голубой, белый.
+   =========================================================== */
+
+:root{
+  /* Поверхности */
+  --bg:#F7F7F5;
+  --bg-soft:#F1F1EE;
+  --surface:#FFFFFF;
+  --surface-2:#FAFAF9;
+
+  /* Текст */
+  --text:#32302C;
+  --text-2:#5C5A55;
+  --text-3:#8B8983;
+
+  /* Границы */
+  --line:#E8E7E3;
+  --line-2:#D9D8D3;
+
+  /* Акценты */
+  --red:#D44C47;
+  --red-hover:#BE3F3A;
+  --red-soft:#FBECEB;
+  --blue:#337EA9;
+  --blue-hover:#2A6A8E;
+  --blue-soft:#E8F2F7;
+
+  /* Размеры */
+  --wrap:1120px;
+  --r-sm:6px;
+  --r:10px;
+  --r-lg:14px;
+
+  --shadow:0 1px 2px rgba(15,15,15,.04), 0 2px 8px rgba(15,15,15,.03);
+  --shadow-lift:0 2px 4px rgba(15,15,15,.05), 0 8px 24px rgba(15,15,15,.07);
+
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+img{max-width:100%;display:block}
+
+a{color:var(--blue);text-decoration:none;transition:color .15s ease}
+a:hover{color:var(--blue-hover)}
+
+h1,h2,h3,h4{margin:0;font-weight:650;letter-spacing:-.02em;line-height:1.2;color:var(--text)}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+
+/* ---------- Раскладка ---------- */
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.section{padding:88px 0;border-top:1px solid var(--line)}
+.section:first-of-type{border-top:0}
+.section--soft{background:var(--bg-soft)}
+.section--white{background:var(--surface)}
+
+.stack-sm > * + *{margin-top:10px}
+.stack > * + *{margin-top:16px}
+.stack-lg > * + *{margin-top:28px}
+
+/* ---------- Мелкие элементы ---------- */
+.kicker{
+  display:inline-block;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:var(--text-3);
+  margin-bottom:14px;
+}
+.kicker--red{color:var(--red)}
+.kicker--blue{color:var(--blue)}
+
+.h1{font-size:clamp(32px,5vw,52px)}
+.h2{font-size:clamp(26px,3.4vw,36px)}
+.h3{font-size:20px;font-weight:640}
+.h4{font-size:17px;font-weight:640}
+
+.lead{font-size:17px;color:var(--text-2);max-width:62ch}
+.muted{color:var(--text-3)}
+.small{font-size:14px}
+.tiny{font-size:13px}
+
+.section-head{max-width:70ch;margin-bottom:40px}
+.section-head .lead{margin-top:14px}
+
+.head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.head-row .section-head{margin-bottom:0}
+
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+/* ---------- Кнопки ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 20px;
+  border-radius:var(--r-sm);
+  font-size:15px;font-weight:560;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:all .15s ease;
+  white-space:nowrap;
+}
+.btn--primary{background:var(--red);color:#fff;border-color:var(--red)}
+.btn--primary:hover{background:var(--red-hover);border-color:var(--red-hover);color:#fff}
+.btn--blue{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn--blue:hover{background:var(--blue-hover);color:#fff}
+.btn--ghost{background:var(--surface);color:var(--text);border-color:var(--line-2)}
+.btn--ghost:hover{border-color:var(--text-3);color:var(--text)}
+.btn--plain{background:transparent;color:var(--text-2);padding-left:0;padding-right:0}
+.btn--plain:hover{color:var(--red)}
+
+.btn-row{display:flex;flex-wrap:wrap;gap:10px}
+
+.link-arrow{font-size:15px;font-weight:560;color:var(--blue)}
+.link-arrow::after{content:" →"}
+
+/* ---------- Шапка ---------- */
+.header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,247,245,.85);
+  backdrop-filter:saturate(180%) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.header__inner{display:flex;align-items:center;gap:24px;height:60px}
+
+.logo{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:640;font-size:15px;letter-spacing:-.01em}
+.logo:hover{color:var(--text)}
+.logo__mark{
+  width:26px;height:26px;border-radius:6px;
+  background:var(--red);color:#fff;
+  display:grid;place-items:center;
+  font-size:13px;font-weight:700;letter-spacing:0;
+}
+
+.nav{display:flex;align-items:center;gap:2px;margin-left:auto}
+.nav a{
+  padding:7px 11px;border-radius:var(--r-sm);
+  font-size:14.5px;color:var(--text-2);font-weight:520;
+}
+.nav a:hover{background:var(--bg-soft);color:var(--text)}
+.nav a.is-active{color:var(--text);font-weight:600;background:var(--bg-soft)}
+
+.header .btn{padding:8px 15px;font-size:14px}
+
+.burger{
+  display:none;margin-left:auto;
+  background:var(--surface);border:1px solid var(--line-2);
+  border-radius:var(--r-sm);padding:8px 11px;cursor:pointer;
+  font-size:14px;color:var(--text);
+}
+
+/* ---------- Hero ---------- */
+.hero{padding:80px 0 64px;border-bottom:1px solid var(--line)}
+.hero__title{margin-bottom:18px;max-width:20ch}
+.hero__lead{font-size:18px;color:var(--text-2);max-width:64ch;margin-bottom:28px}
+.hero--page{padding:64px 0 48px}
+.hero--page .hero__title{max-width:24ch}
+
+.quicklinks{margin-top:34px;padding-top:22px;border-top:1px solid var(--line)}
+.quicklinks .kicker{margin-bottom:10px}
+
+/* ---------- Сетки ---------- */
+.grid{display:grid;gap:16px}
+.grid--2{grid-template-columns:repeat(2,1fr)}
+.grid--3{grid-template-columns:repeat(3,1fr)}
+.grid--4{grid-template-columns:repeat(4,1fr)}
+
+/* ---------- Карточки ---------- */
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  padding:24px;
+  transition:border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  display:flex;flex-direction:column;
+  height:100%;
+}
+a.card{color:inherit}
+a.card:hover{border-color:var(--line-2);transform:translateY(-2px);box-shadow:var(--shadow-lift);color:inherit}
+.card__label{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px}
+.card__title{font-size:17.5px;font-weight:640;letter-spacing:-.01em;margin-bottom:8px;line-height:1.35}
+.card__text{font-size:14.5px;color:var(--text-2);line-height:1.55}
+.card__foot{margin-top:auto;padding-top:16px;font-size:14px;font-weight:560;color:var(--blue)}
+.card__foot::after{content:" →"}
+.card--accent{border-left:3px solid var(--red)}
+.card--blue{border-left:3px solid var(--blue)}
+
+.card__num{
+  font-size:12px;font-weight:700;
+  color:var(--text-3);
+  border:1px solid var(--line);
+  background:var(--bg-soft);
+  border-radius:999px;padding:2px 9px;
+  align-self:flex-start;margin-bottom:12px;
+}
+
+/* Карточка продукта (финмодель) */
+.product__media{
+  aspect-ratio:16/9;border-radius:var(--r-sm);
+  background:linear-gradient(135deg,var(--bg-soft),#E7E6E2);
+  border:1px solid var(--line);
+  margin:-4px 0 16px;
+  display:grid;place-items:center;
+  color:var(--text-3);font-size:13px;
+}
+.price{font-size:19px;font-weight:680;letter-spacing:-.02em;color:var(--text)}
+.price small{font-size:13px;font-weight:500;color:var(--text-3)}
+.product__foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:18px;border-top:1px solid var(--line)}
+
+/* ---------- Теги ---------- */
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{
+  font-size:12.5px;font-weight:540;
+  padding:4px 10px;border-radius:999px;
+  background:var(--bg-soft);color:var(--text-2);
+  border:1px solid var(--line);
+}
+.tag--red{background:var(--red-soft);color:var(--red);border-color:#F2D9D8}
+.tag--blue{background:var(--blue-soft);color:var(--blue);border-color:#D5E7F0}
+a.tag:hover{border-color:var(--line-2);color:var(--text)}
+.tag.is-active{background:var(--text);color:#fff;border-color:var(--text)}
+
+/* ---------- Список-чеклист ---------- */
+.checks li{
+  position:relative;padding-left:26px;
+  font-size:15.5px;color:var(--text-2);
+}
+.checks li + li{margin-top:12px}
+.checks li::before{
+  content:"";position:absolute;left:0;top:9px;
+  width:7px;height:7px;border-radius:50%;
+  background:var(--red);
+}
+.checks--blue li::before{background:var(--blue)}
+
+/* ---------- Таймлайн опыта ---------- */
+.timeline{border-left:2px solid var(--line);padding-left:26px}
+.tl-item + .tl-item{margin-top:34px}
+.tl-item{position:relative}
+.tl-item::before{
+  content:"";position:absolute;left:-33px;top:7px;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--surface);border:2px solid var(--red);
+}
+.tl-item__date{font-size:13px;font-weight:600;color:var(--text-3);letter-spacing:.02em;margin-bottom:4px}
+.tl-item__role{font-size:17px;font-weight:640;margin-bottom:8px}
+.tl-item__text{font-size:14.5px;color:var(--text-2)}
+
+/* ---------- Шаги ---------- */
+.steps{counter-reset:s}
+.step{position:relative;padding-left:52px;counter-increment:s}
+.step + .step{margin-top:26px}
+.step::before{
+  content:counter(s);
+  position:absolute;left:0;top:0;
+  width:34px;height:34px;border-radius:50%;
+  background:var(--red-soft);color:var(--red);
+  display:grid;place-items:center;
+  font-size:14px;font-weight:700;
+}
+
+/* ---------- Цитата ---------- */
+.quote{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-left:3px solid var(--blue);
+  border-radius:var(--r);
+  padding:28px 30px;
+  font-size:18px;line-height:1.55;color:var(--text);
+}
+
+/* ---------- Заметка ---------- */
+.note{
+  background:var(--blue-soft);
+  border:1px solid #D5E7F0;
+  border-radius:var(--r);
+  padding:18px 20px;
+  font-size:14.5px;color:var(--text-2);
+}
+.note--red{background:var(--red-soft);border-color:#F2D9D8}
+
+/* ---------- Форма ---------- */
+.field{display:block;margin-bottom:16px}
+.field span{display:block;font-size:13.5px;font-weight:580;color:var(--text-2);margin-bottom:6px}
+.field input,.field textarea,.field select{
+  width:100%;font-family:inherit;font-size:15px;color:var(--text);
+  background:var(--surface);
+  border:1px solid var(--line-2);border-radius:var(--r-sm);
+  padding:10px 12px;outline:none;transition:border-color .15s ease, box-shadow .15s ease;
+}
+.field input:focus,.field textarea:focus,.field select:focus{
+  border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft);
+}
+.field textarea{min-height:120px;resize:vertical}
+
+/* ---------- CTA ---------- */
+.cta{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  padding:48px;
+  text-align:center;
+}
+.cta .lead{margin:14px auto 26px}
+.cta .btn-row{justify-content:center}
+
+/* ---------- Подвал ---------- */
+.footer{background:var(--surface);border-top:1px solid var(--line);padding:56px 0 32px;margin-top:0}
+.footer__top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid var(--line)}
+.footer__title{font-size:13px;font-weight:640;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px}
+.footer__list li + li{margin-top:9px}
+.footer__list a{font-size:14.5px;color:var(--text-2)}
+.footer__list a:hover{color:var(--red)}
+.footer__bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:24px;font-size:13px;color:var(--text-3)}
+
+/* ---------- Адаптив ---------- */
+@media (max-width:900px){
+  .grid--3,.grid--4{grid-template-columns:repeat(2,1fr)}
+  .footer__top{grid-template-columns:1fr 1fr}
+  .section{padding:64px 0}
+  .cta{padding:36px 24px}
+}
+@media (max-width:680px){
+  .nav{
+    display:none;position:absolute;top:60px;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:2px;
+    background:var(--surface);border-bottom:1px solid var(--line);
+    padding:10px 16px 16px;
+  }
+  .nav.is-open{display:flex}
+  .burger{display:block}
+  .header .btn--primary{display:none}
+  .grid--2,.grid--3,.grid--4{grid-template-columns:1fr}
+  .footer__top{grid-template-columns:1fr;gap:28px}
+  .hero{padding:56px 0 44px}
+}
+
+
+/* --- Роутинг: показываем одну страницу --- */
+.page{display:none}
+.page.is-current{display:block}
+
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap header__inner">
+    <a class="logo" href="#/">
+      <span class="logo__mark">А</span>
+      <span>Адиль&nbsp;·&nbsp;финансы</span>
+    </a>
+    <button class="burger" id="burger" aria-label="Меню">Меню</button>
+    <nav class="nav" id="nav">
+      <a href="#/" data-route="/">Главная</a>
+      <a href="#/start" data-route="/start">С чего начать</a>
+      <a href="#/blog" data-route="/blog">Блог</a>
+      <a href="#/services" data-route="/services">Услуги</a>
+      <a href="#/work" data-route="/work">Работа со мной</a>
+      <a href="#/about" data-route="/about">Обо мне</a>
+      <a href="#/contacts" data-route="/contacts">Контакты</a>
+    </nav>
+    <a class="btn btn--primary" href="#/contacts">Написать</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="page" data-route="/" data-title="Адиль — финансовый консультант">
+<section class="hero">
+  <div class="wrap">
+    <span class="kicker kicker--red">Финансовый консультант · Казахстан</span>
+    <h1 class="h1 hero__title">Считаю экономику бизнеса до того, как в него вложены деньги</h1>
+    <p class="hero__lead">Разбираю ниши, собираю финансовые модели и показываю, где проект зарабатывает, а где тихо течёт. Без теории — только те расчёты, которые меняют решения.</p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="#/services">Смотреть финмодели</a>
+      <a class="btn btn--ghost" href="#/start">С чего начать</a>
+      <a class="btn btn--ghost" href="#/work">Работа со мной</a>
+    </div>
+    <div class="quicklinks">
+      <span class="kicker">Быстрые переходы</span>
+      <div class="btn-row">
+        <a class="btn btn--plain" href="#/blog">Разборы ниш →</a>
+        <a class="btn btn--plain" href="#/about">Обо мне →</a>
+        <a class="btn btn--plain" href="#/contacts">Написать в Telegram →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section "><div class="wrap"><div class="section-head"><span class="kicker">Куда идти</span><h2 class="h2">Выберите не раздел, а свою ситуацию</h2><p class="lead">Сайт устроен как рабочая карта. Проще начать не с меню, а с того, что у вас сейчас на руках.</p></div><div class="grid grid--4"><a class="card " href="#/services"><div class="card__label">Маршрут</div><div class="card__title">Открываю бизнес</div><div class="card__text">Нужно понять, сходится ли экономика, прежде чем вкладывать деньги. Начните с разбора ниши и готовой финмодели.</div><div class="card__foot">Смотреть финмодели</div></a><a class="card " href="#/work"><div class="card__label">Маршрут</div><div class="card__title">Бизнес работает, но цифр не видно</div><div class="card__text">Есть выручка, есть расходы, а понимания нет. Соберём управленческую картину и найдём, где течёт.</div><div class="card__foot">Форматы работы</div></a><a class="card " href="#/blog"><div class="card__label">Маршрут</div><div class="card__title">Хочу разобраться сам</div><div class="card__text">Разборы ниш, ошибки в расчётах и объяснения нормальным языком, без учебника по корпфинансам.</div><div class="card__foot">Читать блог</div></a><a class="card " href="#/contacts"><div class="card__label">Маршрут</div><div class="card__title">Есть конкретная задача</div><div class="card__text">Инвестор, банк, партнёр или тендер требует расчёт. Нужен человек, который сделает и защитит цифры.</div><div class="card__foot">Написать</div></a></div></div></section>
+
+
+<section class="section section--white"><div class="wrap"><div class="head-row"><div class="section-head"><span class="kicker">Продукт</span><h2 class="h2">Финмодели по нишам</h2><p class="lead">Готовый расчёт под конкретный тип бизнеса: заполняете свои цифры и видите, сходится ли экономика.</p></div><a class="link-arrow" href="#/services">Все финмодели</a></div><div class="grid grid--3"><a class="card" href="#/services"><div class="product__media">видео-обзор · 60 сек</div><div class="card__label">Финмодель</div><div class="card__title">Кофейня</div><div class="card__text">Точка 40 м², 2 бариста, средний чек и трафик по будням и выходным.</div><div class="product__foot"><span class="price">18 900 ₸</span><span class="link-arrow">Смотреть</span></div></a><a class="card" href="#/services"><div class="product__media">видео-обзор · 60 сек</div><div class="card__label">Финмодель</div><div class="card__title">Барбершоп</div><div class="card__text">4 кресла, аренда, зарплатная модель мастеров на проценте.</div><div class="product__foot"><span class="price">18 900 ₸</span><span class="link-arrow">Смотреть</span></div></a><a class="card" href="#/services"><div class="product__media">видео-обзор · 60 сек</div><div class="card__label">Финмодель</div><div class="card__title">Пекарня полного цикла</div><div class="card__text">Производство и продажа в одной точке, себестоимость по рецептурам.</div><div class="product__foot"><span class="price">24 900 ₸</span><span class="link-arrow">Смотреть</span></div></a></div></div></section>
+
+
+<section class="section section--soft"><div class="wrap"><div class="section-head"><span class="kicker">Формат</span><h2 class="h2">Как устроен каждый разбор ниши</h2><p class="lead">Одна страница — один бизнес. Три минуты, и вы понимаете, стоит ли туда идти.</p></div>
+<div class="grid grid--3">
+  <div class="card"><div class="card__num">01</div><div class="card__title">Ниша за 2 минуты</div>
+    <div class="card__text">Как в этой нише появляются деньги, из чего складывается выручка и какие расходы съедают маржу. Коротко и по делу.</div></div>
+  <div class="card"><div class="card__num">02</div><div class="card__title">Риски в цифрах</div>
+    <div class="card__text">Не «высокая конкуренция», а конкретно: при каком трафике точка уходит в минус и что убивает такие проекты чаще всего.</div></div>
+  <div class="card"><div class="card__num">03</div><div class="card__title">Живой обзор модели</div>
+    <div class="card__text">Минутное видео: показываю вкладки, допущения и то, как меняется итог, если подвинуть один параметр.</div></div>
+</div></div></section>
+
+
+<section class="section "><div class="wrap"><div class="head-row"><div class="section-head"><span class="kicker">Блог</span><h2 class="h2">Свежие разборы</h2><p class="lead">Пишу о том, что считаю сам: ниши, ошибки в моделях, деньги и решения.</p></div><a class="link-arrow" href="#/blog">Все материалы</a></div><div class="grid grid--3"><a class="card " href="#/blog"><div class="card__label">Разбор ниши</div><div class="card__title">Кофейня: почему точка с очередью может быть убыточной</div><div class="card__text">Считаем реальную юнит-экономику чашки — с арендой, списаниями и зарплатой бариста.</div><div class="card__foot">Читать</div></a><a class="card " href="#/blog"><div class="card__label">Ошибки</div><div class="card__title">Пять ошибок, которые я вижу в каждой второй финмодели</div><div class="card__text">Выручка растёт линейно, расходы забыты, налог посчитан «примерно». Разбираю по пунктам.</div><div class="card__foot">Читать</div></a><a class="card " href="#/blog"><div class="card__label">Инструменты</div><div class="card__title">Как проверить чужую финмодель за 15 минут</div><div class="card__text">Короткий чек-лист, который защищает от красивых таблиц с плохими допущениями.</div><div class="card__foot">Читать</div></a></div></div></section>
+
+
+<section class="section section--white"><div class="wrap"><div class="head-row"><div class="section-head"><span class="kicker">Работа</span><h2 class="h2">Если нужен не шаблон, а расчёт под вас</h2><p class="lead">Форматы, в которых я беру задачу в работу.</p></div><a class="link-arrow" href="#/work">Все форматы</a></div><div class="grid grid--3"><a class="card " href="#/work"><div class="card__label">Формат</div><div class="card__title">Разбор задачи</div><div class="card__text">Час разговора: разбираем ситуацию, считаем главное на салфетке и определяем, что делать дальше.</div><div class="card__foot">Подробнее</div></a><a class="card " href="#/work"><div class="card__label">Формат</div><div class="card__title">Финмодель под бизнес</div><div class="card__text">Индивидуальный расчёт под вашу модель: сценарии, точка безубыточности, потребность в деньгах.</div><div class="card__foot">Подробнее</div></a><a class="card " href="#/work"><div class="card__label">Формат</div><div class="card__title">Сопровождение</div><div class="card__text">Ежемесячная управленческая отчётность и разбор цифр. Чтобы вы видели бизнес, а не догадывались о нём.</div><div class="card__foot">Подробнее</div></a></div></div></section>
+
+
+<section class="section section--soft"><div class="wrap"><div class="cta"><span class="kicker kicker--red">Следующий шаг</span><h2 class="h2">Не уверены, какой расчёт вам нужен — просто напишите</h2><p class="lead">Опишите ситуацию в двух предложениях. Отвечу, нужна ли вам финмодель, разбор или ничего из этого.</p><div class="btn-row"><a class="btn btn--primary" href="#/contacts">Написать</a><a class="btn btn--ghost" href="#/services">Посмотреть финмодели</a></div></div></div></section>
+</section>
+
+<section class="page" data-route="/start" data-title="С чего начать">
+<section class="hero hero--page">
+  <div class="wrap">
+    <span class="kicker">С чего начать</span>
+    <h1 class="h1 hero__title">Как пользоваться этим сайтом</h1>
+    <p class="hero__lead">Здесь собраны разборы ниш, готовые финмодели и форматы работы. Эта страница нужна, чтобы вы не читали всё подряд, а сразу попали туда, где ответ на ваш вопрос.</p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="#/services">Каталог финмоделей</a>
+      <a class="btn btn--ghost" href="#/blog">Блог</a>
+      <a class="btn btn--ghost" href="#/work">Работа со мной</a>
+    </div>
+  </div>
+</section>
+
+<section class="section "><div class="wrap"><div class="section-head"><span class="kicker">Маршруты</span><h2 class="h2">Четыре ситуации, с которыми сюда приходят</h2><p class="lead">Выберите ту, что ближе к вашей. Дальше маршрут понятен.</p></div><div class="grid grid--2"><a class="card " href="#/services"><div class="card__label">Ситуация</div><div class="card__title">Я только думаю открыть бизнес</div><div class="card__text">Пока нет ни точки, ни команды — есть идея и вопрос «сколько нужно денег». Начните с разбора ниши: там видно, сходится экономика или нет.</div><div class="card__foot">Разборы ниш</div></a><a class="card " href="#/work"><div class="card__label">Ситуация</div><div class="card__title">Бизнес уже есть, но управления цифрами нет</div><div class="card__text">Деньги приходят и уходят, а где именно теряется маржа — непонятно. Здесь нужен не шаблон, а разбор вашей ситуации.</div><div class="card__foot">Форматы работы</div></a><a class="card " href="#/contacts"><div class="card__label">Ситуация</div><div class="card__title">Нужен расчёт для инвестора или банка</div><div class="card__text">Требуется документ, который выдержит вопросы. Это индивидуальная работа с защитой допущений.</div><div class="card__foot">Написать</div></a><a class="card " href="#/blog"><div class="card__label">Ситуация</div><div class="card__title">Хочу научиться считать сам</div><div class="card__text">Читайте блог: там разборы ниш, типовые ошибки и объяснения без академического языка.</div><div class="card__foot">Читать блог</div></a></div></div></section>
+
+
+<section class="section section--white"><div class="wrap"><div class="section-head"><span class="kicker">Принципы</span><h2 class="h2">Не нужно читать всё подряд</h2></div>
+<div class="grid grid--2">
+  <div>
+    <ul class="checks stack">
+      <li>Начинайте с сегодняшней задачи, а не с абстрактной подготовки. Финансы учат на своих цифрах.</li>
+      <li>Сначала ясность, потом инструменты. Красивая таблица с плохими допущениями хуже, чем её отсутствие.</li>
+      <li>Не нужно читать сайт подряд. Возьмите свою нишу или свой вопрос — остальное лишнее.</li>
+      <li>Любая модель — это не предсказание, а способ проверить решение до того, как оно стоило вам денег.</li>
+    </ul>
+  </div>
+  <div class="note">
+    <strong>Важно понимать сразу.</strong><br><br>
+    Финансовая модель не гарантирует, что бизнес получится. Она показывает, при каких условиях он выходит в плюс и что должно случиться, чтобы этого не произошло. Дальше решение всё равно за вами — но оно уже осознанное.
+  </div>
+</div></div></section>
+
+
+<section class="section section--soft"><div class="wrap"><div class="section-head"><span class="kicker">Навигация</span><h2 class="h2">Два входа: каталог и блог</h2><p class="lead">Каталог — если вы знаете свою нишу. Блог — если пока разбираетесь.</p></div>
+<div class="grid grid--2">
+  <a class="card card--accent" href="#/services">
+    <div class="card__label">Инструмент</div>
+    <div class="card__title">Каталог финмоделей</div>
+    <div class="card__text">Готовые расчёты под конкретные ниши. К каждой — разбор бизнеса, риски и минутное видео по самой модели, чтобы вы видели, что покупаете.</div>
+    <div class="card__foot">Открыть каталог</div>
+  </a>
+  <a class="card card--blue" href="#/blog">
+    <div class="card__label">Инструмент</div>
+    <div class="card__title">Блог и разборы</div>
+    <div class="card__text">Материалы по нишам, ошибкам в расчётах и управленческому учёту. Здесь же — темы, по которым можно двигаться веткой, а не лентой.</div>
+    <div class="card__foot">Читать блог</div>
+  </a>
+</div></div></section>
+
+
+<section class="section "><div class="wrap"><div class="cta"><span class="kicker kicker--red">Следующий шаг</span><h2 class="h2">Если ваша ситуация не подошла ни под один маршрут</h2><p class="lead">Напишите в двух предложениях, что у вас происходит. Отвечу, чем это решается — и решается ли вообще у меня.</p><div class="btn-row"><a class="btn btn--primary" href="#/contacts">Написать</a><a class="btn btn--ghost" href="#/about">Сначала посмотреть, кто я</a></div></div></div></section>
+</section>
+
+<section class="page" data-route="/blog" data-title="Блог">
+<section class="hero hero--page">
+  <div class="wrap">
+    <span class="kicker">Блог</span>
+    <h1 class="h1 hero__title">Разборы ниш, ошибки и деньги</h1>
+    <p class="hero__lead">Пишу о том, что считаю сам: как устроена экономика конкретных бизнесов, где в расчётах обычно врут и какие цифры действительно меняют решение.</p>
+  </div>
+</section>
+
+<section class="section "><div class="wrap">
+<div class="tags" style="margin-bottom:32px">
+  <a class="tag is-active" href="#">Все</a>
+  <a class="tag" href="#">Разборы ниш</a>
+  <a class="tag" href="#">Финмодели</a>
+  <a class="tag" href="#">Ошибки</a>
+  <a class="tag" href="#">Управленческий учёт</a>
+  <a class="tag" href="#">Налоги</a>
+  <a class="tag" href="#">Инструменты</a>
+</div><div class="grid grid--3"><a class="card" href="#"><div class="product__media">обложка</div><div class="card__label">Разбор ниши</div><div class="card__title">Кофейня: почему точка с очередью может быть убыточной</div><div class="card__text">Считаем юнит-экономику чашки честно: аренда, списания, зарплата бариста и то, что обычно забывают в расчётах.</div><div class="product__foot"><span class="tag tag--blue">12 мин</span><span class="link-arrow">Читать</span></div></a><a class="card" href="#"><div class="product__media">обложка</div><div class="card__label">Ошибки</div><div class="card__title">Пять ошибок, которые я вижу в каждой второй финмодели</div><div class="card__text">Линейный рост выручки, забытые расходы, налог «примерно» и ещё две вещи, которые ломают весь расчёт.</div><div class="product__foot"><span class="tag tag--blue">8 мин</span><span class="link-arrow">Читать</span></div></a><a class="card" href="#"><div class="product__media">обложка</div><div class="card__label">Разбор ниши</div><div class="card__title">Барбершоп: где именно уходит маржа при полной записи</div><div class="card__text">Мастера на проценте, простои по будням и почему высокая загрузка не равна прибыли.</div><div class="product__foot"><span class="tag tag--blue">10 мин</span><span class="link-arrow">Читать</span></div></a><a class="card" href="#"><div class="product__media">обложка</div><div class="card__label">Инструменты</div><div class="card__title">Как проверить чужую финмодель за 15 минут</div><div class="card__text">Чек-лист, который защищает от красивых таблиц с плохими допущениями. Работает и для своих моделей тоже.</div><div class="product__foot"><span class="tag tag--blue">6 мин</span><span class="link-arrow">Читать</span></div></a><a class="card" href="#"><div class="product__media">обложка</div><div class="card__label">Управленческий учёт</div><div class="card__title">Три отчёта, без которых вы не управляете бизнесом</div><div class="card__text">P&L, движение денег и баланс — что каждый показывает и почему одного отчёта всегда мало.</div><div class="product__foot"><span class="tag tag--blue">9 мин</span><span class="link-arrow">Читать</span></div></a><a class="card" href="#"><div class="product__media">обложка</div><div class="card__label">Разбор ниши</div><div class="card__title">Пекарня полного цикла: себестоимость, которую все считают неправильно</div><div class="card__text">Рецептуры, списания, брак и фонд оплаты труда — из чего на самом деле складывается цена булки.</div><div class="product__foot"><span class="tag tag--blue">11 мин</span><span class="link-arrow">Читать</span></div></a></div><div style="margin-top:36px;text-align:center"><a class="btn btn--ghost" href="#">Показать ещё</a></div></div></section>
+
+
+<section class="section section--soft"><div class="wrap"><div class="cta"><span class="kicker kicker--red">Следующий шаг</span><h2 class="h2">Разобрал вашу нишу — а дальше?</h2><p class="lead">К большинству разборов есть готовая финансовая модель. Заполняете свои цифры и сразу видите результат.</p><div class="btn-row"><a class="btn btn--primary" href="#/services">Каталог финмоделей</a><a class="btn btn--ghost" href="#/contacts">Задать вопрос</a></div></div></div></section>
+</section>
+
+<section class="page" data-route="/services" data-title="Финансовые модели по нишам">
+<section class="hero hero--page">
+  <div class="wrap">
+    <span class="kicker kicker--red">Услуги</span>
+    <h1 class="h1 hero__title">Финансовые модели по нишам</h1>
+    <p class="hero__lead">Готовый расчёт под конкретный тип бизнеса. Вы подставляете свои цифры — аренду, чек, трафик — и видите, при каких условиях проект выходит в плюс, а при каких нет.</p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="#catalog">Смотреть каталог</a>
+      <a class="btn btn--ghost" href="#/work">Нужен расчёт под меня</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="catalog">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">Каталог</span><h2 class="h2">Выберите свою нишу</h2><p class="lead">К каждой модели — разбор бизнеса, риски в цифрах и минутное видео по самому файлу.</p></div>
+    
+<div class="tags" style="margin-bottom:32px">
+  <a class="tag is-active" href="#">Все ниши</a>
+  <a class="tag" href="#">Общепит</a>
+  <a class="tag" href="#">Услуги</a>
+  <a class="tag" href="#">Розница</a>
+  <a class="tag" href="#">Производство</a>
+  <a class="tag" href="#">Онлайн</a>
+</div>
+    <div class="grid grid--3"><a class="card" href="#"><div class="product__media">видео-обзор · 60 сек</div><div class="card__label">Общепит</div><div class="card__title">Кофейня</div><div class="card__text">Точка 40 м², две смены бариста. Трафик по будням и выходным, средний чек, списания.</div><div class="product__foot"><span class="price">18 900 ₸</span><span class="link-arrow">Подробнее</span></div></a><a class="card" href="#"><div class="product__media">видео-обзор · 60 сек</div><div class="card__label">Услуги</div><div class="card__title">Барбершоп</div><div class="card__text">4 кресла, мастера на проценте, аренда и расходники. Загрузка по дням недели.</div><div class="product__foot"><span class="price">18 900 ₸</span><span class="link-arrow">Подробнее</span></div></a><a class="card" href="#"><div class="product__media">видео-обзор · 60 сек</div><div class="card__label">Производство</div><div class="card__title">Пекарня полного цикла</div><div class="card__text">Себестоимость по рецептурам, брак, фонд оплаты труда, продажа через свою точку.</div><div class="product__foot"><span class="price">24 900 ₸</span><span class="link-arrow">Подробнее</span></div></a><a class="card" href="#"><div class="product__media">видео-обзор · 60 сек</div><div class="card__label">Розница</div><div class="card__title">Магазин у дома</div><div class="card__text">Оборачиваемость, наценка по категориям, товарные остатки и кассовый разрыв.</div><div class="product__foot"><span class="price">22 900 ₸</span><span class="link-arrow">Подробнее</span></div></a><a class="card" href="#"><div class="product__media">видео-обзор · 60 сек</div><div class="card__label">Услуги</div><div class="card__title">Автомойка</div><div class="card__text">Пропускная способность, сезонность, химия и вода в себестоимости, зарплата мойщиков.</div><div class="product__foot"><span class="price">18 900 ₸</span><span class="link-arrow">Подробнее</span></div></a><a class="card" href="#"><div class="product__media">видео-обзор · 60 сек</div><div class="card__label">Онлайн</div><div class="card__title">Интернет-магазин</div><div class="card__text">Юнит-экономика заказа: трафик, конверсия, стоимость привлечения, возвраты, логистика.</div><div class="product__foot"><span class="price">24 900 ₸</span><span class="link-arrow">Подробнее</span></div></a></div>
+  </div>
+</section>
+
+<section class="section section--white"><div class="wrap"><div class="section-head"><span class="kicker">Состав</span><h2 class="h2">Что внутри каждой модели</h2><p class="lead">Структура одинаковая во всех нишах — меняются только допущения и статьи расходов.</p></div>
+<div class="grid grid--2">
+  <div>
+    <ul class="checks stack">
+      <li><strong>Исходные данные</strong> — все допущения в одном месте, меняете цифры только там.</li>
+      <li><strong>Выручка</strong> — по каналам, с сезонностью и выходом на плановую загрузку.</li>
+      <li><strong>Расходы</strong> — переменные и постоянные разделены честно, а не одной строкой.</li>
+      <li><strong>P&amp;L по месяцам</strong> — на 24 месяца вперёд, с накопительным итогом.</li>
+      <li><strong>Движение денег</strong> — где возникает кассовый разрыв и сколько нужно подушки.</li>
+      <li><strong>Точка безубыточности</strong> — сколько чеков в день нужно, чтобы не работать в минус.</li>
+      <li><strong>Сценарии</strong> — пессимистичный, базовый, оптимистичный. Одним переключателем.</li>
+      <li><strong>Окупаемость</strong> — срок возврата вложений и что на него влияет сильнее всего.</li>
+    </ul>
+  </div>
+  <div class="stack">
+    <div class="note">
+      <strong>Формат файла.</strong><br>
+      Excel / Google Таблицы. Все формулы открыты — можно смотреть, менять и достраивать под себя. Ничего не заблокировано и не спрятано.
+    </div>
+    <div class="note note--red">
+      <strong>Чего в модели нет.</strong><br>
+      Обещания прибыли. Модель считает вашу гипотезу, а не гарантирует результат. Если исходные цифры взяты с потолка — итог будет таким же.
+    </div>
+    <div class="card">
+      <div class="card__title">Нужна доработка под себя?</div>
+      <div class="card__text">Можно взять шаблон и заказать настройку под ваши условия: свои каналы продаж, своя структура расходов, свой режим налогообложения.</div>
+      <div class="card__foot"><a href="#/work">Форматы работы</a></div>
+    </div>
+  </div>
+</div></div></section>
+
+
+<section class="section section--soft"><div class="wrap"><div class="section-head"><span class="kicker">Вопросы</span><h2 class="h2">Что спрашивают чаще всего</h2></div>
+<div class="grid grid--2">
+  <div class="card"><div class="card__title">Я не финансист. Разберусь?</div>
+    <div class="card__text">Да. Заполняются только жёлтые ячейки на первом листе — остальное считается само. К каждой модели есть видео, где я прохожу по ней вслух.</div></div>
+  <div class="card"><div class="card__title">Модель под Казахстан или универсальная?</div>
+    <div class="card__text">Налоговый блок настроен под казахстанские режимы. Всё остальное — универсально, валюту и ставки можно поменять.</div></div>
+  <div class="card"><div class="card__title">А если моя ниши нет в списке?</div>
+    <div class="card__text">Напишите — если запрос повторяется, я делаю модель для этой ниши. Либо соберу индивидуально под ваш бизнес.</div></div>
+  <div class="card"><div class="card__title">Что если модель не подойдёт?</div>
+    <div class="card__text">Посмотрите видео-обзор до покупки: там видно всю структуру. Если после покупки что-то не сходится — пишите, разберёмся.</div></div>
+</div></div></section>
+
+
+<section class="section "><div class="wrap"><div class="cta"><span class="kicker kicker--red">Следующий шаг</span><h2 class="h2">Не нашли свою нишу?</h2><p class="lead">Напишите, какой у вас бизнес. Если модели под него нет — соберу индивидуально под ваши условия.</p><div class="btn-row"><a class="btn btn--primary" href="#/contacts">Написать</a><a class="btn btn--ghost" href="#/work">Форматы работы</a></div></div></div></section>
+</section>
+
+<section class="page" data-route="/work" data-title="Работа со мной">
+<section class="hero hero--page">
+  <div class="wrap">
+    <span class="kicker">Работа со мной</span>
+    <h1 class="h1 hero__title">Форматы работы</h1>
+    <p class="hero__lead">Большинство запросов начинается не с ясной задачи, а с ощущения, что «с цифрами что-то не так». Моя работа — сначала понять, что именно нужно посчитать, а уже потом считать.</p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="#/contacts">Написать</a>
+      <a class="btn btn--ghost" href="#/services">Готовые финмодели</a>
+      <a class="btn btn--ghost" href="#/about">Обо мне</a>
+    </div>
+  </div>
+</section>
+
+<section class="section "><div class="wrap"><div class="section-head"><span class="kicker">Форматы</span><h2 class="h2">Четыре способа поработать вместе</h2><p class="lead">От часового разбора до ежемесячного сопровождения.</p></div><div class="grid grid--2"><a class="card card--accent" href="#/contacts"><div class="card__label">Формат</div><div class="card__title">Разбор задачи</div><div class="card__text">Час разговора. Разбираем ситуацию, считаем главное на салфетке и определяем, что делать дальше — и надо ли вообще что-то делать. Почти всё начинается отсюда.</div><div class="card__foot">Подробнее</div></a><a class="card " href="#/contacts"><div class="card__label">Формат</div><div class="card__title">Финмодель под ваш бизнес</div><div class="card__text">Индивидуальный расчёт: ваши каналы, ваша структура расходов, ваш налоговый режим. Со сценариями, точкой безубыточности и потребностью в деньгах.</div><div class="card__foot">Подробнее</div></a><a class="card " href="#/contacts"><div class="card__label">Формат</div><div class="card__title">Расчёт для инвестора или банка</div><div class="card__text">Модель, которая выдерживает вопросы: обоснованные допущения, чувствительность к параметрам и защита цифр при разговоре.</div><div class="card__foot">Подробнее</div></a><a class="card card--blue" href="#/contacts"><div class="card__label">Формат</div><div class="card__title">Сопровождение на месяц</div><div class="card__text">Не разовый файл, а работа в процессе: управленческая отчётность, разбор фактических цифр и решения по ходу дела.</div><div class="card__foot">Подробнее</div></a></div></div></section>
+
+
+<section class="section section--white"><div class="wrap"><div class="section-head"><span class="kicker">Запросы</span><h2 class="h2">С чем обычно приходят</h2></div>
+<ul class="checks grid grid--2" style="gap:12px 40px">
+  <li>Хотим понять, стоит ли вообще открывать это направление</li>
+  <li>Не понимаем, почему выручка растёт, а денег на счету нет</li>
+  <li>Нужен расчёт для инвестора, а сделать его некому</li>
+  <li>Хотим понять реальную себестоимость, а не «примерно»</li>
+  <li>Считаем в голове и в блокноте — пора собрать нормально</li>
+  <li>Планируем масштабироваться и хотим проверить, потянем ли</li>
+  <li>Нужно решить: закрывать точку или дать ей ещё три месяца</li>
+  <li>Хотим видеть цифры регулярно, а не раз в год у бухгалтера</li>
+</ul></div></section>
+
+
+<section class="section section--soft"><div class="wrap"><div class="section-head"><span class="kicker">Принцип</span><h2 class="h2">Сначала правильный вопрос, потом расчёт</h2></div>
+<div class="grid grid--2">
+  <div class="quote">
+    Почти всё начинается с разбора. Это не входной билет и не формальность — просто в большинстве случаев человек пытается посчитать не то, что на самом деле нужно посчитать. Час разговора часто экономит недели работы и деньги, которые не пришлось бы тратить.
+  </div>
+  <div class="stack">
+    <div class="card">
+      <div class="card__title">Как проходит работа</div>
+      <div class="card__text">
+        <strong>1.</strong> Вы пишете, что происходит — без идеального ТЗ.<br>
+        <strong>2.</strong> Созваниваемся, я задаю вопросы и фиксирую задачу.<br>
+        <strong>3.</strong> Называю срок и стоимость. Если задача не моя — говорю прямо.<br>
+        <strong>4.</strong> Делаю, показываю, объясняю каждую цифру.
+      </div>
+    </div>
+    <div class="note">
+      Цены зависят от объёма и срока. Ориентир называю после первого разговора — обычно в тот же день.
+    </div>
+  </div>
+</div></div></section>
+
+
+<section class="section "><div class="wrap"><div class="cta"><span class="kicker kicker--red">Следующий шаг</span><h2 class="h2">Начнём с разговора</h2><p class="lead">Опишите ситуацию в двух предложениях. Дальше разберёмся, нужен ли разбор, модель или ничего из этого.</p><div class="btn-row"><a class="btn btn--primary" href="#/contacts">Написать в Telegram</a><a class="btn btn--ghost" href="#/blog">Сначала почитать</a></div></div></div></section>
+</section>
+
+<section class="page" data-route="/about" data-title="Обо мне">
+<section class="hero hero--page">
+  <div class="wrap">
+    <span class="kicker">Обо мне</span>
+    <h1 class="h1 hero__title">Адиль [фамилия] — финансист, считаю бизнес до того, как в него вложены деньги</h1>
+    <p class="hero__lead">[Заполнить: одна сильная фраза о себе. Не «опытный специалист», а конкретная линия — что вы делали все эти годы и почему это одна и та же работа.]</p>
+    <div class="quicklinks">
+      <span class="kicker">Быстрые переходы</span>
+      <div class="btn-row">
+        <a class="btn btn--plain" href="#/work">Форматы работы →</a>
+        <a class="btn btn--plain" href="#/services">Финмодели →</a>
+        <a class="btn btn--plain" href="#/contacts">Написать →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section "><div class="wrap"><div class="grid grid--2"><div class="stack"><p class="lead">[Заполнить: 2–3 абзаца нарратива. Не резюме списком, а история. Откуда пришли в финансы, что поняли по дороге, почему делаете именно это.]</p><p class="lead">[Второй абзац: что для вас важно в работе. Например — что цифры нужны не для отчёта, а для решения.]</p><p class="lead">Параллельно развиваю <strong>TerenLabs</strong> — [заполнить: что это и зачем].</p></div><div class="quote">[Заполнить: одна фраза-кредо. То, во что вы верите в работе с деньгами. Коротко и своими словами — эта цитата делает больше, чем весь остальной текст.]</div></div></div></section>
+
+
+<section class="section section--white"><div class="wrap"><div class="head-row"><div class="section-head"><span class="kicker">Экспертиза</span><h2 class="h2">Где у меня практическая глубина</h2></div><a class="link-arrow" href="#/work">Все форматы</a></div>
+<ul class="checks grid grid--2" style="gap:14px 40px">
+  <li><strong>Финансовое моделирование</strong> — юнит-экономика, сценарии, чувствительность, окупаемость</li>
+  <li><strong>Управленческий учёт</strong> — P&amp;L, движение денег, баланс, регулярная отчётность</li>
+  <li><strong>Экономика ниш</strong> — как устроены деньги в конкретных типах бизнеса</li>
+  <li><strong>Инвестиционные расчёты</strong> — обоснование вложений и защита цифр перед инвестором</li>
+  <li><strong>Себестоимость и ценообразование</strong> — от рецептуры до наценки по категориям</li>
+  <li><strong>Автоматизация расчётов</strong> — таблицы и модели, которые считают сами</li>
+</ul></div></section>
+
+
+<section class="section section--soft"><div class="wrap"><div class="section-head"><span class="kicker">Опыт</span><h2 class="h2">Как это собиралось на практике</h2></div>
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-item__date">[год] — сегодня</div>
+    <div class="tl-item__role">Независимый финансовый консультант · TerenLabs</div>
+    <div class="tl-item__text">[Заполнить: чем занимаетесь сейчас, какие задачи берёте, сколько проектов за плечами.]</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-item__date">[годы]</div>
+    <div class="tl-item__role">[Должность] — [Компания]</div>
+    <div class="tl-item__text">[Заполнить: за что отвечали, какие цифры вели, что построили. Одно-два предложения, с конкретикой.]</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-item__date">[годы]</div>
+    <div class="tl-item__role">[Должность] — [Компания]</div>
+    <div class="tl-item__text">[Заполнить.]</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-item__date">[годы]</div>
+    <div class="tl-item__role">[Образование или первый опыт]</div>
+    <div class="tl-item__text">[Заполнить.]</div>
+  </div>
+</div></div></section>
+
+
+<section class="section section--white"><div class="wrap"><div class="section-head"><span class="kicker">Стек</span><h2 class="h2">Чем работаю</h2></div>
+<div class="tags">
+  <span class="tag">Финансовое моделирование</span>
+  <span class="tag">Юнит-экономика</span>
+  <span class="tag">Управленческий учёт</span>
+  <span class="tag">P&amp;L и cash flow</span>
+  <span class="tag">Бюджетирование</span>
+  <span class="tag">Себестоимость</span>
+  <span class="tag">Инвестиционный анализ</span>
+  <span class="tag">Excel / Google Таблицы</span>
+  <span class="tag">Power Query</span>
+  <span class="tag">Налоговые режимы РК</span>
+  <span class="tag">1С</span>
+  <span class="tag">Бизнес-планы</span>
+</div></div></section>
+
+
+<section class="section "><div class="wrap"><div class="cta"><span class="kicker kicker--red">Следующий шаг</span><h2 class="h2">Если хотите обсудить задачу — начнём с разговора</h2><p class="lead">Можно прийти без идеального ТЗ. Достаточно коротко описать, что происходит с деньгами в вашем бизнесе.</p><div class="btn-row"><a class="btn btn--primary" href="#/contacts">Написать</a><a class="btn btn--ghost" href="#/work">Посмотреть форматы</a></div></div></div></section>
+</section>
+
+<section class="page" data-route="/contacts" data-title="Контакты">
+<section class="hero hero--page">
+  <div class="wrap">
+    <span class="kicker kicker--red">Контакты</span>
+    <h1 class="h1 hero__title">Напишите — разберёмся, что вам нужно</h1>
+    <p class="hero__lead">Можно без подготовки и без идеального описания задачи. Достаточно пары предложений о том, что происходит.</p>
+  </div>
+</section>
+
+<section class="section "><div class="wrap"><div class="section-head"><span class="kicker">Каналы</span><h2 class="h2">Как со мной связаться</h2></div>
+<div class="grid grid--3">
+  <a class="card card--accent" href="#">
+    <div class="card__label">Быстрее всего</div>
+    <div class="card__title">Telegram</div>
+    <div class="card__text">Основной канал. Пишите сразу по делу — отвечаю в течение дня.</div>
+    <div class="card__foot">@[username]</div>
+  </a>
+  <a class="card" href="#">
+    <div class="card__label">Мессенджер</div>
+    <div class="card__title">WhatsApp</div>
+    <div class="card__text">Если удобнее здесь — пишите сюда, разницы нет.</div>
+    <div class="card__foot">+7 [номер]</div>
+  </a>
+  <a class="card card--blue" href="mailto:small.economy.kaz@gmail.com">
+    <div class="card__label">Для документов</div>
+    <div class="card__title">Почта</div>
+    <div class="card__text">Для файлов, договоров и всего, что должно остаться в переписке.</div>
+    <div class="card__foot">small.economy.kaz@gmail.com</div>
+  </a>
+</div></div></section>
+
+
+<section class="section section--white"><div class="wrap"><div class="section-head"><span class="kicker">Форма</span><h2 class="h2">Или опишите задачу здесь</h2></div>
+<div class="grid grid--2">
+  <form class="card" onsubmit="return false">
+    <div class="card__title" style="margin-bottom:18px">Опишите задачу</div>
+    <label class="field"><span>Как к вам обращаться</span><input type="text" placeholder="Имя"></label>
+    <label class="field"><span>Telegram или телефон</span><input type="text" placeholder="@username или +7"></label>
+    <label class="field"><span>Что за бизнес</span>
+      <select>
+        <option>Пока только планирую открыть</option>
+        <option>Работающий бизнес</option>
+        <option>Несколько направлений</option>
+        <option>Другое</option>
+      </select>
+    </label>
+    <label class="field"><span>Задача</span><textarea placeholder="Что происходит с цифрами и что хотите получить"></textarea></label>
+    <button class="btn btn--primary" type="submit">Отправить</button>
+    <p class="tiny muted" style="margin-top:12px">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.</p>
+  </form>
+  <div class="stack">
+    <div class="note">
+      <strong>Что писать, чтобы разговор был полезным.</strong><br><br>
+      Не нужно готовить ТЗ. Хватит трёх вещей: что за бизнес, что сейчас непонятно с деньгами и какое решение вы хотите принять. Всё остальное я спрошу сам.
+    </div>
+    <div class="card">
+      <div class="card__title">Время ответа</div>
+      <div class="card__text">Обычно в течение дня, в будни быстрее. Если не ответил за сутки — продублируйте, сообщение потерялось.</div>
+    </div>
+    <div class="card">
+      <div class="card__title">Реквизиты</div>
+      <div class="card__text">
+        ИП «[название]»<br>
+        БИН/ИИН: [указать]<br>
+        Адрес: [город, Казахстан]<br>
+        Работаю по договору, оплата на расчётный счёт.
+      </div>
+    </div>
+  </div>
+</div></div></section>
+
+
+<section class="section section--soft"><div class="wrap"><div class="cta"><span class="kicker kicker--red">Следующий шаг</span><h2 class="h2">Пока не готовы писать?</h2><p class="lead">Посмотрите разборы ниш или каталог финмоделей — часто ответ находится там.</p><div class="btn-row"><a class="btn btn--ghost" href="#/blog">Читать блог</a><a class="btn btn--primary" href="#/services">Каталог финмоделей</a></div></div></div></section>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <a class="logo" href="#/">
+          <span class="logo__mark">А</span>
+          <span>Адиль&nbsp;·&nbsp;финансы</span>
+        </a>
+        <p class="card__text" style="margin-top:14px;max-width:38ch">
+          Финансовые модели и разборы ниш. Считаю экономику бизнеса до того, как в него вложены деньги.
+        </p>
+      </div>
+      <div>
+        <div class="footer__title">Разделы</div>
+        <ul class="footer__list">
+            <li><a href="#/start">С чего начать</a></li>
+            <li><a href="#/blog">Блог</a></li>
+            <li><a href="#/services">Услуги</a></li>
+            <li><a href="#/work">Работа со мной</a></li>
+            <li><a href="#/about">Обо мне</a></li>
+            <li><a href="#/contacts">Контакты</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__title">Связь</div>
+        <ul class="footer__list">
+          <li><a href="#" data-tg>Telegram</a></li>
+          <li><a href="#" data-wa>WhatsApp</a></li>
+          <li><a href="mailto:small.economy.kaz@gmail.com">Почта</a></li>
+          <li><a href="#/contacts">Все контакты</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div>&copy; 2026 Адиль [фамилия] &middot; ИП «[название]» &middot; БИН/ИИН [указать]</div>
+      <div><a href="#" class="muted">Политика обработки персональных данных</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
+  var nav = document.getElementById('nav');
+  var burger = document.getElementById('burger');
+  var base = 'Адиль — финансовый консультант';
+
+  function route() {
+    var hash = location.hash.replace(/^#/, '') || '/';
+    var found = pages.filter(function (p) { return p.dataset.route === hash; })[0] || pages[0];
+
+    pages.forEach(function (p) { p.classList.toggle('is-current', p === found); });
+    navLinks.forEach(function (a) { a.classList.toggle('is-active', a.dataset.route === found.dataset.route); });
+
+    document.title = found.dataset.route === '/' ? base + ' · финмодели и разборы ниш'
+                                                 : found.dataset.title + ' — ' + base;
+    nav.classList.remove('is-open');
+    window.scrollTo({ top: 0, behavior: 'instant' in document.documentElement.style ? 'instant' : 'auto' });
+  }
+
+  window.addEventListener('hashchange', route);
+  route();
+
+  if (burger) burger.addEventListener('click', function () { nav.classList.toggle('is-open'); });
+
+  // Плавная прокрутка для якорей внутри страницы (например #catalog)
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var h = a.getAttribute('href');
+    if (h.length > 1 && h[1] !== '/') {
+      var el = document.querySelector(h);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
