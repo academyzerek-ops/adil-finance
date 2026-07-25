@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<script>(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.setAttribute('data-theme',t||'dark');})()</script>
 <style>
 /* ===========================================================
    Дизайн-система: формат pimenov.ai/cases, палитра Notion.
@@ -32,11 +33,45 @@
   --red:#D44C47;           /* акцент */
   --red-dark:#B8403C;
   --red-tint:#FBF0EF;      /* красная подложка */
+  --hover:rgba(38,36,31,.05);
+  --hover-2:rgba(38,36,31,.07);
+  --header-bg:rgba(247,247,245,.92);
+  --scrim:rgba(38,36,31,.35);
+  --hero-a:#FFFFFF;
+  --hero-b:#FCFBFA;
+  --red-tint-border:#F0D5D3;
+  --avatar-bg:#26241F;
+  --avatar-fg:#F7F7F5;
   --r-surface:1.5rem;
   --r-card:1.25rem;
   --r-btn:11px;
   --font-body:'Source Sans 3',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
   --font-display:'Playfair Display',Georgia,'Times New Roman',serif;
+}
+
+/* Тёмная тема: «прям серый», как тёмный Notion */
+html[data-theme="dark"]{
+  --bg:#191919;
+  --bg-side:#1F1F1F;
+  --surface:#202020;
+  --surface-2:#262626;
+  --border:#343434;
+  --border-strong:#3F3F3F;
+  --ink:#E6E4DF;
+  --ink-2:#A9A7A1;
+  --ink-3:#7C7A74;
+  --red:#E05B54;
+  --red-dark:#D44C47;
+  --red-tint:rgba(212,76,71,.13);
+  --red-tint-border:rgba(212,76,71,.32);
+  --hover:rgba(230,228,223,.06);
+  --hover-2:rgba(230,228,223,.09);
+  --header-bg:rgba(25,25,25,.92);
+  --scrim:rgba(0,0,0,.55);
+  --hero-a:#222221;
+  --hero-b:#1D1D1C;
+  --avatar-bg:#E6E4DF;
+  --avatar-fg:#191919;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -76,8 +111,8 @@ ul{list-style:none}
 .sidebar__avatar{
   width:7.75rem;height:7.75rem;border-radius:50%;
   margin:30px auto 18px;display:flex;align-items:center;justify-content:center;
-  background:var(--ink);
-  color:var(--bg);font-family:var(--font-display);font-size:3.1rem;font-weight:700;
+  background:var(--avatar-bg);
+  color:var(--avatar-fg);font-family:var(--font-display);font-size:3.1rem;font-weight:700;
   border:1px solid var(--border-strong);
   box-shadow:0 12px 26px -18px rgba(38,36,31,.55);
   transition:transform .2s ease;
@@ -90,26 +125,30 @@ a:hover>.sidebar__avatar{transform:scale(1.02)}
   position:relative;display:block;padding:10px 16px;border-radius:9px;
   font-size:.95rem;color:var(--ink-2);transition:background .15s,color .15s;
 }
-.menu a:hover{background:rgba(38,36,31,.05);color:var(--ink)}
-.menu a.is-active{background:rgba(38,36,31,.07);color:var(--ink);font-weight:700}
+.menu a:hover{background:var(--hover);color:var(--ink)}
+.menu a.is-active{background:var(--hover-2);color:var(--ink);font-weight:700}
 .menu a.is-active::before{
   content:'';position:absolute;left:0;top:9px;bottom:9px;width:3px;
   border-radius:2px;background:var(--red);
 }
 .sidebar__foot{padding:14px 12px 22px;display:flex;justify-content:center;gap:8px}
-.sidebar__foot a,.drawer__foot a{
+.sidebar__foot a,.drawer__foot a,.theme-toggle{
   display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;
   border-radius:50%;color:var(--ink-3);transition:color .15s,background .15s;
+  background:none;border:0;cursor:pointer;padding:0;
 }
-.sidebar__foot a:hover,.drawer__foot a:hover{color:var(--red);background:rgba(38,36,31,.06)}
-.sidebar__foot svg,.drawer__foot svg{width:18px;height:18px;fill:currentColor}
+.sidebar__foot a:hover,.drawer__foot a:hover,.theme-toggle:hover{color:var(--red);background:var(--hover-2)}
+.sidebar__foot svg,.drawer__foot svg,.theme-toggle svg{width:18px;height:18px;fill:currentColor}
+html[data-theme="dark"] .theme-toggle .icon-moon{display:none}
+html:not([data-theme="dark"]) .theme-toggle .icon-sun{display:none}
+.mobile-header__actions{display:flex;align-items:center;gap:8px}
 
 /* ---------- мобильная шапка и меню ---------- */
 .mobile-header{
   position:sticky;top:0;z-index:30;
   display:flex;align-items:center;justify-content:space-between;
   height:58px;padding:0 14px;
-  background:rgba(247,247,245,.92);
+  background:var(--header-bg);
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--border);
 }
@@ -117,7 +156,7 @@ a:hover>.sidebar__avatar{transform:scale(1.02)}
 .mobile-header__brand{font-weight:700;display:flex;align-items:center;gap:10px;font-size:.98rem}
 .mobile-header__mark{
   width:30px;height:30px;border-radius:8px;flex-shrink:0;
-  background:var(--ink);color:var(--bg);
+  background:var(--avatar-bg);color:var(--avatar-fg);
   display:flex;align-items:center;justify-content:center;
   font-family:var(--font-display);font-weight:700;font-size:.95rem;
 }
@@ -128,7 +167,7 @@ a:hover>.sidebar__avatar{transform:scale(1.02)}
 }
 .drawer{position:fixed;inset:0;z-index:60;display:none}
 .drawer.is-open{display:block}
-.drawer__scrim{position:absolute;inset:0;background:rgba(38,36,31,.35)}
+.drawer__scrim{position:absolute;inset:0;background:var(--scrim)}
 .drawer__panel{
   position:absolute;top:0;left:0;bottom:0;width:min(300px,85vw);
   background:var(--bg-side);overflow-y:auto;
@@ -171,7 +210,7 @@ h1{
 }
 @media(min-width:768px){.surface{padding:36px}}
 .surface--hero{
-  background:linear-gradient(180deg,#FFFFFF 0%,#FCFBFA 100%);
+  background:linear-gradient(180deg,var(--hero-a) 0%,var(--hero-b) 100%);
   border-color:var(--border-strong);
 }
 .page>.surface:first-child{margin-top:0}
@@ -202,7 +241,7 @@ h1{
 }
 .btn--primary:hover{background:var(--red-dark)}
 .btn--ghost{border-color:var(--border-strong);color:var(--ink)}
-.btn--ghost:hover{background:rgba(38,36,31,.04)}
+.btn--ghost:hover{background:var(--hover)}
 .btn--sm{padding:7px 15px;font-size:.85rem}
 
 /* ---------- карточка-разбор ---------- */
@@ -268,7 +307,7 @@ h1{
   padding:18px 20px;font-size:.93rem;line-height:1.7;color:var(--ink-2);
 }
 .note strong{color:var(--ink)}
-.note--red{background:var(--red-tint);border-color:#F0D5D3}
+.note--red{background:var(--red-tint);border-color:var(--red-tint-border)}
 .quote{
   border-left:3px solid var(--red);
   padding:4px 0 4px 20px;
@@ -332,7 +371,7 @@ h1{
 }
 .cta-btn--primary:hover{background:var(--red-dark)}
 .cta-btn--secondary{border-color:var(--border-strong);background:var(--surface)}
-.cta-btn--secondary:hover{background:rgba(38,36,31,.04)}
+.cta-btn--secondary:hover{background:var(--hover)}
 
 /* ---------- подвал ---------- */
 .site-footer{
@@ -375,6 +414,7 @@ h1{
       <a href="#" data-tg aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.9 4.6c.3-1.2-.9-2.2-2-1.7L2.7 9.6c-1.2.5-1.1 2.2.1 2.6l4.4 1.4 1.7 5.5c.3 1 1.6 1.3 2.4.5l2.5-2.5 4.5 3.3c.9.7 2.2.2 2.4-.9l3.2-14.9zM8.5 12.9l8.9-5.5c.4-.2.7.3.4.6l-7.3 6.6-.3 3.2-1.7-4.9z"/></svg></a>
       <a href="https://wa.me/77064068804" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.2-5-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4-.1.7.5.2.6.8 2 .9 2.1.1.1.1.3 0 .5-.1.2-.2.3-.3.5l-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1.1.3.2.5.2.6.4.1.1.1.7-.1 1.4z"/></svg></a>
       <a href="mailto:small.economy.kaz@gmail.com" aria-label="Почта"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5v2.2z"/></svg></a>
+      <button class="theme-toggle" data-theme-toggle aria-label="Переключить тему"><svg class="icon-sun" viewBox="0 0 24 24"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM1 11h3v2H1v-2zm19 0h3v2h-3v-2zM4.2 5.6 5.6 4.2l2.1 2.1-1.4 1.4-2.1-2.1zm12.1 12.1 1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1zm2.1-13.5 1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1zM6.3 16.3l1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1z"/></svg><svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 8.5 8.5 0 1 0 21 14.5z"/></svg></button>
     </div>
   </aside>
 
@@ -386,7 +426,10 @@ h1{
         <span class="mobile-header__mark">А</span>
         <span>Адиль Алдабергенов</span>
       </a>
-      <button class="burger" id="burger" aria-label="Открыть меню">Меню</button>
+      <div class="mobile-header__actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Переключить тему"><svg class="icon-sun" viewBox="0 0 24 24"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM1 11h3v2H1v-2zm19 0h3v2h-3v-2zM4.2 5.6 5.6 4.2l2.1 2.1-1.4 1.4-2.1-2.1zm12.1 12.1 1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1zm2.1-13.5 1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1zM6.3 16.3l1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1z"/></svg><svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 8.5 8.5 0 1 0 21 14.5z"/></svg></button>
+        <button class="burger" id="burger" aria-label="Открыть меню">Меню</button>
+      </div>
     </header>
 
     <main class="main-col" id="main">
@@ -1201,6 +1244,14 @@ h1{
   route();
 
   if (burger) burger.addEventListener('click', function () { drawer.classList.add('is-open'); });
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-theme-toggle]'), function (b) {
+    b.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  });
   drawer.addEventListener('click', function (e) {
     if (e.target.hasAttribute('data-close-drawer')) drawer.classList.remove('is-open');
   });
