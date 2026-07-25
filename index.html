@@ -59,7 +59,7 @@ ul{list-style:none}
 /* ---------- каркас: сайдбар + контент ---------- */
 .app{min-height:100vh}
 .sidebar{display:none}
-@media(min-width:1024px){
+@media(min-width:900px){
   .app{display:flex}
   .sidebar{
     display:flex;flex-direction:column;
@@ -72,7 +72,7 @@ ul{list-style:none}
 }
 .main-col{width:100%;max-width:900px;margin:0 auto;padding:16px 16px 48px}
 @media(min-width:768px){.main-col{padding:24px 24px 56px}}
-@media(min-width:1024px){.main-col{padding-top:40px}}
+@media(min-width:900px){.main-col{padding-top:40px}}
 
 /* ---------- сайдбар ---------- */
 .sidebar__avatar{
@@ -112,7 +112,7 @@ a:hover>.sidebar__avatar{transform:scale(1.02)}
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--base-300);
 }
-@media(min-width:1024px){.mobile-header{display:none}}
+@media(min-width:900px){.mobile-header{display:none}}
 .mobile-header__brand{font-weight:800;display:flex;align-items:center;gap:10px}
 .mobile-header__mark{
   width:32px;height:32px;border-radius:10px;flex-shrink:0;
