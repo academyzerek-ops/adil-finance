@@ -132,16 +132,51 @@ a:hover>.sidebar__avatar{transform:scale(1.02)}
   border-radius:2px;background:var(--red);
 }
 .sidebar__foot{padding:14px 12px 22px;display:flex;justify-content:center;gap:8px}
-.sidebar__foot a,.drawer__foot a,.theme-toggle{
+.sidebar__foot a,.drawer__foot a{
   display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;
   border-radius:50%;color:var(--ink-3);transition:color .15s,background .15s;
-  background:none;border:0;cursor:pointer;padding:0;
 }
-.sidebar__foot a:hover,.drawer__foot a:hover,.theme-toggle:hover{color:var(--red);background:var(--hover-2)}
-.sidebar__foot svg,.drawer__foot svg,.theme-toggle svg{width:18px;height:18px;fill:currentColor}
-html[data-theme="dark"] .theme-toggle .icon-moon{display:none}
-html:not([data-theme="dark"]) .theme-toggle .icon-sun{display:none}
-.mobile-header__actions{display:flex;align-items:center;gap:8px}
+.sidebar__foot a:hover,.drawer__foot a:hover{color:var(--red);background:var(--hover-2)}
+.sidebar__foot svg,.drawer__foot svg{width:18px;height:18px;fill:currentColor}
+
+/* ---------- переключатель темы (как в референсе) ---------- */
+.topbar{display:none}
+@media(min-width:900px){
+  .topbar{display:flex;justify-content:flex-end;padding:16px 24px 0}
+}
+.theme-dd{position:relative}
+.theme-dd summary{
+  list-style:none;display:inline-flex;align-items:center;gap:7px;
+  padding:7px 14px;border-radius:var(--r-btn);cursor:pointer;
+  font-size:.87rem;font-weight:600;color:var(--ink-2);
+  transition:background .15s,color .15s;user-select:none;
+}
+.theme-dd summary::-webkit-details-marker{display:none}
+.theme-dd summary:hover{background:var(--hover);color:var(--ink)}
+.theme-dd[open] summary{background:var(--hover-2);color:var(--ink)}
+.theme-dd summary svg{width:9px;height:9px;fill:currentColor;opacity:.6}
+.theme-dd__list{
+  position:absolute;right:0;top:calc(100% + 6px);z-index:50;
+  width:11rem;padding:6px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow:0 16px 34px -18px rgba(0,0,0,.35);
+}
+.theme-dd__list button{
+  display:block;width:100%;text-align:left;
+  padding:8px 12px;border:0;border-radius:9px;cursor:pointer;
+  background:none;color:var(--ink-2);font:inherit;font-size:.9rem;font-weight:600;
+  transition:background .15s,color .15s;
+}
+.theme-dd__list button:hover{background:var(--hover);color:var(--ink)}
+.theme-dd__list button.is-active{color:var(--red)}
+.drawer-theme{display:block;padding:6px 24px 14px}
+.drawer-theme span{display:block;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-3);margin-bottom:6px}
+.drawer-theme select{
+  width:100%;padding:9px 12px;
+  border:1px solid var(--border-strong);border-radius:var(--r-btn);
+  background:var(--surface);color:var(--ink);font:inherit;font-size:.92rem;
+}
 
 /* ---------- мобильная шапка и меню ---------- */
 .mobile-header{
@@ -414,7 +449,6 @@ h1{
       <a href="#" data-tg aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.9 4.6c.3-1.2-.9-2.2-2-1.7L2.7 9.6c-1.2.5-1.1 2.2.1 2.6l4.4 1.4 1.7 5.5c.3 1 1.6 1.3 2.4.5l2.5-2.5 4.5 3.3c.9.7 2.2.2 2.4-.9l3.2-14.9zM8.5 12.9l8.9-5.5c.4-.2.7.3.4.6l-7.3 6.6-.3 3.2-1.7-4.9z"/></svg></a>
       <a href="https://wa.me/77064068804" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.2-5-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4-.1.7.5.2.6.8 2 .9 2.1.1.1.1.3 0 .5-.1.2-.2.3-.3.5l-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1.1.3.2.5.2.6.4.1.1.1.7-.1 1.4z"/></svg></a>
       <a href="mailto:small.economy.kaz@gmail.com" aria-label="Почта"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5v2.2z"/></svg></a>
-      <button class="theme-toggle" data-theme-toggle aria-label="Переключить тему"><svg class="icon-sun" viewBox="0 0 24 24"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM1 11h3v2H1v-2zm19 0h3v2h-3v-2zM4.2 5.6 5.6 4.2l2.1 2.1-1.4 1.4-2.1-2.1zm12.1 12.1 1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1zm2.1-13.5 1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1zM6.3 16.3l1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1z"/></svg><svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 8.5 8.5 0 1 0 21 14.5z"/></svg></button>
     </div>
   </aside>
 
@@ -426,11 +460,18 @@ h1{
         <span class="mobile-header__mark">А</span>
         <span>Адиль Алдабергенов</span>
       </a>
-      <div class="mobile-header__actions">
-        <button class="theme-toggle" data-theme-toggle aria-label="Переключить тему"><svg class="icon-sun" viewBox="0 0 24 24"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM1 11h3v2H1v-2zm19 0h3v2h-3v-2zM4.2 5.6 5.6 4.2l2.1 2.1-1.4 1.4-2.1-2.1zm12.1 12.1 1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1zm2.1-13.5 1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1zM6.3 16.3l1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1z"/></svg><svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 8.5 8.5 0 1 0 21 14.5z"/></svg></button>
-        <button class="burger" id="burger" aria-label="Открыть меню">Меню</button>
-      </div>
+      <button class="burger" id="burger" aria-label="Открыть меню">Меню</button>
     </header>
+
+    <div class="topbar">
+      <details class="theme-dd" id="themeDd">
+        <summary aria-label="Выбрать тему сайта">Тема <svg viewBox="0 0 2048 2048"><path d="M1024 1536l-1024-1024h2048z"/></svg></summary>
+        <ul class="theme-dd__list">
+          <li><button type="button" data-theme-value="light">Светлая</button></li>
+          <li><button type="button" data-theme-value="dark">Тёмная</button></li>
+        </ul>
+      </details>
+    </div>
 
     <main class="main-col" id="main">
 
@@ -1211,6 +1252,13 @@ h1{
       <a href="#/about" data-route="/about">Обо мне</a>
       <a href="#/contacts" data-route="/contacts">Контакты</a>
     </nav>
+    <label class="drawer-theme">
+      <span>Тема</span>
+      <select data-theme-select aria-label="Выбрать тему сайта">
+        <option value="light">Светлая</option>
+        <option value="dark">Тёмная</option>
+      </select>
+    </label>
     <div class="drawer__foot">
       <a href="#" data-tg aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.9 4.6c.3-1.2-.9-2.2-2-1.7L2.7 9.6c-1.2.5-1.1 2.2.1 2.6l4.4 1.4 1.7 5.5c.3 1 1.6 1.3 2.4.5l2.5-2.5 4.5 3.3c.9.7 2.2.2 2.4-.9l3.2-14.9zM8.5 12.9l8.9-5.5c.4-.2.7.3.4.6l-7.3 6.6-.3 3.2-1.7-4.9z"/></svg></a>
       <a href="https://wa.me/77064068804" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.2-5-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4-.1.7.5.2.6.8 2 .9 2.1.1.1.1.3 0 .5-.1.2-.2.3-.3.5l-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1.1.3.2.5.2.6.4.1.1.1.7-.1 1.4z"/></svg></a>
@@ -1245,12 +1293,29 @@ h1{
 
   if (burger) burger.addEventListener('click', function () { drawer.classList.add('is-open'); });
 
-  Array.prototype.forEach.call(document.querySelectorAll('[data-theme-toggle]'), function (b) {
-    b.addEventListener('click', function () {
-      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      try { localStorage.setItem('theme', next); } catch (e) {}
-    });
+  // Переключатель темы: дропдаун на десктопе, селект в мобильном меню
+  var themeDd = document.getElementById('themeDd');
+  var themeButtons = Array.prototype.slice.call(document.querySelectorAll('[data-theme-value]'));
+  var themeSelects = Array.prototype.slice.call(document.querySelectorAll('[data-theme-select]'));
+
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem('theme', t); } catch (e) {}
+    themeButtons.forEach(function (b) { b.classList.toggle('is-active', b.dataset.themeValue === t); });
+    themeSelects.forEach(function (s) { s.value = t; });
+    if (themeDd) themeDd.removeAttribute('open');
+  }
+
+  themeButtons.forEach(function (b) {
+    b.addEventListener('click', function () { applyTheme(b.dataset.themeValue); });
+  });
+  themeSelects.forEach(function (s) {
+    s.addEventListener('change', function () { applyTheme(s.value); });
+  });
+  applyTheme(document.documentElement.getAttribute('data-theme') || 'dark');
+
+  document.addEventListener('click', function (e) {
+    if (themeDd && themeDd.hasAttribute('open') && !themeDd.contains(e.target)) themeDd.removeAttribute('open');
   });
   drawer.addEventListener('click', function (e) {
     if (e.target.hasAttribute('data-close-drawer')) drawer.classList.remove('is-open');
