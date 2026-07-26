@@ -464,8 +464,30 @@ html[data-theme="dark"] ::-webkit-scrollbar-thumb{background:#333;border-radius:
 .hero-art .line-cost{stroke:var(--ink-3);stroke-width:2;opacity:.7}
 .hero-art .line-rev{stroke:var(--ink);stroke-width:2;opacity:.75}
 .hero-art .dot{fill:var(--red)}
+.hero-art .ripple{fill:none;stroke:var(--red);stroke-width:1.5;opacity:0}
 .hero-art .drop{stroke:var(--red);stroke-width:1.5;stroke-dasharray:3 5;opacity:.8}
 .hero-art .lbl{fill:var(--ink-3);font-family:var(--font-mono);font-size:11px}
+
+/* живой график: линии прорисовываются, точка пульсирует */
+@media(prefers-reduced-motion:no-preference){
+  .hero-art .axis{opacity:0;animation:ha-fade .6s ease .15s forwards}
+  .hero-art .lbl{opacity:0;animation:ha-fade .8s ease 2s forwards}
+  .hero-art .line-cost{stroke-dasharray:1;stroke-dashoffset:1;animation:ha-draw 1s cubic-bezier(.4,0,.2,1) .55s forwards}
+  .hero-art .line-rev{stroke-dasharray:1;stroke-dashoffset:1;animation:ha-draw 1.2s cubic-bezier(.4,0,.2,1) .85s forwards}
+  .hero-art .dot{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:ha-pop .5s cubic-bezier(.34,1.56,.64,1) 1.75s forwards}
+  .hero-art .ripple{transform-box:fill-box;transform-origin:center;animation:ha-ripple 2.8s ease-out 2.3s infinite}
+  .hero-art .drop{opacity:0;animation:ha-fade-drop .5s ease 1.95s forwards,ha-dash 2.2s linear 2.45s infinite}
+}
+@keyframes ha-fade{to{opacity:1}}
+@keyframes ha-fade-drop{to{opacity:.8}}
+@keyframes ha-draw{to{stroke-dashoffset:0}}
+@keyframes ha-pop{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes ha-dash{to{stroke-dashoffset:-16}}
+@keyframes ha-ripple{
+  0%{opacity:.5;transform:scale(1)}
+  70%{opacity:0;transform:scale(2.6)}
+  100%{opacity:0;transform:scale(2.6)}
+}
 .hero-with-art .hero-lead{max-width:38rem}
 .hero-with-art h1{max-width:33rem}
 
@@ -531,8 +553,9 @@ html[data-theme="dark"] ::-webkit-scrollbar-thumb{background:#333;border-radius:
           <text x="6" y="14" class="lbl">точка безубыточности</text>
           <path class="axis" d="M8 180 H244"/>
           <path class="axis" d="M8 180 V28"/>
-          <path class="line-cost" d="M8 132 L236 68"/>
-          <path class="line-rev" d="M8 166 C80 138 160 92 236 42"/>
+          <path class="line-cost" pathLength="1" d="M8 132 L236 68"/>
+          <path class="line-rev" pathLength="1" d="M8 166 C80 138 160 92 236 42"/>
+          <circle class="ripple" cx="152" cy="92" r="6.5"/>
           <circle class="dot" cx="152" cy="92" r="6.5"/>
           <path class="drop" d="M152 92 V180"/>
         </svg>
