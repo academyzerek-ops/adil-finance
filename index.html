@@ -3,16 +3,53 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Финансист · финмодели и разборы ниш</title>
-<meta name="description" content="Финансовые модели по нишам, разборы экономики малого бизнеса, управленческая отчетность. Считаю до того, как вложены деньги.">
-<meta property="og:title" content="Финансист · финмодели и разборы ниш">
+<title>Финансист · финансовые модели и разборы ниш для малого бизнеса</title>
+<meta name="description" content="Финансовые модели по нишам: кофейня, барбершоп, автосервис, пекарня и другие. Разборы экономики малого бизнеса, расчеты для инвестора и банка, точка безубыточности, P&amp;L и движение денег. Считаю до того, как вложены деньги.">
+<link rel="canonical" href="https://zerek.cc/">
+<meta property="og:title" content="Финансист · финансовые модели и разборы ниш">
 <meta property="og:description" content="Считаю экономику бизнеса до того, как в него вложены деньги.">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Финансист">
+<meta property="og:locale" content="ru_RU">
 <meta property="og:url" content="https://zerek.cc/">
 <meta property="og:image" content="https://zerek.cc/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://zerek.cc/#website",
+      "url": "https://zerek.cc/",
+      "name": "Финансист",
+      "description": "Финансовые модели по нишам и разборы экономики малого бизнеса",
+      "inLanguage": "ru"
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://zerek.cc/#service",
+      "name": "Финансист: финансовые модели и разборы ниш",
+      "url": "https://zerek.cc/",
+      "image": "https://zerek.cc/og.png",
+      "description": "Финансовые модели под конкретные ниши малого бизнеса, индивидуальные расчеты для инвестора и банка, управленческая отчетность. Опыт: аудит и консалтинг в компании большой четверки, руководящие финансовые позиции в реальном секторе.",
+      "email": "small.economy.kaz@gmail.com",
+      "telephone": "+77064068804",
+      "priceRange": "$$",
+      "knowsLanguage": ["ru"],
+      "serviceType": [
+        "Финансовое моделирование",
+        "Финансовая модель для бизнеса",
+        "Бизнес-план для инвестора и банка",
+        "Управленческий учет",
+        "Юнит-экономика"
+      ]
+    }
+  ]
+}
+</script>
 <meta name="theme-color" content="#F5F2EA">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='9' fill='%231A1712'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' font-weight='600' fill='%23F5F2EA' text-anchor='middle'>Ф</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -962,7 +999,7 @@ h1{
     var found = pages.filter(function (p) { return p.dataset.route === hash; })[0] || pages[0];
     pages.forEach(function (p) { p.classList.toggle('is-current', p === found); });
     navLinks.forEach(function (a) { a.classList.toggle('is-active', a.dataset.route === found.dataset.route); });
-    document.title = found.dataset.route === '/' ? base + ' · финмодели и разборы ниш'
+    document.title = found.dataset.route === '/' ? base + ' · финансовые модели и разборы ниш для малого бизнеса'
                                                  : found.dataset.title + ' · ' + base;
     document.body.classList.remove('menu-open');
     window.scrollTo(0, 0);
