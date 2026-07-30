@@ -64,34 +64,65 @@ img,svg{max-width:100%;display:block}
 .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
 @media(max-width:767px){.wrap{padding:0 20px}}
 
-/* ============ Навигация: парящая пилюля ============ */
-.nav{
-  position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:60;
-  display:flex;align-items:center;gap:4px;
-  padding:7px 9px;border-radius:999px;
-  background:rgba(245,242,234,.72);
-  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
-  border:1px solid var(--line);
-  box-shadow:0 12px 40px -18px rgba(26,23,18,.28), inset 0 1px 0 rgba(255,255,255,.5);
-  white-space:nowrap;
+/* ============ Сайдбар слева ============ */
+.sidebar{
+  position:fixed;top:0;left:0;bottom:0;width:252px;z-index:50;
+  display:flex;flex-direction:column;
+  padding:36px 26px 28px;
+  background:rgba(239,235,224,.55);
+  border-right:1px solid var(--line);
 }
-.nav__brand{
-  width:36px;height:36px;border-radius:999px;flex:0 0 auto;
-  background:var(--ink);color:var(--paper);
-  font-family:var(--font-display);font-weight:600;font-size:19px;
+.sb__mark{
+  width:44px;height:44px;border-radius:14px;
   display:flex;align-items:center;justify-content:center;
-  margin-right:6px;
+  background:var(--ink);color:var(--paper);
+  font-family:var(--font-display);font-weight:600;font-size:23px;
+  transition:transform .5s var(--ease);
 }
-.nav__links{display:flex;gap:2px}
-.nav__links a{
-  font-size:13.5px;font-weight:600;letter-spacing:.01em;color:var(--ink-2);
-  padding:9px 15px;border-radius:999px;
+.sidebar>a:hover .sb__mark{transform:rotate(-4deg) scale(1.04)}
+.sb__name{margin-top:16px;font-family:var(--font-display);font-weight:600;font-size:1.5rem;letter-spacing:-.005em}
+.sb__role{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:5px}
+.menu{position:relative;display:flex;flex-direction:column;gap:2px;margin-top:36px}
+.menu__bubble{
+  position:absolute;left:0;right:0;top:0;height:0;z-index:0;opacity:0;
+  background:var(--ink);border-radius:12px;
+  box-shadow:0 10px 24px -14px rgba(26,23,18,.55);
+  transition:top .6s cubic-bezier(.3,1.25,.35,1),height .45s var(--ease),opacity .35s var(--ease);
+}
+.menu a{
+  position:relative;z-index:1;
+  padding:10px 14px;border-radius:12px;
+  font-size:14px;font-weight:600;color:var(--ink-2);
   transition:color .45s var(--ease),background .45s var(--ease);
 }
-.nav__links a:hover{color:var(--ink);background:rgba(26,23,18,.05)}
-.nav__links a.is-active{color:var(--paper);background:var(--ink)}
+.menu a:hover{color:var(--ink);background:rgba(26,23,18,.05)}
+.menu a.is-active{color:var(--paper);background:transparent}
+.sb__foot{margin-top:auto;display:flex;gap:10px}
+.sb__foot a{
+  width:38px;height:38px;border-radius:999px;border:1px solid var(--line-2);
+  display:flex;align-items:center;justify-content:center;color:var(--ink-2);
+  transition:color .4s var(--ease),border-color .4s var(--ease),transform .4s var(--ease);
+}
+.sb__foot a:hover{color:var(--ink);border-color:var(--ink);transform:translateY(-2px)}
+.sb__foot svg{width:17px;height:17px;fill:currentColor}
+.content{margin-left:252px}
+
+/* мобильная шапка */
+.mhead{
+  display:none;position:fixed;top:0;left:0;right:0;z-index:60;
+  align-items:center;justify-content:space-between;
+  padding:11px 20px;
+  background:rgba(245,242,234,.78);
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.mhead__brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:1.15rem}
+.mhead__mark{
+  width:32px;height:32px;border-radius:10px;background:var(--ink);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;font-size:17px;
+}
 .burger{
-  display:none;width:36px;height:36px;border:0;border-radius:999px;background:transparent;
+  width:36px;height:36px;border:0;border-radius:999px;background:transparent;
   cursor:pointer;position:relative;flex:0 0 auto;
 }
 .burger span{
@@ -103,10 +134,9 @@ img,svg{max-width:100%;display:block}
 body.menu-open .burger span:nth-child(1){transform:translateY(3.5px) rotate(45deg)}
 body.menu-open .burger span:nth-child(2){transform:translateY(-3.5px) rotate(-45deg)}
 @media(max-width:860px){
-  .nav__links{display:none}
-  .burger{display:block}
-  .nav{gap:8px;padding:6px 8px}
-  .nav__brand{margin-right:0}
+  .sidebar{display:none}
+  .content{margin-left:0}
+  .mhead{display:flex}
 }
 
 /* мобильное меню: полноэкранная вуаль */
@@ -162,9 +192,9 @@ h1{
 .page.is-current{display:block;animation:pg .5s var(--ease)}
 @keyframes pg{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .sec{padding:56px 0}
-.sec--first{padding-top:170px}
+.sec--first{padding-top:130px}
 .sec--last{padding-bottom:120px}
-@media(min-width:768px){.sec{padding:76px 0}.sec--first{padding-top:210px}}
+@media(min-width:768px){.sec{padding:76px 0}.sec--first{padding-top:150px}}
 .sec__head{display:flex;flex-direction:column;gap:18px;margin-bottom:44px}
 .sec__row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
 
@@ -172,8 +202,8 @@ h1{
 .hero{position:relative}
 .hero .lead{margin-top:26px}
 .hero .actions{margin-top:38px}
-.hero-art{position:absolute;right:28px;top:235px;display:none;pointer-events:none}
-@media(min-width:1060px){.hero-art{display:block}}
+.hero-art{position:absolute;right:28px;top:175px;display:none;pointer-events:none}
+@media(min-width:1280px){.hero-art{display:block}}
 .hero-art .axis{stroke:var(--line-2);stroke-width:1.5}
 .hero-art .line-cost{stroke:var(--ink-3);stroke-width:1.8;opacity:.8}
 .hero-art .line-rev{stroke:var(--ink);stroke-width:1.8;opacity:.85}
@@ -370,10 +400,13 @@ h1{
 
 <div class="grain" aria-hidden="true"></div>
 
-<!-- ===== Навигация ===== -->
-<header class="nav">
-  <a class="nav__brand" href="#/" aria-label="Главная">Ф</a>
-  <nav class="nav__links" data-menu>
+<!-- ===== Сайдбар (десктоп) ===== -->
+<aside class="sidebar">
+  <a href="#/" aria-label="Главная"><span class="sb__mark">Ф</span></a>
+  <div class="sb__name">Финансист</div>
+  <div class="sb__role">финмодели · разборы ниш</div>
+  <nav class="menu" data-menu id="sbMenu">
+    <span class="menu__bubble" id="menuBubble" aria-hidden="true"></span>
     <a href="#/" data-route="/">Главная</a>
     <a href="#/blog" data-route="/blog">Разборы</a>
     <a href="#/services" data-route="/services">Финмодели</a>
@@ -381,6 +414,15 @@ h1{
     <a href="#/about" data-route="/about">Обо мне</a>
     <a href="#/contacts" data-route="/contacts">Контакты</a>
   </nav>
+  <div class="sb__foot">
+    <a href="https://wa.me/77064068804" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.2-5-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4-.1.7.5.2.6.8 2 .9 2.1.1.1.1.3 0 .5-.1.2-.2.3-.3.5l-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1.1.3.2.5.2.6.4.1.1.1.7-.1 1.4z"/></svg></a>
+    <a href="mailto:small.economy.kaz@gmail.com" aria-label="Почта"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5v2.2z"/></svg></a>
+  </div>
+</aside>
+
+<!-- ===== Мобильная шапка ===== -->
+<header class="mhead">
+  <a class="mhead__brand" href="#/"><span class="mhead__mark">Ф</span><span>Финансист</span></a>
   <button class="burger" id="burger" aria-label="Меню"><span></span><span></span></button>
 </header>
 
@@ -396,6 +438,7 @@ h1{
   </nav>
 </div>
 
+<div class="content">
 <main>
 
 <!-- ================= ГЛАВНАЯ ================= -->
@@ -893,13 +936,26 @@ h1{
     <div class="disc">Расчеты и разборы на сайте - аналитика на основе допущений и открытых данных, а не инвестиционная рекомендация или гарантия результата.</div>
   </div>
 </footer>
+</div>
 
 <script>
 (function () {
   var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
   var navLinks = Array.prototype.slice.call(document.querySelectorAll('[data-menu] a'));
   var burger = document.getElementById('burger');
+  var menu = document.getElementById('sbMenu');
+  var bubble = document.getElementById('menuBubble');
   var base = 'Финансист';
+
+  // бабл: пилюля перетекает к активному пункту меню
+  function moveBubble() {
+    if (!bubble || !menu) return;
+    var act = menu.querySelector('a.is-active');
+    if (!act) { bubble.style.opacity = 0; return; }
+    bubble.style.opacity = 1;
+    bubble.style.top = act.offsetTop + 'px';
+    bubble.style.height = act.offsetHeight + 'px';
+  }
 
   function route() {
     var hash = location.hash.replace(/^#/, '') || '/';
@@ -911,9 +967,12 @@ h1{
     document.body.classList.remove('menu-open');
     window.scrollTo(0, 0);
     requestAnimationFrame(function () { window.scrollTo(0, 0); });
+    moveBubble();
     reveal();
   }
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.addEventListener('resize', moveBubble);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveBubble);
 
   window.addEventListener('hashchange', route);
 
