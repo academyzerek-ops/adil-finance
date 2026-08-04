@@ -538,8 +538,9 @@ body.dark .fact:hover {
   transition: color .4s var(--ease), border-color .4s var(--ease), transform .4s var(--ease);
 }
 .theme-toggle-btn {
-  margin-top: 24px;
-  align-self: flex-start;
+  position: absolute;
+  top: 57px;
+  left: 26px;
 }
 .theme-toggle-btn:hover, .theme-toggle-btn-mob:hover {
   color: var(--ink);
@@ -579,22 +580,21 @@ span.accent-highlight {
     </span>
   </a>
   <div class="sb__name">ФИНАНСИСТ</div>
-  <div class="sb__role">финмодели · разборы ниш</div>
   <nav class="menu" data-menu id="sbMenu">
     <span class="menu__bubble" id="menuBubble" aria-hidden="true"></span>
-    <a href="#/" data-route="/">Главная</a>
-    <a href="#/blog" data-route="/blog">Разборы</a>
+    <a href="#/" data-route="/">Блог</a>
     <a href="#/services" data-route="/services">Финмодели</a>
-    <a href="#/work" data-route="/work">Работа со мной</a>
+    <a href="#/bizplans" data-route="/bizplans">Бизнес-планы</a>
+    <a href="#/accounting" data-route="/accounting">Управленческий учет</a>
+    <a href="#/dashboards" data-route="/dashboards">Дашборды</a>
     <a href="#/about" data-route="/about">Обо мне</a>
-    <a href="#/contacts" data-route="/contacts">Контакты</a>
   </nav>
   <button id="themeToggle" class="theme-toggle-btn" aria-label="Сменить тему">
      <svg viewBox="0 0 24 24" class="theme-toggle-icon-sun" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
      <svg viewBox="0 0 24 24" class="theme-toggle-icon-moon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
   </button>
   <div class="sb__foot">
-    <a href="https://wa.me/77064068804" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.2-5-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4-.1.7.5.2.6.8 2 .9 2.1.1.1.1.3 0 .5-.1.2-.2.3-.3.5l-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1.1.3.2.5.2.6.4.1.1.1.7-.1 1.4z"/></svg></a>
+    <a href="https://t.me/godoffin" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.35-.01-1.02-.2-1.51-.37-.6-.2-1.08-.31-1.04-.66.02-.18.27-.36.75-.55 2.95-1.28 4.91-2.13 5.88-2.54 2.8-1.18 3.38-1.39 3.76-1.4.08 0 .27.02.39.12a.4.4 0 0 1 .12.27c0 .04-.01.12-.02.16z"/></svg></a>
     <a href="mailto:small.economy.kaz@gmail.com" aria-label="Почта"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5v2.2z"/></svg></a>
   </div>
 </aside>
@@ -620,117 +620,20 @@ span.accent-highlight {
 <!-- ===== Мобильное меню ===== -->
 <div class="veil" id="veil">
   <nav data-menu>
-    <a href="#/" data-route="/">Главная</a>
-    <a href="#/blog" data-route="/blog">Разборы</a>
+    <a href="#/" data-route="/">Блог</a>
     <a href="#/services" data-route="/services">Финмодели</a>
-    <a href="#/work" data-route="/work">Работа со мной</a>
+    <a href="#/bizplans" data-route="/bizplans">Бизнес-планы</a>
+    <a href="#/accounting" data-route="/accounting">Управленческий учет</a>
+    <a href="#/dashboards" data-route="/dashboards">Дашборды</a>
     <a href="#/about" data-route="/about">Обо мне</a>
-    <a href="#/contacts" data-route="/contacts">Контакты</a>
   </nav>
 </div>
 
 <div class="content">
 <main>
 
-<!-- ================= ГЛАВНАЯ ================= -->
-<section class="page" data-route="/" data-title="Финансист">
-
-  <div class="wrap sec sec--first hero">
-    <svg class="hero-art" width="270" height="210" viewBox="0 0 270 210" fill="none" aria-hidden="true">
-      <text x="10" y="14" class="lbl">точка безубыточности</text>
-      <path class="axis" d="M12 190 H262"/>
-      <path class="axis" d="M12 190 V30"/>
-      <path class="line-cost" pathLength="1" d="M12 140 L254 72"/>
-      <path class="line-rev" pathLength="1" d="M12 176 C90 146 172 98 254 44"/>
-      <circle class="ripple" cx="164" cy="97" r="6.5"/>
-      <circle class="dot" cx="164" cy="97" r="6.5"/>
-      <path class="drop" d="M164 97 V190"/>
-    </svg>
-    <span class="eyebrow">Финансовый консультант · 20 лет практики</span>
-    <h1 style="margin-top:26px">Считаю экономику бизнеса до того, как в него вложены деньги</h1>
-    <p class="lead">Финансовые модели, разборы ниш и управленческая отчетность для малого бизнеса. Расчеты, которые выдерживают вопросы инвестора и банка.</p>
-    <div class="actions">
-      <a class="btn" href="#/services"><span>Финмодели</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-      <a class="btn btn--ghost" href="#/work"><span>Работа со мной</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-    </div>
-    <div class="facts">
-      <div class="fact rv">
-        <span class="fact__num">01 · Audit &amp; Strategy</span>
-        <strong>Большая четверка</strong>
-        <span>Аудит и консалтинг: школа проверяемых цифр, три формы отчетности, жесткая финансовая методология.</span>
-      </div>
-      <div class="fact rv">
-        <span class="fact__num">02 · Real Sector</span>
-        <strong>Реальный сектор</strong>
-        <span>Руководящие финансовые позиции в девелопменте и производстве. Инвестиционные проекты до $100M.</span>
-      </div>
-      <div class="fact rv">
-        <span class="fact__num">03 · EdTech SaaS</span>
-        <strong>TerenLabs</strong>
-        <span>Собственная платформа финансовой безопасности предпринимателей в Казахстане.</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="wrap sec">
-    <div class="dark-band rv">
-      <span class="eyebrow">Принцип</span>
-      <p class="quote" style="margin-top:24px">Я не обещаю успех. Я показываю математику.</p>
-      <p class="sub">Каждый ориентир в моих моделях откуда-то взят: рынок, практика, база реальных кейсов. Если данных нет, я так и говорю. Хороший расчет иногда отговаривает от бизнеса, и это тоже результат.</p>
-    </div>
-  </div>
-
-  <div class="wrap sec">
-    <div class="sec__head">
-      <div class="sec__row">
-        <div>
-          <span class="eyebrow">Разборы</span>
-          <h2 class="t-section" style="margin-top:16px">Где бизнес ломается на самом деле</h2>
-        </div>
-        <a class="btn btn--ghost" href="#/blog"><span>Все разборы</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-      </div>
-    </div>
-    <div class="grid3">
-      <a class="shell rv" href="#/blog"><div class="core">
-        <span class="kicker">Кофейня</span>
-        <h3>Выручка 2,5 миллиона в месяц, а зарплаты платить нечем</h3>
-        <p>Сводный отчет двух точек маскировал убыточную вторую. Деньги на счете не прибыль.</p>
-        <div class="spacer"></div>
-        <div class="chips"><span class="chip">2,5 млн ₽/мес</span><span class="chip chip--ox">точка №2: минус</span></div>
-      </div></a>
-      <a class="shell rv" href="#/blog"><div class="core">
-        <span class="kicker">Маркетплейсы</span>
-        <h3>Сто миллионов оборота и год в минус</h3>
-        <p>Площадки забирали до 70 процентов выручки. Оборот не прибыль.</p>
-        <div class="spacer"></div>
-        <div class="chips"><span class="chip">100 млн ₽/год</span><span class="chip chip--ox">комиссии до 70%</span></div>
-      </div></a>
-      <a class="shell rv" href="#/blog"><div class="core">
-        <span class="kicker">Услуги</span>
-        <h3>Зарплаты выросли на треть, маржа этого не пережила</h3>
-        <p>Что происходит с маржой 5-7 процентов, когда рынок труда дорожает быстрее прайса.</p>
-        <div class="spacer"></div>
-        <div class="chips"><span class="chip chip--ox">ФОТ +30%</span><span class="chip">маржа 5-7%</span></div>
-      </div></a>
-    </div>
-  </div>
-
-  <div class="wrap sec sec--last">
-    <div class="dark-band rv">
-      <span class="eyebrow">Следующий шаг</span>
-      <p class="quote" style="margin-top:24px">Не уверены, какой расчет вам нужен?</p>
-      <p class="sub">Опишите ситуацию в двух предложениях. Отвечу, нужна ли вам финмодель, разбор или ничего из этого.</p>
-      <div class="actions">
-        <a class="btn" href="#/contacts"><span>Написать</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-        <a class="btn btn--ghost" href="#/services"><span>Смотреть финмодели</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<!-- ================= РАЗБОРЫ ================= -->
-<section class="page" data-route="/blog" data-title="Разборы">
+<!-- ================= БЛОГ ================= -->
+<section class="page" data-route="/" data-title="Блог">
 
   <div class="wrap sec sec--first hero-tight">
     <span class="eyebrow">Разборы</span>
@@ -741,35 +644,35 @@ span.accent-highlight {
   <div class="wrap sec">
     <div class="grid2">
       <div class="shell rv"><div class="core">
-        <span class="kicker">Кофейня</span>
+        <span class="kicker">Кофейня · РФ</span>
         <h3>Выручка 2,5 миллиона в месяц, а зарплаты платить нечем</h3>
         <p>Две точки, хорошая касса и звонки поставщиков о просрочке. Сводный отчет маскировал убыточную вторую точку: деньги на счете не прибыль.</p>
         <div class="spacer"></div>
         <div class="chips"><span class="chip">выручка 2,5 млн ₽/мес</span><span class="chip chip--ox">точка №2: минус 4 месяца подряд</span></div>
       </div></div>
       <div class="shell rv"><div class="core">
-        <span class="kicker">Маркетплейсы</span>
+        <span class="kicker">Маркетплейсы · РФ</span>
         <h3>Сто миллионов оборота и год в минус</h3>
         <p>Два склада, двадцать человек, пять каналов. Площадки съедали до 70 процентов выручки, а скромная офлайн-розница принесла больше прибыли, чем весь онлайн.</p>
         <div class="spacer"></div>
         <div class="chips"><span class="chip">оборот 100 млн ₽/год</span><span class="chip chip--ox">комиссии до 70%</span></div>
       </div></div>
       <div class="shell rv"><div class="core">
-        <span class="kicker">Общепит</span>
+        <span class="kicker">Общепит · РФ</span>
         <h3>Гастромаркет за 25 миллионов и договор аренды на 11 месяцев</h3>
         <p>Короткий договор подписали «чтобы без бюрократии». Через семь месяцев арендодатель забрал отремонтированный объект.</p>
         <div class="spacer"></div>
         <div class="chips"><span class="chip chip--ox">потеряно ≈ 25 млн ₽</span><span class="chip">компенсация ≈ 17%</span></div>
       </div></div>
       <div class="shell rv"><div class="core">
-        <span class="kicker">Пункт выдачи</span>
+        <span class="kicker">Пункт выдачи · РФ</span>
         <h3>«Пассивный доход»: маржа три процента и смены по двенадцать часов</h3>
         <p>Штрафы площадок, заморозка выплат до 30 дней, соседний пункт через дорогу. Работа без выходных за 15 тысяч в месяц.</p>
         <div class="spacer"></div>
         <div class="chips"><span class="chip">маржа 2,5-3,5%</span><span class="chip chip--ox">чистыми ≈ 15 тыс ₽/мес</span></div>
       </div></div>
       <div class="shell rv"><div class="core">
-        <span class="kicker">Кофейня</span>
+        <span class="kicker">Кофейня · КЗ</span>
         <h3>Открылся на буме рынка и оказался седьмым на одной улице</h3>
         <p>Рынок рос на четверть в год, вход стоил 3-5 миллионов тенге. Безубыток в 140 чашек в день так и не наступил.</p>
         <div class="spacer"></div>
@@ -780,7 +683,7 @@ span.accent-highlight {
         <h3>Мастера ушли в аренду кресла и забрали клиентскую базу</h3>
         <p>Чья на самом деле база в салоне и почему зарплатная модель мастеров - это вопрос выживания бизнеса, а не строка расходов.</p>
         <div class="spacer"></div>
-        <div class="chips"><span class="chip chip--ox">база уходит с мастером</span><span class="chip">аренда кресла vs доля</span></div>
+        <div class="chips"><span class="chip">база уходит с мастером</span><span class="chip">аренда кресла vs доля</span></div>
       </div></div>
       <div class="shell rv"><div class="core">
         <span class="kicker">Услуги и общепит</span>
@@ -790,7 +693,7 @@ span.accent-highlight {
         <div class="chips"><span class="chip chip--ox">ФОТ +30%</span><span class="chip">маржа 5-7%</span></div>
       </div></div>
       <div class="shell rv"><div class="core">
-        <span class="kicker">Кафе</span>
+        <span class="kicker">Кафе · КЗ</span>
         <h3>Подключил агрегатор ради объема, и комиссия съела всю маржу</h3>
         <p>Заказов стало больше, денег меньше. Простая математика, которую надо было сделать до подключения: комиссия около трети при марже около 12 процентов.</p>
         <div class="spacer"></div>
@@ -823,7 +726,7 @@ span.accent-highlight {
     <p class="lead" style="margin-top:24px">Готовый расчет под конкретный тип бизнеса. Подставляете свои цифры и видите, при каких условиях проект выходит в плюс. Дешевле одной ошибки в аренде.</p>
     <div class="actions" style="margin-top:34px">
       <a class="btn" href="#catalog"><span>Каталог</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M8 4v8M4 8l4 4 4-4"/></svg></span></a>
-      <a class="btn btn--ghost" href="#/work"><span>Нужен расчет под меня</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+      <a class="btn btn--ghost" href="#/contacts"><span>Нужен расчет под меня</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
     </div>
   </div>
 
@@ -916,62 +819,37 @@ span.accent-highlight {
       <p class="sub">Напишите, какой у вас бизнес. Если готовой модели нет, соберу индивидуально под ваши условия.</p>
       <div class="actions">
         <a class="btn" href="#/contacts"><span>Написать</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-        <a class="btn btn--ghost" href="#/work"><span>Форматы работы</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="btn btn--ghost" href="#/contacts"><span>Обсудить задачу</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
       </div>
     </div>
   </div>
 
 </section>
 
-<!-- ================= РАБОТА СО МНОЙ ================= -->
-<section class="page" data-route="/work" data-title="Работа со мной">
+<!-- ================= БИЗНЕС-ПЛАНЫ ================= -->
+<section class="page" data-route="/bizplans" data-title="Бизнес-планы">
 
   <div class="wrap sec sec--first hero-tight">
-    <span class="eyebrow">Работа со мной</span>
-    <h1 style="margin-top:26px">Четыре формата</h1>
-    <p class="lead" style="margin-top:24px">Большинство запросов начинается не с ясной задачи, а с ощущения, что с цифрами что-то не так. Моя работа: сначала понять, что именно нужно посчитать, а уже потом считать.</p>
-  </div>
-
-  <div class="wrap sec">
-    <div class="grid2">
-      <div class="shell rv"><div class="core">
-        <span class="kicker">01 · Старт</span>
-        <h3>Разбор задачи</h3>
-        <p>Час разговора. Разбираем ситуацию, считаем главное и решаем, что делать дальше и надо ли вообще. Почти все начинается отсюда.</p>
-      </div></div>
-      <div class="shell rv"><div class="core">
-        <span class="kicker">02 · Расчет</span>
-        <h3>Финмодель под ваш бизнес</h3>
-        <p>Индивидуальный расчет: ваши каналы, структура расходов, налоговый режим. Сценарии, безубыточность, стресс-тест и объяснение каждой цифры.</p>
-      </div></div>
-      <div class="shell rv"><div class="core">
-        <span class="kicker">03 · Защита</span>
-        <h3>Расчет для инвестора, банка или гранта</h3>
-        <p>Модель и бизнес-план, которые выдерживают вопросы: обоснованные допущения, чувствительность, защита цифр на встрече. В том числе под государственные программы поддержки.</p>
-      </div></div>
-      <div class="shell rv"><div class="core">
-        <span class="kicker">04 · Процесс</span>
-        <h3>Сопровождение</h3>
-        <p>Ежемесячная управленческая отчетность и разбор фактических цифр. Чтобы вы видели бизнес, а не догадывались о нем.</p>
-      </div></div>
-    </div>
+    <span class="eyebrow">Инвесторам и банкам</span>
+    <h1 style="margin-top:26px">Бизнес-планы для инвесторов, банков и грантов</h1>
+    <p class="lead" style="margin-top:24px">Профессиональная разработка бизнес-планов и финансовых планов, которые выдерживают любые вопросы кредиторов, инвесторов и фондов поддержки. Обоснованные допущения и точные сценарии под государственные программы льготного финансирования Казахстана и РФ.</p>
   </div>
 
   <div class="wrap sec">
     <div class="cols">
       <div>
-        <span class="eyebrow">Как проходит</span>
-        <h2 class="t-section" style="margin:16px 0 10px">От письма до файла</h2>
+        <span class="eyebrow">Состав</span>
+        <h2 class="t-section" style="margin:16px 0 10px">Что входит в разработку</h2>
         <ul class="checks">
-          <li><strong>Вы пишете,</strong> что происходит. Без идеального ТЗ.</li>
-          <li><strong>Созваниваемся.</strong> Я задаю вопросы и письменно фиксирую задачу: что входит в расчет, а что нет.</li>
-          <li><strong>Называю срок и стоимость.</strong> Если задача не моя, говорю прямо.</li>
-          <li><strong>Делаю и объясняю</strong> каждую цифру. Вы получаете файл с открытыми формулами и короткое резюме простым языком.</li>
+          <li><strong>Твердые ориентиры:</strong> каждое допущение бизнес-плана обосновано рыночными показателями и подтверждено статистикой</li>
+          <li><strong>Три формы отчетности:</strong> прогнозные P&amp;L, Движение денег (Cash Flow) и Баланс, которые сходятся до копейки</li>
+          <li><strong>Инвестиционные метрики:</strong> детальный расчет NPV, IRR, сроков окупаемости (Payback Period) и точки безубыточности</li>
+          <li><strong>Анализ рисков:</strong> стресс-тест бизнес-модели и оценка чувствительности прибыли к изменению цен, ФОТ или CAPEX</li>
         </ul>
       </div>
       <div class="stack">
-        <div class="paper-quote">Час разговора часто экономит недели работы и деньги, которые не пришлось бы тратить.</div>
-        <div class="note note--ox">Индивидуальная финмодель от $100, дальше зависит от объема и срока. Ориентир называю после первого разговора, обычно в тот же день.</div>
+        <div class="note"><strong>Поддержка грантов.</strong><br>В Казахстане адаптирую расчеты под требования госгрантов ДКБ (до 5 млн ₸) и финансирование Даму. В РФ — под стандарты ФРП, субсидии и банковские кредиты.</div>
+        <div class="note note--ox"><strong>Сроки и стоимость.</strong><br>Стоимость разработки индивидуального финансового плана инвестора — от $150. Точный расчет даю после первого разговора.</div>
       </div>
     </div>
   </div>
@@ -979,11 +857,92 @@ span.accent-highlight {
   <div class="wrap sec sec--last">
     <div class="dark-band rv">
       <span class="eyebrow">Следующий шаг</span>
-      <p class="quote" style="margin-top:24px">Начнем с разговора</p>
-      <p class="sub">Опишите ситуацию в двух предложениях. Дальше разберемся, нужен ли разбор, модель или ничего из этого.</p>
+      <p class="quote" style="margin-top:24px">Нужна профессиональная защита проекта?</p>
+      <p class="sub">Напишите коротко, для каких целей (инвестор, банк, субсидия) готовится бизнес-план. Обсудим план и сроки разработки.</p>
       <div class="actions">
-        <a class="btn" href="#/contacts"><span>Написать</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-        <a class="btn btn--ghost" href="#/blog"><span>Сначала почитать</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="btn" href="#/contacts"><span>Начать работу</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================= УПРАВЛЕНЧЕСКИЙ УЧЕТ ================= -->
+<section class="page" data-route="/accounting" data-title="Управленческий учет">
+
+  <div class="wrap sec sec--first hero-tight">
+    <span class="eyebrow">Порядок в деньгах</span>
+    <h1 style="margin-top:26px">Внедрение и ведение управленческого учета</h1>
+    <p class="lead" style="margin-top:24px">Ежемесячная управленческая отчетность и разбор фактических цифр вашего бизнеса. Чтобы вы видели реальную прибыль, контролировали кассовые разрывы и принимали бизнес-решения на основе твердых финансовых данных, а не интуиции.</p>
+  </div>
+
+  <div class="wrap sec">
+    <div class="cols">
+      <div>
+        <span class="eyebrow">Процесс</span>
+        <h2 class="t-section" style="margin:16px 0 10px">Как мы наводим порядок</h2>
+        <ul class="checks">
+          <li><strong>Финансовый аудит:</strong> анализируем текущий учет, находим скрытые утечки прибыли и ошибки в себестоимости</li>
+          <li><strong>Три формы отчетов:</strong> выстраиваем P&amp;L (прибыли/убытки), Cash Flow (движение денег) и Баланс в единую систему</li>
+          <li><strong>Регламент внесения данных:</strong> настраиваем простые и понятные таблицы для ваших сотрудников без лишней бюрократии</li>
+          <li><strong>Регулярный разбор фактов:</strong> каждый месяц собираю отчетность и лично разбираю с вами слабые зоны компании</li>
+        </ul>
+      </div>
+      <div class="stack">
+        <div class="note"><strong>Умное сопровождение.</strong><br>Вы перестанете путать оборот с прибылью, точно будете знать, сколько денег можно выводить без вреда для оборотного капитала, и забудете про кассовые разрывы.</div>
+        <div class="note note--ox"><strong>Стоимость:</strong> регулярное сопровождение учета — от $100 в месяц. Называю ориентир после анализа вашей ситуации.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap sec sec--last">
+    <div class="dark-band rv">
+      <span class="eyebrow">Следующий шаг</span>
+      <p class="quote" style="margin-top:24px">Хотите видеть бизнес в реальных цифрах?</p>
+      <p class="sub">Опишите, как сейчас считаете доходы и расходы. Разберем, где теряются данные и как это исправить.</p>
+      <div class="actions">
+        <a class="btn" href="#/contacts"><span>Навести порядок</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================= ДАШБОРДЫ ================= -->
+<section class="page" data-route="/dashboards" data-title="Дашборды">
+
+  <div class="wrap sec sec--first hero-tight">
+    <span class="eyebrow">Автоматизация аналитики</span>
+    <h1 style="margin-top:26px">Интерактивные дашборды и панели управления</h1>
+    <p class="lead" style="margin-top:24px">Автоматическая визуализация ключевых показателей (KPI) вашего бизнеса на одном интерактивном экране. Сборка дашбордов в Looker Studio, Google Таблицах или Excel со сведением данных из CRM, кассы и банк-клиентов.</p>
+  </div>
+
+  <div class="wrap sec">
+    <div class="cols">
+      <div>
+        <span class="eyebrow">Возможности</span>
+        <h2 class="t-section" style="margin:16px 0 10px">Что вы будете контролировать</h2>
+        <ul class="checks">
+          <li><strong>Пульс бизнеса (KPI):</strong> выручка, маржа, средний чек, загрузка постов/кресел в реальном времени</li>
+          <li><strong>Юнит-экономика:</strong> автоматический расчет прибыльности и наценки по каждому товару или категории</li>
+          <li><strong>Поведение клиентов:</strong> LTV, когортный анализ, частота покупок, отток и удержание клиентов</li>
+          <li><strong>Эффективность маркетинга:</strong> ROMI, стоимость лида (CPA) и конверсия воронки продаж</li>
+        </ul>
+      </div>
+      <div class="stack">
+        <div class="note"><strong>Мгновенное понимание.</strong><br>Больше не нужно перебирать десятки листов и сводить цифры вручную. Одно нажатие — и ты видишь узкие места и точки роста компании.</div>
+        <div class="note note--ox"><strong>Стоимость:</strong> индивидуальный расчет в зависимости от источников данных и сложности аналитических панелей.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap sec sec--last">
+    <div class="dark-band rv">
+      <span class="eyebrow">Следующий шаг</span>
+      <p class="quote" style="margin-top:24px">Нужна удобная панель управления?</p>
+      <p class="sub">Опишите, какие показатели для вас критичны при ежедневном анализе. Подберу оптимальный стек.</p>
+      <div class="actions">
+        <a class="btn" href="#/contacts"><span>Обсудить дашборд</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
       </div>
     </div>
   </div>
@@ -998,7 +957,7 @@ span.accent-highlight {
     <h1 style="margin-top:26px">Двадцать лет в корпоративных финансах</h1>
     <p class="lead" style="margin-top:24px">Аудит и консалтинг в компании <strong class="accent-highlight">большой четверки (Big 4)</strong>, руководящие финансовые позиции в девелопменте и производстве. Инвестиционные проекты до ста миллионов долларов. Консалтинг в России и Казахстане: от ритейла и услуг до производства стройматериалов и энергетики.</p>
     <div class="actions" style="margin-top:34px">
-      <a class="btn" href="#/work"><span>Форматы работы</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+      <a class="btn" href="#/services"><span>Форматы работы</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
       <a class="btn btn--ghost" href="#/contacts"><span>Написать</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
     </div>
   </div>
@@ -1019,7 +978,7 @@ span.accent-highlight {
       </div>
       <div class="stack">
         <div class="paper-quote">Я не обещаю успех. Я показываю математику. Хороший расчет иногда отговаривает от бизнеса, и это лучший результат из возможных.</div>
-        <div class="note">Параллельно развиваю <strong class="accent-highlight">TerenLabs</strong>: платформу, которая защищает предпринимателей малого бизнеса от потери денег. Обзоры ниш, финансовые модели и база реальных кейсов о том, где бизнес ломается.</div>
+        <div class="note">Параллельно развиваю <strong>TerenLabs</strong>: платформу, которая защищает предпринимателей малого бизнеса от потери денег. Обзоры ниш, финансовые модели и база реальных кейсов о том, где бизнес ломается.</div>
       </div>
     </div>
   </div>
@@ -1063,12 +1022,11 @@ span.accent-highlight {
 
   <div class="wrap sec sec--last">
     <div class="dark-band rv">
-      <span class="eyebrow">Следующий шаг</span>
-      <p class="quote" style="margin-top:24px">Начнем с разговора</p>
+      <span class="eyebrow">Начнем с разговора</span>
+      <p class="quote" style="margin-top:24px">Опишите ситуацию в двух предложениях</p>
       <p class="sub">Можно прийти без идеального ТЗ. Достаточно коротко описать, что происходит с деньгами в вашем бизнесе.</p>
       <div class="actions">
         <a class="btn" href="#/contacts"><span>Написать</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-        <a class="btn btn--ghost" href="#/work"><span>Форматы работы</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
       </div>
     </div>
   </div>
@@ -1086,12 +1044,12 @@ span.accent-highlight {
 
   <div class="wrap sec">
     <div class="grid2">
-      <a class="shell contact-tile rv" href="https://wa.me/77064068804"><div class="core">
+      <a class="shell contact-tile rv" href="https://t.me/godoffin"><div class="core">
         <span class="kicker">Быстрее всего</span>
-        <h3>WhatsApp</h3>
+        <h3>Telegram</h3>
         <p>Основной канал. Пишите сразу по делу, отвечаю в течение дня.</p>
         <div class="spacer"></div>
-        <span class="mono">+7 706 406 8804</span>
+        <span class="mono">@godoffin</span>
       </div></a>
       <a class="shell contact-tile rv" href="mailto:small.economy.kaz@gmail.com"><div class="core">
         <span class="kicker">Для документов</span>
@@ -1118,8 +1076,8 @@ span.accent-highlight {
           </select>
         </label>
         <label class="field"><span>Задача</span><textarea name="task" placeholder="Что происходит с цифрами и что хотите получить"></textarea></label>
-        <button class="btn" type="submit"><span>Отправить в WhatsApp</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></button>
-        <p class="tiny" style="margin-top:14px">Кнопка откроет WhatsApp с готовым сообщением. Здесь ничего не сохраняется и никуда не отправляется.</p>
+        <button class="btn" type="submit"><span>Написать в Telegram</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></button>
+        <p class="tiny" style="margin-top:14px">Кнопка скопирует текст обращения в буфер обмена и откроет Telegram с Адилем.</p>
       </form>
       <div class="stack">
         <div class="note"><strong>Что писать.</strong><br>Хватит трех вещей: что за бизнес, что непонятно с деньгами и какое решение хотите принять. Остальное я спрошу сам.</div>
@@ -1129,7 +1087,6 @@ span.accent-highlight {
   </div>
 
 </section>
-
 </main>
 
 <footer class="footer">
@@ -1237,7 +1194,7 @@ ym(111172932, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true,
     }
   });
 
-  // форма: собирает сообщение и открывает WhatsApp
+  // форма: собирает сообщение и копирует в буфер, затем открывает Telegram
   var leadForm = document.getElementById('leadForm');
   if (leadForm) leadForm.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -1246,7 +1203,17 @@ ym(111172932, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true,
     if (v('name')) parts.push('Меня зовут ' + v('name') + '.');
     parts.push('Бизнес: ' + v('biz') + '.');
     parts.push(v('task') ? 'Задача: ' + v('task') : 'Хочу обсудить задачу по цифрам.');
-    window.open('https://wa.me/77064068804?text=' + encodeURIComponent(parts.join(' ')), '_blank', 'noopener');
+    var text = parts.join(' ');
+    try {
+      var dummy = document.createElement('textarea');
+      document.body.appendChild(dummy);
+      dummy.value = text;
+      dummy.select();
+      document.execCommand('copy');
+      document.body.removeChild(dummy);
+      alert('Текст обращения скопирован в буфер обмена. Вы можете вставить его в чат Telegram с Адилем!');
+    } catch(err) {}
+    window.open('https://t.me/godoffin', '_blank', 'noopener');
   });
 
   // появление при прокрутке
