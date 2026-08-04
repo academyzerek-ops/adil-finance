@@ -257,56 +257,96 @@ body.menu-open{overflow:hidden}
 }
 h1{
   font-family:var(--font-display);font-weight:600;
-  font-size:clamp(2.7rem,6.4vw,4.9rem);line-height:1.04;letter-spacing:-.015em;
-  max-width:17ch;
+  font-size:clamp(1.8rem,3.8vw,2.5rem);line-height:1.15;letter-spacing:-.01em;
+  max-width:20ch;
 }
 .t-section{
   font-family:var(--font-display);font-weight:600;
-  font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.1;letter-spacing:-.01em;
-  max-width:22ch;
+  font-size:clamp(1.4rem,2.8vw,1.9rem);line-height:1.2;letter-spacing:-.005em;
+  max-width:24ch;
 }
-.lead{font-size:clamp(1.02rem,1.4vw,1.16rem);color:var(--ink-2);max-width:56ch;font-weight:500}
+.lead{font-size:14.5px;color:var(--ink-2);max-width:56ch;font-weight:500;line-height:1.55}
 .tiny{font-size:12.5px;color:var(--ink-3);line-height:1.6}
 
 /* ============ Секции и ритм ============ */
 .page{display:none}
 .page.is-current{display:block;animation:pg .5s var(--ease)}
 @keyframes pg{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.sec{padding:24px 0}
-.sec--first{padding-top:80px}
-.sec--last{padding-bottom:56px}
-@media(min-width:768px){.sec{padding:42px 0}.sec--first{padding-top:96px}}
+.sec{padding:14px 0}
+.sec--first{padding-top:54px}
+.sec--last{padding-bottom:36px}
+@media(min-width:768px){.sec{padding:20px 0}.sec--first{padding-top:64px}}
 .sec__head{display:flex;flex-direction:column;gap:18px;margin-bottom:44px}
 .sec__row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
 
-/* ============ Hero ============ */
+/* ============ Hero Layout (Split) ============ */
 .hero{position:relative}
-.hero .lead{margin-top:26px}
-.hero .actions{margin-top:38px}
-.hero-art{position:absolute;right:28px;top:175px;display:none;pointer-events:none}
-@media(min-width:1280px){.hero-art{display:block}}
-.hero-art .axis{stroke:var(--line-2);stroke-width:1.5}
-.hero-art .line-cost{stroke:var(--ink-3);stroke-width:1.8;opacity:.8}
-.hero-art .line-rev{stroke:var(--ink);stroke-width:1.8;opacity:.85}
-.hero-art .dot{fill:var(--bronze)}
-.hero-art .ripple{fill:none;stroke:var(--bronze);stroke-width:1.5;opacity:0}
-.hero-art .drop{stroke:var(--bronze);stroke-width:1.4;stroke-dasharray:3 5;opacity:.85}
-.hero-art .lbl{fill:var(--ink-3);font-family:var(--font-mono);font-size:11px}
-@media(prefers-reduced-motion:no-preference){
-  .hero-art .axis{opacity:0;animation:ha-fade .6s ease .2s forwards}
-  .hero-art .lbl{opacity:0;animation:ha-fade .8s ease 2.1s forwards}
-  .hero-art .line-cost{stroke-dasharray:1;stroke-dashoffset:1;animation:ha-draw 1s var(--ease) .6s forwards}
-  .hero-art .line-rev{stroke-dasharray:1;stroke-dashoffset:1;animation:ha-draw 1.2s var(--ease) .9s forwards}
-  .hero-art .dot{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:ha-pop .5s cubic-bezier(.34,1.56,.64,1) 1.8s forwards}
-  .hero-art .ripple{transform-box:fill-box;transform-origin:center;animation:ha-ripple 3s ease-out 2.4s infinite}
-  .hero-art .drop{opacity:0;animation:ha-fd .5s ease 2s forwards,ha-dash 2.2s linear 2.5s infinite}
+.hero-layout {
+  display: grid;
+  gap: 28px;
+  width: 100%;
 }
-@keyframes ha-fade{to{opacity:1}}
-@keyframes ha-fd{to{opacity:.85}}
-@keyframes ha-draw{to{stroke-dashoffset:0}}
-@keyframes ha-pop{from{transform:scale(0)}to{transform:scale(1)}}
-@keyframes ha-dash{to{stroke-dashoffset:-16}}
-@keyframes ha-ripple{0%{opacity:.5;transform:scale(1)}70%{opacity:0;transform:scale(2.6)}100%{opacity:0;transform:scale(2.6)}}
+@media (min-width: 900px) {
+  .hero-layout {
+    grid-template-columns: 1.25fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+}
+.hero-art-container {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 15px 30px -15px rgba(139,101,52,.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  max-width: 360px;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  justify-self: center;
+}
+body.dark .hero-art-container {
+  box-shadow: 0 15px 30px -15px rgba(0,0,0,.5);
+}
+.hero-art {
+  width: 100%;
+  height: 100%;
+}
+
+/* SVG Animations */
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes growBar {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes pulseDot {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+.svg-line-rev {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: drawLine 1.8s var(--ease) forwards;
+}
+.svg-line-cost {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: drawLine 1.8s var(--ease) 0.2s forwards;
+}
+.svg-bar {
+  transform-origin: bottom;
+  animation: growBar 1.2s var(--ease) forwards;
+}
+.pulse-equilibrium {
+  transform-origin: 190px 105px;
+  animation: pulseDot 1.8s infinite linear;
+}
 .hero-tight h1,.hero-tight .lead{max-width:34ch}
 .hero-tight .lead{max-width:52ch}
 
@@ -700,23 +740,61 @@ span.accent-highlight {
 <section class="page" data-route="/" data-title="Финансист">
 
   <div class="wrap sec sec--first hero">
-    <svg class="hero-art" width="270" height="210" viewBox="0 0 270 210" fill="none" aria-hidden="true">
-      <text x="10" y="14" class="lbl">точка безубыточности</text>
-      <path class="axis" d="M12 190 H262"/>
-      <path class="axis" d="M12 190 V30"/>
-      <path class="line-cost" pathLength="1" d="M12 140 L254 72"/>
-      <path class="line-rev" pathLength="1" d="M12 176 C90 146 172 98 254 44"/>
-      <circle class="ripple" cx="164" cy="97" r="6.5"/>
-      <circle class="dot" cx="164" cy="97" r="6.5"/>
-      <path class="drop" d="M164 97 V190"/>
-    </svg>
-    <span class="eyebrow">Финансовый консалтинг для РФ и РК</span>
-    <h1 style="margin-top:26px">Считаю экономику бизнеса до того, как в него вложены деньги</h1>
-    <p class="lead">Разработка финансовых моделей, бизнес-планов, дашбордов и постановка управленческого учета для малого бизнеса. Профессиональные расчеты, которые выдерживают любые вопросы инвесторов и банков.</p>
-    <div class="actions">
-      <a class="btn" href="#/services"><span>Услуги и модели</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-      <a class="btn btn--ghost" href="#/contacts"><span>Начать проект</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+    <div class="hero-layout">
+      <div>
+        <span class="eyebrow" style="margin-bottom:14px">Финансовый консалтинг для РФ и РК</span>
+        <h1>Считаю экономику бизнеса до того, как в него вложены деньги</h1>
+        <p class="lead" style="margin-top:14px">Разработка финансовых моделей, бизнес-планов, дашбордов и постановка управленческого учета для малого бизнеса. Профессиональные расчеты, которые выдерживают любые вопросы инвесторов и банков.</p>
+        <div class="actions" style="margin-top:24px">
+          <a class="btn" href="#/services"><span>Услуги и модели</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+          <a class="btn btn--ghost" href="#/contacts"><span>Начать проект</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        </div>
+      </div>
+      <div class="hero-art-container rv">
+        <svg class="hero-art" width="320" height="240" viewBox="0 0 320 240" fill="none" aria-hidden="true">
+          <!-- Grid Background -->
+          <line x1="20" y1="35" x2="300" y2="35" stroke="var(--line)" stroke-width="0.8" stroke-dasharray="3 3"/>
+          <line x1="20" y1="105" x2="300" y2="105" stroke="var(--line)" stroke-width="0.8"/>
+          <line x1="20" y1="175" x2="300" y2="175" stroke="var(--line)" stroke-width="0.8" stroke-dasharray="3 3"/>
+          
+          <line x1="75" y1="35" x2="75" y2="195" stroke="var(--line)" stroke-width="0.8" stroke-dasharray="3 3"/>
+          <line x1="190" y1="35" x2="190" y2="195" stroke="var(--line)" stroke-width="0.8"/>
+          
+          <!-- Axis -->
+          <path d="M20 195 H300" stroke="var(--line-2)" stroke-width="1.2"/>
+          <path d="M20 35 V195" stroke="var(--line-2)" stroke-width="1.2"/>
+          
+          <!-- Monospaced metrics overlay -->
+          <text x="32" y="24" fill="var(--ink-3)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.05em">[ P&amp;L SIMULATION ]</text>
+          <text x="210" y="24" fill="var(--bronze)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.05em">[ MARGIN: 24.5% ]</text>
+          
+          <!-- Revenue Line (Bronze) -->
+          <path class="svg-line-rev" d="M20 180 C80 150 140 120 290 50" stroke="var(--bronze)" stroke-width="2.8" stroke-linecap="round"/>
+          
+          <!-- Total Cost Line (Ink) -->
+          <path class="svg-line-cost" d="M20 145 L290 95" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round"/>
+          
+          <!-- Equilibrium Intersection (Flashing point) -->
+          <line x1="190" y1="105" x2="190" y2="195" stroke="var(--bronze)" stroke-width="0.8" stroke-dasharray="2 2"/>
+          <circle class="pulse-equilibrium" cx="190" cy="105" r="5" stroke="var(--bronze)" stroke-width="1.5" fill="none"/>
+          <circle cx="190" cy="105" r="5.5" fill="var(--bronze)"/>
+          
+          <!-- Monthly Cash Flow Grow-Bars (Basement) -->
+          <g transform="translate(0, 195)">
+            <rect class="svg-bar" x="35" y="-12" width="10" height="12" fill="var(--line-2)" rx="2"/>
+            <rect class="svg-bar" x="55" y="-18" width="10" height="18" fill="var(--line-2)" rx="2"/>
+            <rect class="svg-bar" x="100" y="-28" width="10" height="28" fill="var(--line-2)" rx="2"/>
+            <rect class="svg-bar" x="120" y="-32" width="10" height="32" fill="var(--line-2)" rx="2"/>
+            <rect class="svg-bar" x="220" y="-48" width="10" height="48" fill="var(--bronze)" rx="2" opacity="0.85"/>
+            <rect class="svg-bar" x="240" y="-56" width="10" height="56" fill="var(--bronze)" rx="2"/>
+          </g>
+          
+          <!-- Bottom state tag -->
+          <text x="32" y="218" fill="var(--ink-3)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.05em">[ STRESS-CAPACITY: OK ]</text>
+        </svg>
+      </div>
     </div>
+    
     <div class="facts">
       <div class="fact rv">
         <span class="fact__num">01 · Audit &amp; Strategy</span>
