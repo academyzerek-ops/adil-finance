@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Договор-оферта об оказании консультационных услуг · ФИНАНСИСТ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F5F2EA;
+    --paper-2: #EFEBE0;
+    --card: #FBF9F3;
+    --ink: #1A1712;
+    --ink-2: #2F2B22;
+    --ink-3: #5F5849;
+    --line: rgba(26,23,18,.10);
+    --line-2: rgba(26,23,18,.17);
+    --bronze: #8B6534;
+    --ox: #8D3B30;
+    --ease: cubic-bezier(.32,.72,0,1);
+    --font-body: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  }
+
+  body.dark {
+    --paper: #171410;
+    --paper-2: #221D15;
+    --card: #1D1914;
+    --ink: #F0EBDF;
+    --ink-2: #D8D1C4;
+    --ink-3: #999182;
+    --line: rgba(240,235,223,.12);
+    --line-2: rgba(240,235,223,.22);
+    --bronze: #C59B63;
+    --ox: #E55C4F;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink-2);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    transition: background-color .5s var(--ease), color .5s var(--ease);
+  }
+
+  /* зерно бумаги */
+  .grain {
+    position: fixed; inset: 0; z-index: 40; pointer-events: none; opacity: .05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink-3);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13.5px;
+    transition: color .3s var(--ease), transform .3s var(--ease);
+    margin-bottom: 40px;
+  }
+  .back-link:hover {
+    color: var(--ink);
+    transform: translateX(-4px);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -.01em;
+    margin: 0 0 16px;
+  }
+
+  .meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--bronze);
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 16px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin: 40px 0 16px;
+    letter-spacing: -.005em;
+  }
+
+  p {
+    margin: 0 0 16px;
+  }
+
+  ol, ul {
+    margin: 0 0 20px;
+    padding-left: 24px;
+  }
+  li {
+    margin-bottom: 8px;
+  }
+
+  .legal-box {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 32px 0;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.65);
+  }
+  body.dark .legal-box {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+  }
+  .legal-box h3 {
+    margin-top: 0;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .footer-copyright {
+    margin-top: 80px;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+    font-size: 12px;
+    color: var(--ink-3);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Переключатель тем в правом верхнем углу */
+  .theme-toggle {
+    position: absolute;
+    top: 52px;
+    right: 24px;
+    background: transparent;
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: color .4s var(--ease), border-color .4s var(--ease), transform .4s var(--ease);
+  }
+  .theme-toggle:hover {
+    color: var(--ink);
+    border-color: var(--ink);
+    transform: translateY(-2px);
+  }
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<div class="container">
+  <!-- Переключатель тем -->
+  <button id="themeToggle" class="theme-toggle" aria-label="Сменить тему">
+     <svg viewBox="0 0 24 24" class="theme-toggle-icon-sun" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+     <svg viewBox="0 0 24 24" class="theme-toggle-icon-moon" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
+  <a href="index.html" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Вернуться на сайт
+  </a>
+
+  <h1>Договор-оферта</h1>
+  <div class="meta">Публичное предложение об оказании консалтинговых услуг · РФ и РК · Редакция от 05.08.2026</div>
+
+  <p>Настоящий документ представляет собой официальное, публичное предложение (публичную оферту) независимого финансового консультанта (далее — <strong>Исполнитель</strong>) заключить Договор об оказании консультационных и аналитических услуг (далее — <strong>Договор</strong>) на условиях, изложенных ниже.</p>
+  
+  <p>Договор регулируется нормами гражданского законодательства двух юрисдикций в зависимости от резидентства Заказчика:</p>
+  <ul>
+    <li>Для резидентов Республики Казахстан — <strong>ст. 395, 396 Гражданского кодекса РК</strong> (публичное предложение и акцепт).</li>
+    <li>Для резидентов Российской Федерации — <strong>ст. 437, 438 Гражданского кодекса РФ</strong> (публичная оферта и акцепт).</li>
+  </ul>
+
+  <p>Настоящая оферта адресована любым физическим лицам, индивидуальным предпринимателям и юридическим лицам (далее — <strong>Заказчик</strong>). Договор считается заключенным и приобретает юридическую силу с момента совершения Заказчиком действий, означающих согласие со всеми условиями оферты (акцепта).</p>
+
+  <h2>1. Термины и условия акцепта</h2>
+  <p><strong>1.1. Исполнитель</strong> — физическое лицо, зарегистрированное в качестве плательщика налога на профессиональный доход (самозанятый) в соответствии с законодательством Российской Федерации и/или осуществляющее деятельность в качестве самозанятого лица (плательщика единого платежа / независимого профессионала) в соответствии с Налоговым кодексом Республики Казахстан.</p>
+  <p><strong>1.2. Акцепт оферты</strong> — полное, безоговорочное и безусловное принятие Заказчиком всех условий настоящего Договора без каких-либо изъятий или ограничений. Способами акцепта по настоящему Договору признаются:</p>
+  <ul>
+    <li>Внесение Заказчиком частичной (предоплаты) или полной оплаты стоимости услуг на основании выставленного Исполнителем счета или согласованных реквизитов.</li>
+    <li>Письменное (в том числе по каналам электронной связи) утверждение технического задания (ТЗ) или параметров расчета и отправка заполненной формы данных.</li>
+  </ul>
+  <p><strong>1.3.</strong> С момента совершения любого из указанных действий Договор признается заключенным в письменной форме, не требует двустороннего физического подписания и имеет юридическую силу договора, подписанного уполномоченными представителями сторон.</p>
+
+  <h2>2. Предмет договора</h2>
+  <p><strong>2.1.</strong> Исполнитель обязуется по заданию Заказчика оказать одну или несколько следующих консультационных услуг, а Заказчик обязуется принять и оплатить их:</p>
+  <ul>
+    <li>Разработка индивидуальных или адаптация нишевых финансовых моделей (в формате Excel или Google Таблиц).</li>
+    <li>Разработка бизнес-планов и финансовых планов для инвесторов, банков или получения грантов (в том числе под требования программ поддержки РК и РФ).</li>
+    <li>Постановка систем управленческого учета (отчеты P&amp;L, Cash Flow, Баланс) и сопровождение отчетности.</li>
+    <li>Разработка интерактивных дашбордов и панелей аналитики (Looker Studio, Google Таблицы, Excel).</li>
+    <li>Индивидуальные финансовые созвоны-разборы и консультации.</li>
+  </ul>
+
+  <h2>3. Порядок оказания услуг</h2>
+  <p><strong>3.1.</strong> Коммуникация между Исполнителем и Заказчиком осуществляется посредством мессенджера Telegram (аккаунт Исполнителя: <a href="https://t.me/godoffin" style="color:var(--bronze); font-weight:600;">@godoffin</a>) или по электронной почте (<a href="mailto:small.economy.kaz@gmail.com" style="color:var(--bronze); font-weight:600;">small.economy.kaz@gmail.com</a>).</p>
+  <p><strong>3.2.</strong> До начала работ Стороны согласовывают параметры задачи: состав расчетов, формат файлов, сроки выполнения и стоимость. Письменная фиксация договоренностей в мессенджере или по почте признается неотъемлемым приложением к настоящему Договору.</p>
+  <p><strong>3.3.</strong> Заказчик обязуется своевременно предоставить Исполнителю все исходные данные, метрики, гипотезы и допущения, необходимые для проведения аналитики или построения моделей.</p>
+  <p><strong>3.4.</strong> Услуга считается оказанной в полном объеме с момента отправки Исполнителем готового файла (или ссылки на него) Заказчику по каналам электронной связи.</p>
+
+  <div class="legal-box">
+    <h3>4. Ограничение ответственности (Важно)</h3>
+    <p><strong>4.1.</strong> Исполнитель предоставляет расчетные, аналитические и структурированные инструменты (финансовые модели, таблицы, дашборды) на основе гипотез, допущений и исторических данных, предоставленных самим Заказчиком или взятых из открытых источников.</p>
+    <p><strong>4.2.</strong> Любые расчеты окупаемости, прибыли, выручки и рентабельности являются математическим прогнозированием сценариев и <strong>не гарантируют</strong> достижение аналогичных результатов в реальной бизнес-практике.</p>
+    <p><strong>4.3. Исполнитель не несет ответственности</strong> за коммерческие результаты бизнеса Заказчика, возникновение кассовых разрывов, прямые или косвенные убытки, упущенную выгоду или решения, принятые Заказчиком на основе предоставленных моделей. Управление бизнесом, контроль рисков и фактическая реализация заложенных гипотез лежат исключительно на стороне Заказчика.</p>
+  </div>
+
+  <h2>5. Стоимость услуг и порядок расчетов</h2>
+  <p><strong>5.1.</strong> Стоимость конкретных услуг определяется индивидуально на основе сложности и фиксируется Сторонами в мессенджере до начала работ.</p>
+  <p><strong>5.2.</strong> Оплата производится в долларах США ($), рублях (₽) или тенге (₸) по взаимному согласованию Сторон в размере 100% предоплаты или в формате поэтапных платежей (50/50), если иной порядок не согласован индивидуально.</p>
+  <p><strong>5.3.</strong> По факту оплаты Исполнитель обязуется выставить и направить Заказчику официальный чек самозанятого лица (в рамках налогового режима НПД в РФ или Единого платежа / декларирования в РК).</p>
+
+  <h2>6. Интеллектуальная собственность</h2>
+  <p><strong>6.1.</strong> Заказчик приобретает полное право использовать предоставленные Исполнителем файлы (модели, бизнес-планы, дашборды) с открытыми формулами для нужд своего собственного бизнеса или проектов.</p>
+  <p><strong>6.2.</strong> Заказчику <strong>запрещается</strong> перепродавать, распространять в коммерческих целях, публиковать в открытом доступе или передавать третьим лицам исходные расчетные шаблоны и структуры моделей Исполнителя как самостоятельные коммерческие продукты.</p>
+
+  <h2>7. Разрешение споров и применимое право</h2>
+  <p><strong>7.1.</strong> Все споры и разногласия Стороны обязуются решать путем мирных переговоров. Срок рассмотрения письменной претензии составляет 10 (десять) календарных дней с момента получения.</p>
+  <p><strong>7.2.</strong> В случае недостижения согласия споры подлежат рассмотрению в суде по месту нахождения (регистрации) Исполнителя в соответствии с применимым законодательством Республики Казахстан.</p>
+
+  <div class="footer-copyright">
+    ФИНАНСИСТ · РАЗРАБОТКА ФИНАНСОВЫХ ИНСТРУМЕНТОВ · ZEREK.CC
+  </div>
+</div>
+
+<script>
+  // Скрипт переключения тем на основе localStorage
+  var themeToggle = document.getElementById('themeToggle');
+  
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.body.classList.add('dark');
+      document.querySelector('.theme-toggle-icon-sun').style.display = 'none';
+      document.querySelector('.theme-toggle-icon-moon').style.display = '';
+    } else {
+      document.body.classList.remove('dark');
+      document.querySelector('.theme-toggle-icon-sun').style.display = '';
+      document.querySelector('.theme-toggle-icon-moon').style.display = 'none';
+    }
+  }
+
+  var currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(currentTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', currentTheme);
+      applyTheme(currentTheme);
+    });
+  }
+</script>
+</body>
+</html>
