@@ -152,6 +152,8 @@ img,svg{max-width:100%;display:block}
   font-size:1.4rem;
   text-transform:uppercase;
   letter-spacing:0.04em;
+  text-align:center;
+  width:100%;
 }
 .sb__role{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:5px}
 .menu{position:relative;display:flex;flex-direction:column;gap:2px;margin-top:36px}
@@ -169,7 +171,7 @@ img,svg{max-width:100%;display:block}
 }
 .menu a:hover{color:var(--ink);background:rgba(26,23,18,.05)}
 .menu a.is-active{color:var(--paper);background:transparent}
-.sb__foot{margin-top:auto;display:flex;gap:10px}
+.sb__foot{margin-top:auto;display:flex;gap:10px;width:100%}
 .sb__foot a{
   width:38px;height:38px;border-radius:999px;border:1px solid var(--line-2);
   display:flex;align-items:center;justify-content:center;color:var(--ink-2);
@@ -538,14 +540,12 @@ body.dark .fact:hover {
   transition: color .4s var(--ease), border-color .4s var(--ease), transform .4s var(--ease);
 }
 .theme-toggle-btn {
-  position: absolute;
-  top: 57px;
-  left: 26px;
+  margin-left: auto;
 }
 .theme-toggle-btn:hover, .theme-toggle-btn-mob:hover {
   color: var(--ink);
   border-color: var(--ink);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 .theme-toggle-btn svg, .theme-toggle-btn-mob svg {
   width: 17px;
@@ -589,13 +589,13 @@ span.accent-highlight {
     <a href="#/dashboards" data-route="/dashboards">Дашборды</a>
     <a href="#/about" data-route="/about">Обо мне</a>
   </nav>
-  <button id="themeToggle" class="theme-toggle-btn" aria-label="Сменить тему">
-     <svg viewBox="0 0 24 24" class="theme-toggle-icon-sun" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-     <svg viewBox="0 0 24 24" class="theme-toggle-icon-moon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  </button>
   <div class="sb__foot">
     <a href="https://t.me/godoffin" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.35-.01-1.02-.2-1.51-.37-.6-.2-1.08-.31-1.04-.66.02-.18.27-.36.75-.55 2.95-1.28 4.91-2.13 5.88-2.54 2.8-1.18 3.38-1.39 3.76-1.4.08 0 .27.02.39.12a.4.4 0 0 1 .12.27c0 .04-.01.12-.02.16z"/></svg></a>
     <a href="mailto:small.economy.kaz@gmail.com" aria-label="Почта"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5v2.2z"/></svg></a>
+    <button id="themeToggle" class="theme-toggle-btn" aria-label="Сменить тему">
+       <svg viewBox="0 0 24 24" class="theme-toggle-icon-sun" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+       <svg viewBox="0 0 24 24" class="theme-toggle-icon-moon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
   </div>
 </aside>
 
