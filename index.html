@@ -129,10 +129,13 @@ img,svg{max-width:100%;display:block}
 }
 .sb__mark{
   width:44px;height:44px;border-radius:14px;
+  overflow:hidden;
   display:flex;align-items:center;justify-content:center;
   background:var(--ink);color:var(--paper);
-  font-family:var(--font-display);font-weight:600;font-size:23px;
   transition:transform .5s var(--ease);
+}
+.sb__mark img{
+  width:100%;height:100%;object-fit:cover;
 }
 .sidebar>a:hover .sb__mark{transform:rotate(-4deg) scale(1.04)}
 .sb__name{margin-top:16px;font-family:var(--font-display);font-weight:600;font-size:1.5rem;letter-spacing:-.005em}
@@ -173,8 +176,13 @@ img,svg{max-width:100%;display:block}
 }
 .mhead__brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:1.15rem}
 .mhead__mark{
-  width:32px;height:32px;border-radius:10px;background:var(--ink);color:var(--paper);
-  display:flex;align-items:center;justify-content:center;font-size:17px;
+  width:32px;height:32px;border-radius:10px;
+  overflow:hidden;
+  background:var(--ink);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;
+}
+.mhead__mark img{
+  width:100%;height:100%;object-fit:cover;
 }
 .burger{
   width:36px;height:36px;border:0;border-radius:999px;background:transparent;
@@ -526,38 +534,6 @@ body.dark .fact:hover {
   width: 17px;
   height: 17px;
 }
-/* ============ Двухколоночный профиль с адаптивной фотографией ============ */
-@media (min-width: 900px) {
-  .profile-cols {
-    display: grid !important;
-    grid-template-columns: 1.25fr 1fr;
-    gap: 56px;
-    align-items: center;
-  }
-}
-.profile-photo-frame {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: var(--paper-2);
-  box-shadow: 0 30px 60px -20px rgba(26,23,18,.12);
-  aspect-ratio: 4 / 5;
-  max-width: 380px;
-  margin-top: 34px;
-  justify-self: center;
-}
-@media (min-width: 900px) {
-  .profile-photo-frame {
-    margin-top: 0;
-  }
-}
-.profile-photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity .5s var(--ease);
-}
 body.dark .photo-light-img {
   display: none !important;
 }
@@ -580,7 +556,12 @@ span.accent-highlight {
 
 <!-- ===== Сайдбар (десктоп) ===== -->
 <aside class="sidebar">
-  <a href="#/" aria-label="Главная"><span class="sb__mark">Ф</span></a>
+  <a href="#/" aria-label="Главная">
+    <span class="sb__mark">
+      <img src="photo-light.png" class="photo-light-img" alt="Адиль">
+      <img src="photo-dark.png" class="photo-dark-img" alt="Адиль" style="display:none;">
+    </span>
+  </a>
   <div class="sb__name">Финансист</div>
   <div class="sb__role">финмодели · разборы ниш</div>
   <nav class="menu" data-menu id="sbMenu">
@@ -604,7 +585,13 @@ span.accent-highlight {
 
 <!-- ===== Мобильная шапка ===== -->
 <header class="mhead">
-  <a class="mhead__brand" href="#/"><span class="mhead__mark">Ф</span><span>Финансист</span></a>
+  <a class="mhead__brand" href="#/">
+    <span class="mhead__mark">
+      <img src="photo-light.png" class="photo-light-img" alt="Адиль">
+      <img src="photo-dark.png" class="photo-dark-img" alt="Адиль" style="display:none;">
+    </span>
+    <span>Финансист</span>
+  </a>
   <div style="display:flex;align-items:center;gap:12px;">
     <button id="themeToggleMob" class="theme-toggle-btn-mob" aria-label="Сменить тему">
        <svg viewBox="0 0 24 24" class="theme-toggle-icon-sun" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -990,19 +977,13 @@ span.accent-highlight {
 <!-- ================= ОБО МНЕ ================= -->
 <section class="page" data-route="/about" data-title="Обо мне">
 
-  <div class="wrap sec sec--first profile-cols">
-    <div>
-      <span class="eyebrow">Обо мне</span>
-      <h1 style="margin-top:26px">Двадцать лет в корпоративных финансах</h1>
-      <p class="lead" style="margin-top:24px">Аудит и консалтинг в компании <strong class="accent-highlight">большой четверки (Big 4)</strong>, руководящие финансовые позиции в девелопменте и производстве. Инвестиционные проекты до ста миллионов долларов. Консалтинг в России и Казахстане: от ритейла и услуг до производства стройматериалов и энергетики.</p>
-      <div class="actions" style="margin-top:34px">
-        <a class="btn" href="#/work"><span>Форматы работы</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-        <a class="btn btn--ghost" href="#/contacts"><span>Написать</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-      </div>
-    </div>
-    <div class="profile-photo-frame rv">
-      <img src="photo-light.png" class="photo-light-img" alt="Адиль">
-      <img src="photo-dark.png" class="photo-dark-img" alt="Адиль" style="display:none;">
+  <div class="wrap sec sec--first hero-tight">
+    <span class="eyebrow">Обо мне</span>
+    <h1 style="margin-top:26px">Двадцать лет в корпоративных финансах</h1>
+    <p class="lead" style="margin-top:24px">Аудит и консалтинг в компании <strong class="accent-highlight">большой четверки (Big 4)</strong>, руководящие финансовые позиции в девелопменте и производстве. Инвестиционные проекты до ста миллионов долларов. Консалтинг в России и Казахстане: от ритейла и услуг до производства стройматериалов и энергетики.</p>
+    <div class="actions" style="margin-top:34px">
+      <a class="btn" href="#/work"><span>Форматы работы</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+      <a class="btn btn--ghost" href="#/contacts"><span>Написать</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
     </div>
   </div>
 
