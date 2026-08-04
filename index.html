@@ -657,6 +657,45 @@ body.dark .photo-dark-img {
 span.accent-highlight {
   font-weight: 600;
 }
+
+/* ============ Облако кейсов-заглушек в Блоге ============ */
+.case-stubs-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  margin-top: 12px;
+}
+.case-stub {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line-2);
+  background: rgba(139, 101, 52, .03);
+  color: var(--ink-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all .4s var(--ease);
+  cursor: default;
+}
+body.dark .case-stub {
+  border-color: rgba(240, 235, 223, .12);
+  background: rgba(240, 235, 223, .02);
+}
+.case-stub:hover {
+  transform: translateY(-2px);
+  border-color: var(--bronze);
+  background: rgba(139, 101, 52, .06);
+  color: var(--ink);
+  box-shadow: 0 10px 20px -10px rgba(139,101,52,.15);
+}
+body.dark .case-stub:hover {
+  background: rgba(240, 235, 223, .04);
+  box-shadow: 0 10px 20px -10px rgba(0,0,0,.5);
+}
 </style>
 </head>
 <body>
@@ -680,7 +719,7 @@ span.accent-highlight {
     <a href="#/accounting" data-route="/accounting">Управленческий учет</a>
     <a href="#/dashboards" data-route="/dashboards">Дашборды</a>
     <div class="menu__sep" style="margin: 12px 14px 10px; border-top: 1px solid var(--line); opacity: 0.85;"></div>
-    <a href="#/blog" data-route="/blog">Мини-обзоры кейсов</a>
+    <a href="#/blog" data-route="/blog">Блог</a>
     <a href="#/about" data-route="/about">Обо мне</a>
   </nav>
   <div class="sb__foot">
@@ -720,7 +759,7 @@ span.accent-highlight {
     <a href="#/accounting" data-route="/accounting">Управленческий учет</a>
     <a href="#/dashboards" data-route="/dashboards">Дашборды</a>
     <div style="margin: 16px auto; border-top: 1px solid rgba(240,235,223,.15); width: 60px;"></div>
-    <a href="#/blog" data-route="/blog">Мини-обзоры кейсов</a>
+    <a href="#/blog" data-route="/blog">Блог</a>
     <a href="#/about" data-route="/about">Обо мне</a>
   </nav>
 </div>
@@ -815,100 +854,47 @@ span.accent-highlight {
 
 </section>
 
-<!-- ================= МИНИ-ОБЗОРЫ КЕЙСОВ ================= -->
-<section class="page" data-route="/blog" data-title="Кейсы">
+<!-- ================= БЛОГ ================= -->
+<section class="page" data-route="/blog" data-title="Блог">
 
   <div class="wrap sec sec--first hero-tight">
-    <span class="eyebrow">Разборы</span>
-    <h1 style="margin-top:26px">Мини-обзоры кейсов реального бизнеса</h1>
-    <p class="lead" style="margin-top:24px">Каждый разбор стоил кому-то миллионов. Имен и адресов нет, математика настоящая. Полезные уроки финансовой гигиены для РФ и РК.</p>
-  </div>
-
-  <div class="wrap sec">
-    <div class="grid2">
-      <div class="shell rv"><div class="core">
-        <span class="kicker">Кофейня · КЗ</span>
-        <h3>Дорогой диплом ценой в 19 миллионов</h3>
-        <p>Кофейня европейского формата в Казахстане. Владелец влюбился в премиальный продукт и дизайн, проигнорировав реальную емкость локального рынка и структуру постоянных издержек.</p>
-        <div class="spacer"></div>
-        <div class="chips"><span class="chip chip--ox">потери ≈ 19 млн ₸</span><span class="chip">окупаемость: никогда</span></div>
-      </div></div>
-      <div class="shell rv"><div class="core">
-        <span class="kicker">Клининг · РФ</span>
-        <h3>Как «успешный успех» чуть не убил бизнес</h3>
-        <p>Крупный B2C-оператор решил масштабироваться в B2B-сегмент без подготовки и расчета кассовых разрывов. Контракт забрал все оборотные средства на ФОТ до первых выплат.</p>
-        <div class="spacer"></div>
-        <div class="chips"><span class="chip">рост ФОТ +40%</span><span class="chip chip--ox">кассовый разрыв</span></div>
-      </div></div>
-      <div class="shell rv"><div class="core">
-        <span class="kicker">Девелопмент · КЗ</span>
-        <h3>30 домов продали — построить не смогли</h3>
-        <p>Индивидуальное жилищное строительство (ИЖС). Всё посчитали по материалам и быстро продали. Но в городе на 250 тысяч населения критически не хватило строительных бригад и спецтехники.</p>
-        <div class="spacer"></div>
-        <div class="chips"><span class="chip">продажи 100%</span><span class="chip chip--ox">дефицит ресурсов</span></div>
-      </div></div>
-      <div class="shell rv"><div class="core">
-        <span class="kicker">Маркетплейсы · РФ</span>
-        <h3>Сто миллионов оборота и год в минус</h3>
-        <p>Поверил в красивую цифру выручки на маркетплейсах. Наплодил складов и сотрудников, но площадки съели всю маржу комиссиями, штрафами за возвраты и платным хранением.</p>
-        <div class="spacer"></div>
-        <div class="chips"><span class="chip">оборот 100 млн ₽/год</span><span class="chip chip--ox">расходы до 70%</span></div>
-      </div></div>
-      <div class="shell rv"><div class="core">
-        <span class="kicker">Фастфуд · КЗ</span>
-        <h3>Камрюха за два месяца</h3>
-        <p>Владельцы первыми поймали тренд на качественные донеры в своем регионе. Идеально выверенная юнит-экономика, высокая маржинальность и поток в 500 лепёшек в день с одной точки.</p>
-        <div class="spacer"></div>
-        <div class="chips"><span class="chip">500 лепёшек/день</span><span class="chip">окупаемость 2 мес</span></div>
-      </div></div>
-      <div class="shell rv"><div class="core">
-        <span class="kicker">Фастфуд · КЗ</span>
-        <h3>500 млн в фастфуд, половину сожгли на партнёрах</h3>
-        <p>5 лет развития сети ресторанов быстрого питания и около 250 млн ₸ прямых финансовых потерь. Партнёры зашли «на понятийках» без оформленного механизма выхода и долей.</p>
-        <div class="spacer"></div>
-        <div class="chips"><span class="chip chip--ox">потери ≈ 250 млн ₸</span><span class="chip">конфликт партнеров</span></div>
-      </div></div>
-      <div class="shell rv"><div class="core">
-        <span class="kicker">Образование · РФ</span>
-        <h3>Отдал 2/3 школы незнакомцам без vesting — заблокировали в отпуске</h3>
-        <p>Чтобы освободить время на продукт, основатель сразу раздал контрольный пакет партнерам. За полгода его вытеснили из операционки, а во время отпуска заблокировали доступы.</p>
-        <div class="spacer"></div>
-        <div class="chips"><span class="chip">доля 66% отдана</span><span class="chip chip--ox">блокировка доступов</span></div>
-      </div></div>
-      <div class="shell rv"><div class="core">
-        <span class="kicker">Сельхоз · КЗ</span>
-        <h3>Арбузы, которые дешевле бросить</h3>
-        <p>Посчитали себестоимость выращивания арбузов на полях. Сбор, доставку, логистику, посредников и хранение — не посчитали. Стоимость доставки до рынка превысила выручку.</p>
-        <div class="spacer"></div>
-        <div class="chips"><span class="chip">урожай 100%</span><span class="chip chip--ox">доставка > выручки</span></div>
-      </div></div>
-      <div class="shell rv"><div class="core">
-        <span class="kicker">Ритейл · КЗ</span>
-        <h3>Зашли, когда капуста стоила золото</h3>
-        <p>Высокая цена сырья в прошлом сезоне — почти 100% гарантия обвала цен в следующем из-за перепроизводства. Сельхоз-трейдеры зашли на самом пике цен и потеряли оборотный капитал.</p>
-        <div class="spacer"></div>
-        <div class="chips"><span class="chip">запуск на пике цен</span><span class="chip chip--ox">потери 100%</span></div>
-      </div></div>
-      <div class="shell rv"><div class="core">
-        <span class="kicker">Общепит · КЗ</span>
-        <h3>Подключил агрегатор ради объема, и комиссия съела всю маржу</h3>
-        <p>Заказов стало больше, денег меньше. Простая математика, которую надо было сделать до подключения: комиссия сервиса около трети при маржинальности кухни около 12 процентов.</p>
-        <div class="spacer"></div>
-        <div class="chips"><span class="chip chip--ox">комиссия ≈ 33%</span><span class="chip">маржа ≈ 12%</span></div>
-      </div></div>
-    </div>
-    <p class="tiny" style="margin-top:22px">Разборы основаны на реальных историях из практики и открытых источников. Детали изменены так, чтобы никого нельзя было узнать. Цифры настоящие.</p>
+    <span class="eyebrow">База знаний</span>
+    <h1 style="margin-top:26px">Блог Финансиста</h1>
+    <p class="lead" style="margin-top:24px">Реальные разборы и оцифрованные истории, где бизнес теряет деньги. Математика настоящая, уроки жесткие. Изучите чужие факапы до того, как вложите собственные средства.</p>
   </div>
 
   <div class="wrap sec sec--last">
-    <div class="dark-band rv">
-      <span class="eyebrow">Следующий шаг</span>
-      <p class="quote" style="margin-top:24px">Узнали свою ситуацию?</p>
-      <p class="sub">К большинству этих ниш есть готовая финансовая модель. Подставляете свои цифры и видите, где вы на этой карте.</p>
-      <div class="actions">
-        <a class="btn" href="#/services"><span>Каталог финмоделей</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-        <a class="btn btn--ghost" href="#/contacts"><span>Задать вопрос</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-      </div>
+    <div class="sec__head">
+      <span class="eyebrow">Мини-обзоры</span>
+      <h2 class="t-section">Реестр разобранных кейсов</h2>
+    </div>
+    
+    <div class="case-stubs-container">
+      <span class="case-stub rv">🇰🇿 Кофейня: дорогой диплом на 19 млн ₸</span>
+      <span class="case-stub rv">🇷🇺 Клининг: кассовый разрыв в B2B</span>
+      <span class="case-stub rv">🇰🇿 Девелопмент ИЖС: дефицит кадров на 30 домов</span>
+      <span class="case-stub rv">🇷🇺 Маркетплейсы: 100 млн оборота и год в минус</span>
+      <span class="case-stub rv">🇰🇿 Донерная: окупаемость за 2 месяца</span>
+      <span class="case-stub rv">🇰🇿 Ресторанная сеть: потеря 250 млн ₸ на партнерах</span>
+      <span class="case-stub rv">🇷🇺 Онлайн-школа: блокировка доступов без vesting</span>
+      <span class="case-stub rv">🇰🇿 Бахча: арбузы, которые дешевле бросить на поле</span>
+      <span class="case-stub rv">🇰🇿 Сельхоз-трейдинг: спекуляция капусты на пике цен</span>
+      <span class="case-stub rv">🇰🇿 Кафе: комиссия агрегаторов съела 33% маржи</span>
+      <span class="case-stub rv">🇺🇸 Маникюрный салон: membership убил юнит-экономику</span>
+      <span class="case-stub rv">🇷🇺 Сырная лавка: уроки операционки в окне кафе</span>
+      <span class="case-stub rv">🇷🇺 Франшиза Subway: минус 7 млн на волатильности курса</span>
+      <span class="case-stub rv">🇰🇿 Строительный инвестор: снайпер забрал деньги, но не риск</span>
+      <span class="case-stub rv">🇷🇺 lash-студия: аренда 90к при 4 кушетках без трафика</span>
+      <span class="case-stub rv">🇰🇿 Косметическая платформа: разовый клиент за 1.5 млн ₸</span>
+      <span class="case-stub rv">🇰🇿 Общепит: велокафе у завода Hyundai закрылось за 8 мес</span>
+      <span class="case-stub rv">🇮🇩 Автомойка на Бали: запуск в день разговора</span>
+      <span class="case-stub rv">🇺🇸 Студент-пчеловод: 50 ульев окупают учебу</span>
+      <span class="case-stub rv">🇷🇺 Копирайтинг: 12 лет на одном клиенте и крах</span>
+      <span class="case-stub rv">🇰🇿 ТРЦ Restopark: гипотеза чужого трафика провалилась</span>
+      <span class="case-stub rv">🇷🇺 Косметология: лазер за 7 млн в кредит под пустые прогнозы</span>
+      <span class="case-stub rv">🇰🇿 Шашлычная сеть: 22 точки сгорели на цене мяса</span>
+      <span class="case-stub rv">🇷🇺 Фермерское стартап-стадо: уголовка за сдачу коров на мясо</span>
+      <span class="case-stub rv">🇺🇿 Экспресс-доставка: продали долю Яндексу вместо войны</span>
     </div>
   </div>
 
