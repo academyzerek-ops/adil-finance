@@ -128,16 +128,20 @@ img,svg{max-width:100%;display:block}
   border-right:1px solid var(--line);
 }
 .sb__mark{
-  width:44px;height:44px;border-radius:14px;
+  width:54px;height:54px;border-radius:50%;
   overflow:hidden;
   display:flex;align-items:center;justify-content:center;
-  background:var(--ink);color:var(--paper);
-  transition:transform .5s var(--ease);
+  background:var(--paper-2);
+  border:1px solid var(--line-2);
+  transition:transform .5s var(--ease), border-color .5s var(--ease);
 }
 .sb__mark img{
   width:100%;height:100%;object-fit:cover;
+  transform:scale(1.35);
+  transition:transform .5s var(--ease);
 }
-.sidebar>a:hover .sb__mark{transform:rotate(-4deg) scale(1.04)}
+.sidebar>a:hover .sb__mark{transform:scale(1.05);border-color:var(--bronze)}
+.sidebar>a:hover .sb__mark img{transform:scale(1.42)}
 .sb__name{margin-top:16px;font-family:var(--font-display);font-weight:600;font-size:1.5rem;letter-spacing:-.005em}
 .sb__role{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:5px}
 .menu{position:relative;display:flex;flex-direction:column;gap:2px;margin-top:36px}
@@ -176,13 +180,15 @@ img,svg{max-width:100%;display:block}
 }
 .mhead__brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:1.15rem}
 .mhead__mark{
-  width:32px;height:32px;border-radius:10px;
+  width:36px;height:36px;border-radius:50%;
   overflow:hidden;
-  background:var(--ink);color:var(--paper);
+  background:var(--paper-2);
+  border:1px solid var(--line-2);
   display:flex;align-items:center;justify-content:center;
 }
 .mhead__mark img{
   width:100%;height:100%;object-fit:cover;
+  transform:scale(1.35);
 }
 .burger{
   width:36px;height:36px;border:0;border-radius:999px;background:transparent;
