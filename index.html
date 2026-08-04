@@ -642,12 +642,13 @@ span.accent-highlight {
   <div class="sb__name">ФИНАНСИСТ</div>
   <nav class="menu" data-menu id="sbMenu">
     <span class="menu__bubble" id="menuBubble" aria-hidden="true"></span>
-    <a href="#/" data-route="/">Блог</a>
     <a href="#/services" data-route="/services">Финмодели</a>
     <a href="#/research" data-route="/research">Аналитика рынка</a>
     <a href="#/bizplans" data-route="/bizplans">Бизнес-планы</a>
     <a href="#/accounting" data-route="/accounting">Управленческий учет</a>
     <a href="#/dashboards" data-route="/dashboards">Дашборды</a>
+    <div class="menu__sep" style="margin: 12px 14px 10px; border-top: 1px solid var(--line); opacity: 0.85;"></div>
+    <a href="#/blog" data-route="/blog">Блог</a>
     <a href="#/about" data-route="/about">Обо мне</a>
   </nav>
   <div class="sb__foot">
@@ -681,12 +682,13 @@ span.accent-highlight {
 <!-- ===== Мобильное меню ===== -->
 <div class="veil" id="veil">
   <nav data-menu>
-    <a href="#/" data-route="/">Блог</a>
     <a href="#/services" data-route="/services">Финмодели</a>
     <a href="#/research" data-route="/research">Аналитика рынка</a>
     <a href="#/bizplans" data-route="/bizplans">Бизнес-планы</a>
     <a href="#/accounting" data-route="/accounting">Управленческий учет</a>
     <a href="#/dashboards" data-route="/dashboards">Дашборды</a>
+    <div style="margin: 16px auto; border-top: 1px solid rgba(240,235,223,.15); width: 60px;"></div>
+    <a href="#/blog" data-route="/blog">Блог</a>
     <a href="#/about" data-route="/about">Обо мне</a>
   </nav>
 </div>
@@ -694,8 +696,69 @@ span.accent-highlight {
 <div class="content">
 <main>
 
+<!-- ================= СТАРТОВАЯ (ГЛАВНАЯ) ================= -->
+<section class="page" data-route="/" data-title="Финансист">
+
+  <div class="wrap sec sec--first hero">
+    <svg class="hero-art" width="270" height="210" viewBox="0 0 270 210" fill="none" aria-hidden="true">
+      <text x="10" y="14" class="lbl">точка безубыточности</text>
+      <path class="axis" d="M12 190 H262"/>
+      <path class="axis" d="M12 190 V30"/>
+      <path class="line-cost" pathLength="1" d="M12 140 L254 72"/>
+      <path class="line-rev" pathLength="1" d="M12 176 C90 146 172 98 254 44"/>
+      <circle class="ripple" cx="164" cy="97" r="6.5"/>
+      <circle class="dot" cx="164" cy="97" r="6.5"/>
+      <path class="drop" d="M164 97 V190"/>
+    </svg>
+    <span class="eyebrow">Финансовый консалтинг для РФ и РК</span>
+    <h1 style="margin-top:26px">Считаю экономику бизнеса до того, как в него вложены деньги</h1>
+    <p class="lead">Разработка финансовых моделей, бизнес-планов, дашбордов и постановка управленческого учета для малого бизнеса. Профессиональные расчеты, которые выдерживают любые вопросы инвесторов и банков.</p>
+    <div class="actions">
+      <a class="btn" href="#/services"><span>Услуги и модели</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+      <a class="btn btn--ghost" href="#/contacts"><span>Начать проект</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+    </div>
+    <div class="facts">
+      <div class="fact rv">
+        <span class="fact__num">01 · Audit &amp; Strategy</span>
+        <strong>Большая четверка</strong>
+        <span>Аудит и консалтинг: школа проверяемых цифр, три формы отчетности, жесткая финансовая методология.</span>
+      </div>
+      <div class="fact rv">
+        <span class="fact__num">02 · Real Sector</span>
+        <strong>Реальный сектор</strong>
+        <span>Руководящие финансовые позиции в девелопменте и производстве. Инвестиционные проекты до $100M.</span>
+      </div>
+      <div class="fact rv">
+        <span class="fact__num">03 · EdTech SaaS</span>
+        <strong>TerenLabs</strong>
+        <span>Собственная платформа финансовой безопасности предпринимателей в Казахстане.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap sec">
+    <div class="dark-band rv">
+      <span class="eyebrow">Принцип</span>
+      <p class="quote" style="margin-top:24px">Я не обещаю успех. Я показываю математику.</p>
+      <p class="sub">Каждый ориентир в моих моделях откуда-то взят: рынок, практика, база реальных кейсов. Если данных нет, я так и говорю. Хороший расчет иногда отговаривает от бизнеса, и это тоже результат.</p>
+    </div>
+  </div>
+
+  <div class="wrap sec sec--last">
+    <div class="dark-band rv">
+      <span class="eyebrow">Сначала почитайте</span>
+      <p class="quote" style="margin-top:24px">Где бизнес ломается на самом деле?</p>
+      <p class="sub">Реальные истории закрытия бизнесов в РФ и РК, доведенные до сухих цифр. Изучите чужие ошибки до того, как вложите собственные средства.</p>
+      <div class="actions">
+        <a class="btn" href="#/blog"><span>Изучить разборы</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
 <!-- ================= БЛОГ ================= -->
-<section class="page" data-route="/" data-title="Блог">
+<section class="page" data-route="/blog" data-title="Блог">
 
   <div class="wrap sec sec--first hero-tight">
     <span class="eyebrow">Разборы</span>
@@ -876,12 +939,11 @@ span.accent-highlight {
 
   <div class="wrap sec sec--last">
     <div class="dark-band rv">
-      <span class="eyebrow">Следующий шаг</span>
-      <p class="quote" style="margin-top:24px">Не нашли свою нишу?</p>
+      <span class="eyebrow">Не нашли свою нишу?</span>
+      <p class="quote" style="margin-top:24px">Соберу модель под ваш проект</p>
       <p class="sub">Напишите, какой у вас бизнес. Если готовой модели нет, соберу индивидуально под ваши условия.</p>
       <div class="actions">
         <a class="btn" href="#/contacts"><span>Написать</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-        <a class="btn btn--ghost" href="#/contacts"><span>Обсудить задачу</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
       </div>
     </div>
   </div>
@@ -918,8 +980,8 @@ span.accent-highlight {
 
   <div class="wrap sec sec--last">
     <div class="dark-band rv">
-      <span class="eyebrow">Следующий шаг</span>
-      <p class="quote" style="margin-top:24px">Нужна объективная оценка рынка?</p>
+      <span class="eyebrow">Нужна объективная оценка рынка?</span>
+      <p class="quote" style="margin-top:24px">Опишите вашу задачу</p>
       <p class="sub">Напиши, какую нишу или рынок ты планируешь исследовать. Сформирую структуру ресерча и предложу план работы.</p>
       <div class="actions">
         <a class="btn" href="#/contacts"><span>Заказать исследование</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
@@ -959,8 +1021,8 @@ span.accent-highlight {
 
   <div class="wrap sec sec--last">
     <div class="dark-band rv">
-      <span class="eyebrow">Следующий шаг</span>
-      <p class="quote" style="margin-top:24px">Нужна профессиональная защита проекта?</p>
+      <span class="eyebrow">Нужна профессиональная защита проекта?</span>
+      <p class="quote" style="margin-top:24px">Напишите коротко о ваших целях</p>
       <p class="sub">Напишите коротко, для каких целей (инвестор, банк, субсидия) готовится бизнес-план. Обсудим план и сроки разработки.</p>
       <div class="actions">
         <a class="btn" href="#/contacts"><span>Начать работу</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
@@ -1000,8 +1062,8 @@ span.accent-highlight {
 
   <div class="wrap sec sec--last">
     <div class="dark-band rv">
-      <span class="eyebrow">Следующий шаг</span>
-      <p class="quote" style="margin-top:24px">Хотите видеть бизнес в реальных цифрах?</p>
+      <span class="eyebrow">Хотите видеть бизнес в реальных цифрах?</span>
+      <p class="quote" style="margin-top:24px">Начнем с аудита</p>
       <p class="sub">Опишите, как сейчас считаете доходы и расходы. Разберем, где теряются данные и как это исправить.</p>
       <div class="actions">
         <a class="btn" href="#/contacts"><span>Навести порядок</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
@@ -1041,8 +1103,8 @@ span.accent-highlight {
 
   <div class="wrap sec sec--last">
     <div class="dark-band rv">
-      <span class="eyebrow">Следующий шаг</span>
-      <p class="quote" style="margin-top:24px">Нужна удобная панель управления?</p>
+      <span class="eyebrow">Нужна удобная панель управления?</span>
+      <p class="quote" style="margin-top:24px">Опишите ваши источники данных</p>
       <p class="sub">Опишите, какие показатели для вас критичны при ежедневном анализе. Подберу оптимальный стек.</p>
       <div class="actions">
         <a class="btn" href="#/contacts"><span>Обсудить дашборд</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
