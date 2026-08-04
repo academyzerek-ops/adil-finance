@@ -123,12 +123,13 @@ img,svg{max-width:100%;display:block}
 .sidebar{
   position:fixed;top:0;left:0;bottom:0;width:252px;z-index:50;
   display:flex;flex-direction:column;
+  align-items:center;text-align:center;
   padding:36px 26px 28px;
   background:rgba(239,235,224,.55);
   border-right:1px solid var(--line);
 }
 .sb__mark{
-  width:64px;height:64px;border-radius:50%;
+  width:80px;height:80px;border-radius:50%;
   overflow:hidden;
   display:flex;align-items:center;justify-content:center;
   background:var(--paper-2);
@@ -144,7 +145,7 @@ img,svg{max-width:100%;display:block}
 .sidebar>a:hover .sb__mark img{transform:scale(1.08)}
 .sb__name{margin-top:16px;font-family:var(--font-display);font-weight:600;font-size:1.5rem;letter-spacing:-.005em}
 .sb__role{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:5px}
-.menu{position:relative;display:flex;flex-direction:column;gap:2px;margin-top:36px}
+.menu{position:relative;display:flex;flex-direction:column;gap:2px;margin-top:36px;width:100%}
 .menu__bubble{
   position:absolute;left:0;right:0;top:0;height:0;z-index:0;opacity:0;
   background:var(--ink);border-radius:12px;
@@ -529,7 +530,7 @@ body.dark .fact:hover {
 }
 .theme-toggle-btn {
   margin-top: 24px;
-  align-self: flex-start;
+  align-self: center;
 }
 .theme-toggle-btn:hover, .theme-toggle-btn-mob:hover {
   color: var(--ink);
