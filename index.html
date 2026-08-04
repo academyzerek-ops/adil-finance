@@ -123,10 +123,12 @@ img,svg{max-width:100%;display:block}
 .sidebar{
   position:fixed;top:0;left:0;bottom:0;width:252px;z-index:50;
   display:flex;flex-direction:column;
-  align-items:center;text-align:center;
   padding:36px 26px 28px;
   background:rgba(239,235,224,.55);
   border-right:1px solid var(--line);
+}
+.sidebar > a {
+  align-self: center;
 }
 .sb__mark{
   width:80px;height:80px;border-radius:50%;
@@ -143,9 +145,16 @@ img,svg{max-width:100%;display:block}
 }
 .sidebar>a:hover .sb__mark{transform:scale(1.05);border-color:var(--bronze)}
 .sidebar>a:hover .sb__mark img{transform:scale(1.08)}
-.sb__name{margin-top:16px;font-family:var(--font-display);font-weight:600;font-size:1.5rem;letter-spacing:-.005em}
+.sb__name{
+  margin-top:16px;
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.4rem;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+}
 .sb__role{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:5px}
-.menu{position:relative;display:flex;flex-direction:column;gap:2px;margin-top:36px;width:100%}
+.menu{position:relative;display:flex;flex-direction:column;gap:2px;margin-top:36px}
 .menu__bubble{
   position:absolute;left:0;right:0;top:0;height:0;z-index:0;opacity:0;
   background:var(--ink);border-radius:12px;
@@ -530,7 +539,7 @@ body.dark .fact:hover {
 }
 .theme-toggle-btn {
   margin-top: 24px;
-  align-self: center;
+  align-self: flex-start;
 }
 .theme-toggle-btn:hover, .theme-toggle-btn-mob:hover {
   color: var(--ink);
@@ -569,7 +578,7 @@ span.accent-highlight {
       <img src="photo-dark.png" class="photo-dark-img" alt="Адиль" style="display:none;">
     </span>
   </a>
-  <div class="sb__name">Финансист</div>
+  <div class="sb__name">ФИНАНСИСТ</div>
   <div class="sb__role">финмодели · разборы ниш</div>
   <nav class="menu" data-menu id="sbMenu">
     <span class="menu__bubble" id="menuBubble" aria-hidden="true"></span>
@@ -597,7 +606,7 @@ span.accent-highlight {
       <img src="photo-light.png" class="photo-light-img" alt="Адиль">
       <img src="photo-dark.png" class="photo-dark-img" alt="Адиль" style="display:none;">
     </span>
-    <span>Финансист</span>
+    <span>ФИНАНСИСТ</span>
   </a>
   <div style="display:flex;align-items:center;gap:12px;">
     <button id="themeToggleMob" class="theme-toggle-btn-mob" aria-label="Сменить тему">
