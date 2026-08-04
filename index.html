@@ -85,6 +85,23 @@
   --font-display:'Cormorant Garamond',Georgia,serif;
   --font-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
 }
+body.dark {
+  --paper:#171410;
+  --paper-2:#221D15;
+  --card:#1D1914;
+  --ink:#F0EBDF;
+  --ink-2:#A79E8C;
+  --ink-3:#6F6757;
+  --line:rgba(240,235,223,.12);
+  --line-2:rgba(240,235,223,.22);
+  --bronze:#C59B63;
+  --ox:#E55C4F;
+  --ox-tint:rgba(229,92,79,.08);
+  --ox-line:rgba(229,92,79,.25);
+}
+body.dark .sidebar {
+  background:rgba(34,29,21,.55);
+}
 html{scroll-behavior:smooth}
 body{
   background:var(--paper);color:var(--ink);
@@ -331,17 +348,65 @@ h1{
   .grid3{grid-template-columns:1fr 1fr 1fr}
 }
 
-/* ============ Факты в hero ============ */
-.facts{margin-top:64px;display:grid;gap:0;border-top:1px solid var(--line-2)}
-@media(min-width:768px){.facts{grid-template-columns:1fr 1fr 1fr}}
-.fact{padding:24px 26px 6px 0;border-bottom:1px solid var(--line)}
-@media(min-width:768px){.fact{border-bottom:0;border-right:1px solid var(--line);padding-bottom:0}
-.fact:last-child{border-right:0}.fact+.fact{padding-left:26px}}
-.fact strong{
-  display:block;font-family:var(--font-display);font-size:1.35rem;font-weight:600;
-  letter-spacing:-.005em;margin-bottom:6px;
+/* ============ Факты в hero (Редизайн) ============ */
+.facts {
+  margin-top: 64px;
+  display: grid;
+  gap: 16px;
+  border-top: 1px solid var(--line-2);
+  padding-top: 32px;
 }
-.fact span{font-size:13.5px;color:var(--ink-2);line-height:1.55;display:block;max-width:30ch}
+@media(min-width:768px){
+  .facts {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+}
+.fact {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform .6s var(--ease), box-shadow .6s var(--ease), border-color .6s var(--ease);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.65);
+}
+body.dark .fact {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+.fact:hover {
+  transform: translateY(-4px);
+  border-color: var(--bronze);
+  box-shadow: 0 20px 40px -20px rgba(26,23,18,.15);
+}
+body.dark .fact:hover {
+  box-shadow: 0 20px 40px -20px rgba(0,0,0,.45);
+}
+.fact__num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  font-weight: 500;
+}
+.fact strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: -.005em;
+  color: var(--ink);
+}
+.fact span {
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.6;
+  display: block;
+}
 
 /* ============ Темные полосы ============ */
 .dark-band{
@@ -432,6 +497,81 @@ h1{
   .rv{opacity:1;transform:none;filter:none;transition:none}
   .page.is-current{animation:none}
 }
+
+/* ============ Переключатель тем ============ */
+.theme-toggle-btn, .theme-toggle-btn-mob {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--ink-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid var(--line-2);
+  transition: color .4s var(--ease), border-color .4s var(--ease), transform .4s var(--ease);
+}
+.theme-toggle-btn {
+  margin-top: 24px;
+  align-self: flex-start;
+}
+.theme-toggle-btn:hover, .theme-toggle-btn-mob:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+.theme-toggle-btn svg, .theme-toggle-btn-mob svg {
+  width: 17px;
+  height: 17px;
+}
+/* ============ Двухколоночный профиль с адаптивной фотографией ============ */
+@media (min-width: 900px) {
+  .profile-cols {
+    display: grid !important;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+}
+.profile-photo-frame {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--paper-2);
+  box-shadow: 0 30px 60px -20px rgba(26,23,18,.12);
+  aspect-ratio: 4 / 5;
+  max-width: 380px;
+  margin-top: 34px;
+  justify-self: center;
+}
+@media (min-width: 900px) {
+  .profile-photo-frame {
+    margin-top: 0;
+  }
+}
+.profile-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity .5s var(--ease);
+}
+body.dark .photo-light-img {
+  display: none !important;
+}
+body.dark .photo-dark-img {
+  display: block !important;
+}
+/* ============ Текстовые акценты ============ */
+.accent-highlight {
+  color: var(--bronze);
+  font-weight: 700;
+}
+span.accent-highlight {
+  font-weight: 600;
+}
 </style>
 </head>
 <body>
@@ -452,6 +592,10 @@ h1{
     <a href="#/about" data-route="/about">Обо мне</a>
     <a href="#/contacts" data-route="/contacts">Контакты</a>
   </nav>
+  <button id="themeToggle" class="theme-toggle-btn" aria-label="Сменить тему">
+     <svg viewBox="0 0 24 24" class="theme-toggle-icon-sun" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+     <svg viewBox="0 0 24 24" class="theme-toggle-icon-moon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
   <div class="sb__foot">
     <a href="https://wa.me/77064068804" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.2-5-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4-.1.7.5.2.6.8 2 .9 2.1.1.1.1.3 0 .5-.1.2-.2.3-.3.5l-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1.1.3.2.5.2.6.4.1.1.1.7-.1 1.4z"/></svg></a>
     <a href="mailto:small.economy.kaz@gmail.com" aria-label="Почта"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5v2.2z"/></svg></a>
@@ -461,7 +605,13 @@ h1{
 <!-- ===== Мобильная шапка ===== -->
 <header class="mhead">
   <a class="mhead__brand" href="#/"><span class="mhead__mark">Ф</span><span>Финансист</span></a>
-  <button class="burger" id="burger" aria-label="Меню"><span></span><span></span></button>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <button id="themeToggleMob" class="theme-toggle-btn-mob" aria-label="Сменить тему">
+       <svg viewBox="0 0 24 24" class="theme-toggle-icon-sun" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+       <svg viewBox="0 0 24 24" class="theme-toggle-icon-moon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span></button>
+  </div>
 </header>
 
 <!-- ===== Мобильное меню ===== -->
@@ -501,9 +651,21 @@ h1{
       <a class="btn btn--ghost" href="#/work"><span>Работа со мной</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
     </div>
     <div class="facts">
-      <div class="fact rv"><strong>Большая четверка</strong><span>Аудит и консалтинг: школа проверяемых цифр, три формы отчетности.</span></div>
-      <div class="fact rv"><strong>Реальный сектор</strong><span>Руководящие финансовые позиции в строительстве и производстве, инвестиционные проекты до ста миллионов долларов.</span></div>
-      <div class="fact rv"><strong>TerenLabs</strong><span>Собственная платформа, которая защищает предпринимателей от потери денег.</span></div>
+      <div class="fact rv">
+        <span class="fact__num">01 · Audit &amp; Strategy</span>
+        <strong>Большая четверка</strong>
+        <span>Аудит и консалтинг: школа проверяемых цифр, три формы отчетности, жесткая финансовая методология.</span>
+      </div>
+      <div class="fact rv">
+        <span class="fact__num">02 · Real Sector</span>
+        <strong>Реальный сектор</strong>
+        <span>Руководящие финансовые позиции в девелопменте и производстве. Инвестиционные проекты до $100M.</span>
+      </div>
+      <div class="fact rv">
+        <span class="fact__num">03 · EdTech SaaS</span>
+        <strong>TerenLabs</strong>
+        <span>Собственная платформа финансовой безопасности предпринимателей в Казахстане.</span>
+      </div>
     </div>
   </div>
 
@@ -828,13 +990,19 @@ h1{
 <!-- ================= ОБО МНЕ ================= -->
 <section class="page" data-route="/about" data-title="Обо мне">
 
-  <div class="wrap sec sec--first hero-tight">
-    <span class="eyebrow">Обо мне</span>
-    <h1 style="margin-top:26px">Двадцать лет в корпоративных финансах</h1>
-    <p class="lead" style="margin-top:24px">Аудит и консалтинг в компании большой четверки, руководящие финансовые позиции в строительстве и производстве, инвестиционные проекты до ста миллионов долларов. Консалтинг в России и Казахстане: от розницы и услуг до завода стройматериалов и энергетики.</p>
-    <div class="actions" style="margin-top:34px">
-      <a class="btn" href="#/work"><span>Форматы работы</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-      <a class="btn btn--ghost" href="#/contacts"><span>Написать</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+  <div class="wrap sec sec--first profile-cols">
+    <div>
+      <span class="eyebrow">Обо мне</span>
+      <h1 style="margin-top:26px">Двадцать лет в корпоративных финансах</h1>
+      <p class="lead" style="margin-top:24px">Аудит и консалтинг в компании <strong class="accent-highlight">большой четверки (Big 4)</strong>, руководящие финансовые позиции в девелопменте и производстве. Инвестиционные проекты до ста миллионов долларов. Консалтинг в России и Казахстане: от ритейла и услуг до производства стройматериалов и энергетики.</p>
+      <div class="actions" style="margin-top:34px">
+        <a class="btn" href="#/work"><span>Форматы работы</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="btn btn--ghost" href="#/contacts"><span>Написать</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+      </div>
+    </div>
+    <div class="profile-photo-frame rv">
+      <img src="photo-light.png" class="photo-light-img" alt="Адиль">
+      <img src="photo-dark.png" class="photo-dark-img" alt="Адиль" style="display:none;">
     </div>
   </div>
 
@@ -854,7 +1022,7 @@ h1{
       </div>
       <div class="stack">
         <div class="paper-quote">Я не обещаю успех. Я показываю математику. Хороший расчет иногда отговаривает от бизнеса, и это лучший результат из возможных.</div>
-        <div class="note">Параллельно развиваю <strong>TerenLabs</strong>: платформу, которая защищает предпринимателей малого бизнеса от потери денег. Обзоры ниш, финансовые модели и база реальных кейсов о том, где бизнес ломается.</div>
+        <div class="note">Параллельно развиваю <strong class="accent-highlight">TerenLabs</strong>: платформу, которая защищает предпринимателей малого бизнеса от потери денег. Обзоры ниш, финансовые модели и база реальных кейсов о том, где бизнес ломается.</div>
       </div>
     </div>
   </div>
@@ -868,7 +1036,7 @@ h1{
       <div class="tl rv">
         <div class="tl__date">2000-е · 2010-е</div>
         <div>
-          <div class="tl__role">Аудит и консалтинг · большая четверка</div>
+          <div class="tl__role">Аудит и консалтинг · <span class="accent-highlight">большая четверка (Big 4)</span></div>
           <div class="tl__text">Школа методологии: аудит, три формы отчетности, дисциплина проверяемых цифр. Сегодня это встроено в каждый расчет, от санити-чека допущений до контроля сходимости баланса.</div>
         </div>
       </div>
@@ -889,7 +1057,7 @@ h1{
       <div class="tl rv">
         <div class="tl__date">Сегодня</div>
         <div>
-          <div class="tl__role">Финансовый консультант · TerenLabs</div>
+          <div class="tl__role">Финансовый консультант · <span class="accent-highlight">TerenLabs</span></div>
           <div class="tl__text">Финмодели и разборы ниш для малого бизнеса. Платформа TerenLabs: обзоры ниш, финансовые инструменты и база реальных кейсов.</div>
         </div>
       </div>
@@ -995,6 +1163,37 @@ ym(111172932, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true,
   var menu = document.getElementById('sbMenu');
   var bubble = document.getElementById('menuBubble');
   var base = 'Финансист';
+
+  // Переключение тем
+  var themeToggle = document.getElementById('themeToggle');
+  var themeToggleMob = document.getElementById('themeToggleMob');
+  
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.body.classList.add('dark');
+      document.querySelectorAll('.theme-toggle-icon-sun').forEach(function(el){ el.style.display = 'none'; });
+      document.querySelectorAll('.theme-toggle-icon-moon').forEach(function(el){ el.style.display = ''; });
+    } else {
+      document.body.classList.remove('dark');
+      document.querySelectorAll('.theme-toggle-icon-sun').forEach(function(el){ el.style.display = ''; });
+      document.querySelectorAll('.theme-toggle-icon-moon').forEach(function(el){ el.style.display = 'none'; });
+    }
+    var metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#171410' : '#F5F2EA');
+    moveBubble();
+  }
+
+  var currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(currentTheme);
+
+  function toggle() {
+    currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', currentTheme);
+    applyTheme(currentTheme);
+  }
+
+  if (themeToggle) themeToggle.addEventListener('click', toggle);
+  if (themeToggleMob) themeToggleMob.addEventListener('click', toggle);
 
   // бабл: пилюля перетекает к активному пункту меню
   function moveBubble() {
