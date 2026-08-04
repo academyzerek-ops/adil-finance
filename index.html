@@ -340,13 +340,27 @@ h1{
 .dark-band .btn--ghost:hover{border-color:var(--dark-ink)}
 
 /* ============ Карточки: двойной кант ============ */
-.shell{
-  background:rgba(26,23,18,.045);
-  border:1px solid rgba(26,23,18,.06);
-  border-radius:26px;padding:6px;
-  transition:transform .6s var(--ease),box-shadow .6s var(--ease);
+.shell {
+  background: rgba(139, 101, 52, .03);
+  border: 1px solid rgba(139, 101, 52, .08);
+  border-radius: 26px; padding: 6px;
+  transition: transform .6s var(--ease), box-shadow .6s var(--ease), border-color .6s var(--ease), background .6s var(--ease);
 }
-.shell:hover{transform:translateY(-4px);box-shadow:0 30px 60px -34px rgba(26,23,18,.35)}
+.shell:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px -34px rgba(139, 101, 52, .22);
+  border-color: var(--bronze);
+  background: rgba(139, 101, 52, .06);
+}
+body.dark .shell {
+  background: rgba(240, 235, 223, .015);
+  border: 1px solid rgba(240, 235, 223, .07);
+}
+body.dark .shell:hover {
+  border-color: var(--bronze);
+  background: rgba(240, 235, 223, .04);
+  box-shadow: 0 30px 60px -34px rgba(0, 0, 0, .6);
+}
 .core{
   background:var(--card);border-radius:20px;padding:26px 26px 24px;height:100%;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.65);
@@ -455,30 +469,69 @@ body.dark .fact:hover {
 .checks li{
   padding:16px 0 16px 34px;position:relative;
   font-size:15px;color:var(--ink-2);border-bottom:1px solid var(--line);line-height:1.55;
+  transition:transform .4s var(--ease), color .4s var(--ease);
 }
 .checks li:last-child{border-bottom:0}
 .checks li::before{
   content:"";position:absolute;left:4px;top:24px;width:14px;height:1.5px;background:var(--bronze);
 }
-.checks li strong{color:var(--ink);font-weight:700}
+.checks li strong{color:var(--ink);font-weight:700;transition:color .4s var(--ease)}
+.checks li:hover {
+  transform:translateX(6px);
+  color:var(--ink);
+}
+.checks li:hover strong {
+  color:var(--bronze);
+}
 @media(min-width:768px){.checks--2{grid-template-columns:1fr 1fr;column-gap:56px}
 .checks--2 li:nth-last-child(2){border-bottom:0}}
 
 /* ============ Таймлайн ============ */
 .timeline{display:grid;gap:0;border-top:1px solid var(--line-2)}
-.tl{display:grid;gap:6px;padding:26px 0;border-bottom:1px solid var(--line)}
+.tl{
+  display:grid;gap:6px;padding:26px 0;border-bottom:1px solid var(--line);
+  transition:transform .4s var(--ease), border-color .4s var(--ease);
+}
 @media(min-width:768px){.tl{grid-template-columns:180px 1fr;gap:32px}}
 .tl__date{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);letter-spacing:.06em;padding-top:5px}
-.tl__role{font-family:var(--font-display);font-size:1.45rem;font-weight:600;letter-spacing:-.005em;line-height:1.2}
+.tl__role{font-family:var(--font-display);font-size:1.45rem;font-weight:600;letter-spacing:-.005em;line-height:1.2;transition:color .4s var(--ease)}
 .tl__text{font-size:14.5px;color:var(--ink-2);max-width:60ch;margin-top:4px}
+.tl:hover {
+  transform:translateX(8px);
+  border-bottom-color:var(--bronze);
+}
+.tl:hover .tl__role {
+  color:var(--bronze);
+}
 
 /* ============ Заметки ============ */
 .note{
   border:1px solid var(--line);border-radius:18px;padding:22px 24px;
-  font-size:14.5px;color:var(--ink-2);background:rgba(255,255,255,.4);line-height:1.6;
+  font-size:14.5px;color:var(--ink-2);background:rgba(255,255,255,.45);line-height:1.6;
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease), background .4s var(--ease);
 }
-.note strong{color:var(--ink)}
-.note--ox{border-color:var(--ox-line);background:var(--ox-tint)}
+body.dark .note {
+  background:rgba(255,255,255,.03);
+}
+.note strong{color:var(--ink);transition:color .4s var(--ease)}
+.note:hover {
+  transform:translateY(-3px);
+  border-color:var(--bronze);
+  background:var(--card);
+  box-shadow:0 15px 30px -15px rgba(139,101,52,.15);
+}
+body.dark .note:hover {
+  box-shadow:0 15px 30px -15px rgba(0,0,0,.5);
+}
+.note--ox{
+  border-color:var(--ox-line);background:var(--ox-tint);
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+}
+.note--ox:hover {
+  transform:translateY(-3px);
+  border-color:var(--ox);
+  box-shadow:0 15px 30px -15px rgba(229,92,79,.15);
+}
 .stack{display:grid;gap:14px}
 .cols{display:grid;gap:28px}
 @media(min-width:900px){.cols{grid-template-columns:1.25fr 1fr;gap:56px}}
