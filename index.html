@@ -56,7 +56,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=3">
+<link rel="stylesheet" href="/assets/site.css?v=5">
 </head>
 <body>
 
@@ -657,13 +657,26 @@
       <h2 class="t-section" style="margin:16px 0 10px">Или опишите задачу здесь</h2>
       <p class="lead-note">Заявка придет мне в Telegram вместе с номером обращения. Отвечаю тем способом, который вы укажете.</p>
 
+      <fieldset class="chips-field">
+        <legend>Что нужно</legend>
+        <div class="chips-pick">
+          <label class="pick"><input type="radio" name="product" value="Финансовая модель" checked><span>Финансовая модель</span></label>
+          <label class="pick"><input type="radio" name="product" value="Бизнес-план"><span>Бизнес-план</span></label>
+          <label class="pick"><input type="radio" name="product" value="Управленческий учет"><span>Управленческий учет</span></label>
+          <label class="pick"><input type="radio" name="product" value="Финансовый анализ"><span>Финансовый анализ</span></label>
+          <label class="pick"><input type="radio" name="product" value="Дашборд"><span>Дашборд</span></label>
+          <label class="pick"><input type="radio" name="product" value="Аналитика рынка"><span>Аналитика рынка</span></label>
+          <label class="pick"><input type="radio" name="product" value="Другое"><span>Другое</span></label>
+        </div>
+      </fieldset>
+
       <div class="lead__grid">
         <label class="field"><span>Как к вам обращаться</span>
           <input type="text" name="name" placeholder="Имя" autocomplete="off"
                  autocorrect="off" autocapitalize="words" spellcheck="false" maxlength="80">
         </label>
-        <label class="field"><span>Как с вами связаться</span>
-          <input type="text" name="contact" placeholder="Telegram, почта или телефон" autocomplete="off"
+        <label class="field"><span>Куда прислать ответ</span>
+          <input type="text" name="contact" placeholder="@ник в Telegram, почта или телефон" autocomplete="off"
                  autocorrect="off" spellcheck="false" maxlength="120" required>
         </label>
       </div>
@@ -857,6 +870,7 @@ ym(111172932, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         name: v('name'),
+        product: (leadForm.querySelector('input[name="product"]:checked') || {}).value || '',
         contact: v('contact'),
         task: v('task'),
         page: location.href.slice(0, 200),
@@ -867,6 +881,7 @@ ym(111172932, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true,
       .then(function (d) {
         if (leadTicket) leadTicket.textContent = d.ticket || '';
         if (leadDone) leadDone.hidden = false;
+        leadForm.querySelector('.chips-field').style.display = 'none';
         leadForm.querySelector('.lead__grid').style.display = 'none';
         leadForm.querySelector('textarea').closest('.field').style.display = 'none';
         leadForm.querySelector('.lead__foot').style.display = 'none';
