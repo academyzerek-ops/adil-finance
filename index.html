@@ -56,7 +56,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=7">
+<link rel="stylesheet" href="/assets/site.css?v=10">
 </head>
 <body>
 
@@ -656,30 +656,25 @@
     <form id="leadForm" class="lead" novalidate>
       <span class="eyebrow">Заявка</span>
       <h2 class="t-section" style="margin:16px 0 10px">Или опишите задачу здесь</h2>
-      <p class="lead-note">Заявка придет мне в Telegram вместе с номером обращения. Отвечаю туда же, на ваш ник.</p>
+      <p class="lead-note">Заявка придет мне в Telegram вместе с номером обращения.</p>
 
       <div class="lead__grid">
         <label class="field"><span>Как к вам обращаться</span>
           <input type="text" name="name" placeholder="Имя" autocomplete="off"
                  autocorrect="off" autocapitalize="words" spellcheck="false" maxlength="80">
         </label>
-        <label class="field"><span>Ваш Telegram</span>
-          <input type="text" name="contact" placeholder="@ник" autocomplete="off"
-                 autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="120" required>
+        <label class="field"><span>Что нужно</span>
+          <select name="product">
+            <option>Финансовая модель</option>
+            <option>Бизнес-план</option>
+            <option>Управленческий учет</option>
+            <option>Финансовый анализ</option>
+            <option>Дашборд</option>
+            <option>Аналитика рынка</option>
+            <option>Другое</option>
+          </select>
         </label>
       </div>
-
-      <label class="field"><span>Что нужно</span>
-        <select name="product">
-          <option>Финансовая модель</option>
-          <option>Бизнес-план</option>
-          <option>Управленческий учет</option>
-          <option>Финансовый анализ</option>
-          <option>Дашборд</option>
-          <option>Аналитика рынка</option>
-          <option>Другое</option>
-        </select>
-      </label>
 
       <label class="field"><span>Задача</span>
         <textarea name="task" placeholder="Что происходит с цифрами и что хотите получить"
@@ -730,7 +725,7 @@
   <div class="wrap">
     <div style="text-transform:uppercase; letter-spacing:0.04em;">© 2026 ФИНАНСИСТ</div>
     <div>zerek.cc · <a href="offer.html" target="_blank" style="text-decoration:underline; text-underline-offset:3px;">Публичная оферта</a></div>
-    <div class="disc">Работаю с бизнесом из РФ и РК. Публичная оферта, безналичная оплата, чеки самозанятого.</div>
+    <div class="disc">Работаю с бизнесом из <span class="flag">🇷🇺</span> и <span class="flag">🇰🇿</span>. Публичная оферта, безналичная оплата, чеки самозанятого РФ.</div>
   </div>
 </footer>
 </div>
@@ -853,11 +848,6 @@ ym(111172932, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true,
     var v = function (n) { return (leadForm.elements[n].value || '').trim(); };
     var btn = leadForm.querySelector('button[type="submit"]');
 
-    if (v('contact').length < 2) {
-      leadSay('Напишите ваш ник в Telegram, отвечаю туда.', true);
-      leadForm.elements['contact'].focus();
-      return;
-    }
     if (v('task').length < 5) {
       leadSay('Пары предложений о задаче достаточно, но совсем без них не получится.', true);
       leadForm.elements['task'].focus();
@@ -873,7 +863,6 @@ ym(111172932, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true,
       body: JSON.stringify({
         name: v('name'),
         product: v('product'),
-        contact: v('contact'),
         task: v('task'),
         page: location.href.slice(0, 200),
         website: v('website')
@@ -884,7 +873,6 @@ ym(111172932, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true,
         if (leadTicket) leadTicket.textContent = d.ticket || '';
         if (leadDone) leadDone.hidden = false;
         leadForm.querySelector('.lead__grid').style.display = 'none';
-        leadForm.querySelector('select').closest('.field').style.display = 'none';
         leadForm.querySelector('textarea').closest('.field').style.display = 'none';
         leadForm.querySelector('.lead__foot').style.display = 'none';
       })

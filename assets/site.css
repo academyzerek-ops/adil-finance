@@ -1236,3 +1236,12 @@ body.dark .channel:hover { box-shadow: 0 20px 40px -22px rgba(0, 0, 0, .7); }
 /* атрибут hidden должен побеждать любой display у компонента */
 [hidden] { display: none !important; }
 
+
+/* флаги вместо аббревиатур: крупнее текста и ровно по строке */
+.flag {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 1.25em;
+  line-height: 1;
+  vertical-align: -.12em;
+  margin: 0 .04em;
+}

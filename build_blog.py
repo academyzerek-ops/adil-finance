@@ -132,7 +132,7 @@ FOOTER = """<footer class="footer">
   <div class="wrap">
     <div style="text-transform:uppercase; letter-spacing:0.04em;">© 2026 ФИНАНСИСТ</div>
     <div>zerek.cc · <a href="/offer.html" target="_blank" style="text-decoration:underline; text-underline-offset:3px;">Публичная оферта</a></div>
-    <div class="disc">Работаю с бизнесом из РФ и РК. Публичная оферта, безналичная оплата, чеки самозанятого.</div>
+    <div class="disc">Работаю с бизнесом из <span class="flag">🇷🇺</span> и <span class="flag">🇰🇿</span>. Публичная оферта, безналичная оплата, чеки самозанятого РФ.</div>
   </div>
 </footer>"""
 
@@ -179,7 +179,7 @@ def shell(title, description, canonical, body, jsonld="", og_type="article"):
 <meta name="theme-color" content="#F5F2EA">
 {FAVICON}
 {FONTS}
-<link rel="stylesheet" href="/assets/site.css?v=7">
+<link rel="stylesheet" href="/assets/site.css?v=10">
 </head>
 <body>
 
