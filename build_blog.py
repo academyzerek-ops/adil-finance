@@ -321,7 +321,7 @@ def post_page(post, prev_post, next_post):
       <p class="quote" style="margin-top:24px">Такой расчет можно сделать до того, как деньги вложены</p>
       <p class="sub">Финансовая модель показывает точку безубыточности, кассовый разрыв и запас прочности вашего проекта. Дешевле одной ошибки в аренде.</p>
       <div class="actions">
-        <a class="btn" href="/#/services"><span>Каталог финмоделей</span><span class="btn__ic">{ARROW}</span></a>
+        <a class="btn" href="/#/services"><span>Про финмодели</span><span class="btn__ic">{ARROW}</span></a>
         <a class="btn btn--ghost" href="/#/contacts"><span>Обсудить задачу</span><span class="btn__ic">{ARROW}</span></a>
       </div>
     </div>
