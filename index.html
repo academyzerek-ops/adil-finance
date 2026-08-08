@@ -56,7 +56,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=14">
+<link rel="stylesheet" href="/assets/site.css?v=16">
 </head>
 <body>
 
@@ -648,7 +648,7 @@
     <form id="leadForm" class="lead" novalidate>
       <span class="eyebrow">Заявка</span>
       <h2 class="t-section" style="margin:16px 0 10px">Или опишите задачу здесь</h2>
-      <p class="lead-note">Заявка придет мне в Telegram вместе с номером обращения.</p>
+      <p class="lead-note">Заявка придет мне в Telegram. Подтверждение в боте занимает одно нажатие и заменяет ввод контактов.</p>
 
       <div class="lead__grid">
         <label class="field"><span>Как к вам обращаться</span>
@@ -685,16 +685,20 @@
           <span class="btn__tg" aria-hidden="true"><img src="/assets/tg.webp" alt="" width="128" height="128" decoding="async"></span>
           <span>Отправить заявку</span>
         </button>
-        <p class="tiny" id="leadHint">Уйдет мне в Telegram. Номер обращения появится здесь же.</p>
+        <p class="tiny" id="leadHint">Дальше откроется Telegram: нажмите «Старт», чтобы я знал, кому отвечать.</p>
       </div>
 
       <div class="lead__done" id="leadDone" hidden>
-        <span class="lead__check" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg>
+        <span class="lead__logo" aria-hidden="true">
+          <img src="/assets/tg.webp" alt="" width="128" height="128" decoding="async">
         </span>
         <div>
-          <strong>Заявка принята</strong>
-          <p>Номер обращения <code id="leadTicket"></code>. Отвечу в течение дня. Если вопрос срочный, напишите в Telegram напрямую.</p>
+          <strong>Остался один шаг</strong>
+          <p>Номер обращения <code id="leadTicket"></code>. Откройте Telegram и нажмите «Старт» — так я узнаю, кому отвечать. Без этого заявка до меня не дойдет.</p>
+          <a class="btn" id="leadConfirm" href="#" target="_blank" rel="noopener">
+            <span>Подтвердить в Telegram</span>
+            <span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+          </a>
         </div>
       </div>
     </form>
@@ -872,10 +876,14 @@ ym(111172932, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true,
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (d) {
         if (leadTicket) leadTicket.textContent = d.ticket || '';
+        var link = document.getElementById('leadConfirm');
+        if (link && d.confirm_url) link.href = d.confirm_url;
         if (leadDone) leadDone.hidden = false;
         leadForm.querySelector('.lead__grid').style.display = 'none';
         leadForm.querySelector('textarea').closest('.field').style.display = 'none';
         leadForm.querySelector('.lead__foot').style.display = 'none';
+        // окно открываем сразу: клик по кнопке ещё считается жестом пользователя
+        if (d.confirm_url) window.open(d.confirm_url, '_blank', 'noopener');
       })
       .catch(function () {
         btn.disabled = false;

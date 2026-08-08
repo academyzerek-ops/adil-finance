@@ -1170,18 +1170,6 @@ body.dark .channel:hover { box-shadow: 0 20px 40px -22px rgba(0, 0, 0, .7); }
   background: rgba(34, 158, 217, .07);
   border-radius: 16px;
 }
-.lead__check {
-  display: grid; place-items: center; flex: none;
-  width: 28px; height: 28px; border-radius: 50%;
-  background: #229ED9;
-}
-.lead__check svg {
-  width: 15px; height: 15px;
-  fill: none; stroke: #fff; stroke-width: 2.6;
-  stroke-linecap: round; stroke-linejoin: round;
-  stroke-dasharray: 26; stroke-dashoffset: 26;
-  animation: heroDraw 500ms var(--ease-out) 120ms forwards;
-}
 .lead__done strong { display: block; margin-bottom: 4px; font-size: 15.5px; }
 .lead__done p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink-3); }
 .lead__done code {
@@ -1251,8 +1239,7 @@ body.dark .channel:hover { box-shadow: 0 20px 40px -22px rgba(0, 0, 0, .7); }
 
 @media (prefers-reduced-motion: reduce) {
   .channel, .channel::before, .channel__logo, .channel__go { transition: none !important; }
-  .lead__check svg { animation: none; stroke-dashoffset: 0; }
-}
+  }
 
 .tiny.is-bad { color: var(--ox); font-weight: 600; }
 
@@ -1268,3 +1255,8 @@ body.dark .channel:hover { box-shadow: 0 20px 40px -22px rgba(0, 0, 0, .7); }
   vertical-align: -.14em;
   margin: 0 .14em;
 }
+
+/* иконка Telegram в блоке подтверждения вместо галочки */
+.lead__logo { flex: none; width: 34px; height: 34px; }
+.lead__logo img { width: 34px; height: 34px; }
+.lead__done .btn { margin-top: 16px; }
