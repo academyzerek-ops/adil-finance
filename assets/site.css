@@ -1368,51 +1368,5 @@ body.dark .career__item--now .career__body { border-color: rgba(240, 169, 97, .3
   .career__num { transition: none; }
 }
 
-/* ============================================================
-   Обо мне: портрет справа от вводки
-   ============================================================ */
-
-.about-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
-  gap: 64px;
-  align-items: center;
-}
-.about-hero__art { position: relative; }
-/* смещенная бронзовая рамка позади портрета: след печатной верстки */
-.about-hero__frame {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  background: var(--paper-2);
-}
-.about-hero__frame::after {
-  content: "";
-  position: absolute; inset: 0;
-  border-radius: 24px;
-  box-shadow: inset 0 0 0 1px var(--line-2);
-  pointer-events: none;
-}
-.about-hero__art::before {
-  content: "";
-  position: absolute; inset: 0;
-  transform: translate(14px, 14px);
-  border: 1px solid rgba(169, 105, 30, .4);
-  border-radius: 24px;
-  pointer-events: none;
-}
-body.dark .about-hero__art::before { border-color: rgba(240, 169, 97, .35); }
-.about-hero__frame img { width: 100%; height: auto; display: block; }
-.about-hero__cap {
-  display: block;
-  margin-top: 22px;
-  font-family: var(--font-mono);
-  font-size: 10.5px; letter-spacing: .12em;
-  color: var(--ink-3);
-  text-align: center;
-}
-
-@media (max-width: 980px) {
-  .about-hero { grid-template-columns: 1fr; gap: 40px; }
   .about-hero__art { max-width: 300px; }
 }
