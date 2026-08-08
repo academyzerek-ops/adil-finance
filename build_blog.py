@@ -179,7 +179,7 @@ def shell(title, description, canonical, body, jsonld="", og_type="article"):
 <meta name="theme-color" content="#F5F2EA">
 {FAVICON}
 {FONTS}
-<link rel="stylesheet" href="/assets/site.css?v=1">
+<link rel="stylesheet" href="/assets/site.css?v=3">
 </head>
 <body>
 
@@ -194,8 +194,8 @@ def shell(title, description, canonical, body, jsonld="", og_type="article"):
 </div>
 
 {METRIKA}
-<script src="/assets/typo.js?v=1"></script>
-<script src="/assets/blog.js?v=1"></script>
+<script src="/assets/typo.js?v=2"></script>
+<script src="/assets/blog.js?v=2"></script>
 </body>
 </html>
 """
