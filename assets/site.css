@@ -1355,8 +1355,9 @@ body.dark .workbook { box-shadow: 0 28px 56px -36px rgba(0, 0, 0, .7); }
 }
 .workbook__tabs {
   display: flex; flex-wrap: wrap;
-  padding: 16px 18px 12px;
-  gap: 8px;
+  align-items: flex-end;
+  padding: 14px 18px 0;
+  gap: 6px;
 }
 .workbook__tab {
   flex: 1 1 auto;
@@ -1364,9 +1365,10 @@ body.dark .workbook { box-shadow: 0 28px 56px -36px rgba(0, 0, 0, .7); }
   font-family: var(--font-mono);
   font-size: 13px; letter-spacing: .02em;
   color: var(--ink-3);
-  padding: 12px 22px;
+  padding: 8px 18px 10px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
   background: var(--paper);
   white-space: nowrap;
 }
@@ -1429,3 +1431,65 @@ body.dark .workbook { box-shadow: 0 28px 56px -36px rgba(0, 0, 0, .7); }
   color: var(--ink-2);
   max-width: 62ch;
 }
+
+/* --- hero финмоделей: подсказка про вводные справа --- */
+.svc-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 56px;
+  align-items: center;
+}
+/* карточка-предупреждение: в языке полосы «Принцип», с лучом сверху */
+.hint {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-2);
+  border: 1px solid rgba(169, 105, 30, .22);
+  border-radius: 20px;
+  padding: 28px 28px 26px;
+}
+.hint::before {
+  content: "";
+  position: absolute; top: 0; left: 28px; right: 35%;
+  height: 2px;
+  background: linear-gradient(to right, var(--accent), transparent);
+}
+body.dark .hint { border-color: rgba(240, 169, 97, .24); }
+.hint__tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: .14em;
+  color: var(--accent);
+}
+.hint__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px; line-height: 1.28;
+  margin: 14px 0 12px;
+}
+.hint__title .mark { font-weight: 500; }
+.hint__text {
+  margin: 0 0 18px;
+  font-size: 14px; line-height: 1.65;
+  color: var(--ink-3);
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+}
+.hint .card-link { display: inline-flex; }
+@media (max-width: 980px) {
+  .svc-hero { grid-template-columns: 1fr; gap: 32px; }
+  .svc-hero aside { max-width: 520px; }
+}
+
+/* --- выравнивание по ширине: ровный правый край у текстовых абзацев --- */
+.lead, .note, .checks li, .workbook__body p, .career__body p,
+.article__body p, .post__sum, .terms p, .fact span,
+.channel__desc, .steps span, .core p, .dark-band .sub, .lead-note {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphenate-limit-chars: 10 5 4;
+}
+
+/* колонки одной высоты: заметки справа распределяются до низа списка */
+.cols--stretch { align-items: stretch; }
+.cols--stretch .stack { justify-content: space-between; height: 100%; }
+.cols--stretch .checks li:first-child { padding-top: 0; }
