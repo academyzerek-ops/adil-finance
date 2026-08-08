@@ -1101,8 +1101,8 @@ body.dark .channel:hover { box-shadow: 0 20px 40px -22px rgba(0, 0, 0, .7); }
   transition: transform var(--dur-base) var(--ease-out);
 }
 .channel__logo img { width: 46px; height: 46px; }
-/* конверт Gmail шире круга Telegram, уравниваем оптическую массу */
-.channel__logo--mail svg { width: 40px; height: 30px; }
+/* буква Gmail шире круга Telegram, уравниваем оптическую массу */
+.channel__logo--mail img { width: 42px; height: 42px; }
 .channel:hover .channel__logo { transform: scale(1.06); }
 
 
