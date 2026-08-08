@@ -1380,3 +1380,37 @@ body.dark .shell--invite { border-color: rgba(240, 169, 97, .3); }
   background: var(--accent);
   border-radius: 2px;
 }
+
+/* --- книга: вкладки живые, под ними описание листа --- */
+.workbook__tab {
+  cursor: pointer;
+  font-family: var(--font-mono);
+  transition: color var(--dur-fast) var(--ease-out),
+              background var(--dur-fast) var(--ease-out);
+}
+.workbook__tab:hover { color: var(--ink); }
+.workbook__tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.workbook__body {
+  padding: 22px 24px 24px;
+  border-top: 1px solid var(--line);
+  margin-top: 14px;
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--dur-base) var(--ease-out),
+              transform var(--dur-base) var(--ease-out);
+}
+.workbook__body:not(.is-in) { opacity: 0; transform: translateY(6px); transition: none; }
+.workbook__body strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.workbook__body p {
+  margin: 0;
+  font-size: 14.5px; line-height: 1.65;
+  color: var(--ink-2);
+  max-width: 62ch;
+}

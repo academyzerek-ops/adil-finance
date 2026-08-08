@@ -56,7 +56,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=27">
+<link rel="stylesheet" href="/assets/site.css?v=28">
 </head>
 <body>
 
@@ -310,19 +310,23 @@
       <h2 class="t-section">Как устроена модель</h2>
     </div>
 
-    <div class="workbook rv" aria-hidden="true">
+    <div class="workbook rv" id="fmWorkbook">
       <div class="workbook__bar">
         <span class="workbook__dot"></span><span class="workbook__dot"></span><span class="workbook__dot"></span>
         <span class="workbook__name">финмодель.xlsx</span>
       </div>
-      <div class="workbook__tabs">
-        <span class="workbook__tab">Допущения</span>
-        <span class="workbook__tab">Выручка</span>
-        <span class="workbook__tab">Затраты</span>
-        <span class="workbook__tab is-on">P&amp;L</span>
-        <span class="workbook__tab">Движение денег</span>
-        <span class="workbook__tab">Баланс</span>
-        <span class="workbook__tab">Дашборд</span>
+      <div class="workbook__tabs" role="tablist" aria-label="Листы модели">
+        <button class="workbook__tab is-on" role="tab" data-sheet="assumptions">Допущения</button>
+        <button class="workbook__tab" role="tab" data-sheet="revenue">Выручка</button>
+        <button class="workbook__tab" role="tab" data-sheet="costs">Затраты</button>
+        <button class="workbook__tab" role="tab" data-sheet="pnl">P&amp;L</button>
+        <button class="workbook__tab" role="tab" data-sheet="cash">Движение денег</button>
+        <button class="workbook__tab" role="tab" data-sheet="balance">Баланс</button>
+        <button class="workbook__tab" role="tab" data-sheet="dash">Дашборд</button>
+      </div>
+      <div class="workbook__body is-in" id="fmSheetInfo">
+        <strong id="fmSheetTitle">Единственный лист ввода</strong>
+        <p id="fmSheetText">Все ваши данные живут здесь: инвестиции, средний чек, поток клиентов, зарплаты, аренда, сезонность, налоговый режим. Меняете жёлтую ячейку, и вся модель пересчитывается сама.</p>
       </div>
     </div>
 
@@ -979,6 +983,41 @@ ym(111172932, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true,
         btn.disabled = false;
         leadSay('Отправка не прошла. Напишите напрямую в Telegram: @godoffin', true);
       });
+  });
+
+  // книга финмодели: вкладки листов показывают, что делает каждый лист
+  var fmSheets = {
+    assumptions: ['Единственный лист ввода',
+      'Все ваши данные живут здесь: инвестиции, средний чек, поток клиентов, зарплаты, аренда, сезонность, налоговый режим. Меняете жёлтую ячейку, и вся модель пересчитывается сама.'],
+    revenue: ['Помесячно, 36 месяцев',
+      'Выход на плановую загрузку и сезонность, а не «сразу сто клиентов в день». Видно, сколько месяцев проект набирает обороты и что происходит с выручкой в мертвый сезон.'],
+    costs: ['Переменные и постоянные',
+      'Себестоимость, зарплаты со схемой оплаты, аренда, коммунальные, маркетинг. Каждая статья отдельной строкой: в моделях «на глаз» именно тут прячутся потерянные деньги.'],
+    pnl: ['Отчет о прибылях и убытках',
+      'Маржа, операционная и чистая прибыль по месяцам. Здесь видно, когда бизнес на самом деле начинает зарабатывать, а не когда «пошла выручка».'],
+    cash: ['Кассовые разрывы и подушка',
+      'Движение живых денег: сколько нужно на старте, где накопленный поток уходит в минус и когда вернутся вложения. NPV, IRR и срок окупаемости считаются здесь.'],
+    balance: ['Третья форма отчетности',
+      'Активы, обязательства, капитал. Баланс сходится до копейки: именно по нему банк и инвестор проверяют, что модель собрана честно, а не нарисована.'],
+    dash: ['Все главные цифры на одном экране',
+      'Точка безубыточности, окупаемость, NPV, графики выручки и денежного потока. Лист, который вы будете открывать чаще всего.']
+  };
+  var fmTabs = document.querySelectorAll('#fmWorkbook .workbook__tab');
+  var fmTitle = document.getElementById('fmSheetTitle');
+  var fmText = document.getElementById('fmSheetText');
+  var fmInfo = document.getElementById('fmSheetInfo');
+  fmTabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      fmTabs.forEach(function (x) { x.classList.toggle('is-on', x === t); });
+      var d = fmSheets[t.dataset.sheet];
+      if (!d) return;
+      fmInfo.classList.remove('is-in');
+      requestAnimationFrame(function () {
+        fmTitle.textContent = d[0];
+        fmText.textContent = d[1];
+        requestAnimationFrame(function () { fmInfo.classList.add('is-in'); });
+      });
+    });
   });
 
   // hero: график мягко следует за курсором, создавая глубину
