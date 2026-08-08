@@ -244,64 +244,6 @@ h1{
 
 /* ============ Hero Layout (Split) ============ */
 .hero{position:relative}
-.hero-layout {
-  display: grid;
-  gap: 28px;
-  width: 100%;
-}
-@media (min-width: 900px) {
-  .hero-layout {
-    grid-template-columns: 1.25fr 1fr;
-    gap: 48px;
-    align-items: center;
-  }
-}
-.hero-art-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  max-width: 480px;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  justify-self: center;
-}
-.hero-art {
-  width: 100%;
-  height: 100%;
-}
-
-/* SVG Animations */
-@keyframes drawLine {
-  to { stroke-dashoffset: 0; }
-}
-@keyframes growBar {
-  from { transform: scaleY(0); }
-  to { transform: scaleY(1); }
-}
-@keyframes pulseDot {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(2.4); opacity: 0; }
-}
-.svg-line-rev {
-  stroke-dasharray: 400;
-  stroke-dashoffset: 400;
-  animation: drawLine 1.8s var(--ease) forwards;
-}
-.svg-line-cost {
-  stroke-dasharray: 400;
-  stroke-dashoffset: 400;
-  animation: drawLine 1.8s var(--ease) 0.2s forwards;
-}
-.svg-bar {
-  transform-origin: bottom;
-  animation: growBar 1.2s var(--ease) forwards;
-}
-.pulse-equilibrium {
-  transform-origin: 190px 105px;
-  animation: pulseDot 1.8s infinite linear;
-}
 .hero-tight h1,.hero-tight .lead{max-width:34ch}
 .hero-tight .lead{max-width:52ch}
 
@@ -659,44 +601,6 @@ span.accent-highlight {
 }
 
 /* ============ Облако кейсов-заглушек в Блоге ============ */
-.case-stubs-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  width: 100%;
-  margin-top: 12px;
-}
-.case-stub {
-  font-family: var(--font-body);
-  font-size: 13.5px;
-  font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 999px;
-  border: 1px solid var(--line-2);
-  background: rgba(139, 101, 52, .03);
-  color: var(--ink-2);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all .4s var(--ease);
-  cursor: default;
-}
-body.dark .case-stub {
-  border-color: rgba(240, 235, 223, .12);
-  background: rgba(240, 235, 223, .02);
-}
-.case-stub:hover {
-  transform: translateY(-2px);
-  border-color: var(--bronze);
-  background: rgba(139, 101, 52, .06);
-  color: var(--ink);
-  box-shadow: 0 10px 20px -10px rgba(139,101,52,.15);
-}
-body.dark .case-stub:hover {
-  background: rgba(240, 235, 223, .04);
-  box-shadow: 0 10px 20px -10px rgba(0,0,0,.5);
-}
-
 /* ============================================================
    Типографика: переносы, висячие строки, цифры
    ============================================================ */
@@ -1001,4 +905,122 @@ body.dark .dark-band {
   border: 1px solid rgba(240, 169, 97, .14);
   box-shadow: inset 0 1px 0 rgba(240, 235, 223, .05),
               0 24px 48px -32px rgba(0, 0, 0, .8);
+}
+
+/* ============================================================
+   Hero: график живет фоном под заголовком
+   ============================================================ */
+
+.hero { position: relative; }
+
+.hero-canvas {
+  position: absolute;
+  top: -56px; left: -28px; right: -28px;
+  height: clamp(320px, 35vw, 480px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: .78;
+  /* слева растворяется, чтобы не спорить с текстом */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, rgba(0,0,0,.12) 36%, rgba(0,0,0,.55) 60%, #000 82%),
+    linear-gradient(to bottom, #000 58%, transparent 96%);
+  mask-image:
+    linear-gradient(to right, transparent 0%, rgba(0,0,0,.12) 36%, rgba(0,0,0,.55) 60%, #000 82%),
+    linear-gradient(to bottom, #000 58%, transparent 96%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  will-change: transform;
+  transition: transform 900ms cubic-bezier(.22,.61,.36,1);
+}
+.hero-canvas .hero-art { width: 100%; height: 100%; }
+/* на темной бумаге график читается сам по себе, приглушаем */
+body.dark .hero-canvas { opacity: .52; }
+
+/* текст поверх графика */
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 660px;
+}
+/* крупная антиква: главный акцент страницы */
+.hero-inner h1 {
+  font-size: clamp(38px, 5.4vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -.028em;
+  max-width: 17ch;
+}
+.hero-inner .lead { max-width: 46ch; }
+
+/* --- отрисовка: линии проводятся, а не появляются --- */
+@keyframes heroDraw   { to { stroke-dashoffset: 0; } }
+@keyframes heroFade   { to { opacity: 1; } }
+@keyframes heroRise   { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes heroWave   { to { transform: scale(3.2); opacity: 0; } }
+@keyframes heroPop    { from { transform: scale(0); } to { transform: scale(1); } }
+
+.hero-grid  { opacity: 0; animation: heroFade 900ms var(--ease-out) 200ms forwards; }
+.hero-axis  { opacity: 0; animation: heroFade 900ms var(--ease-out) 300ms forwards; }
+
+.hero-cost {
+  stroke-dasharray: 1200; stroke-dashoffset: 1200;
+  animation: heroDraw 1400ms var(--ease-out) 450ms forwards;
+}
+.hero-rev {
+  stroke-dasharray: 1600; stroke-dashoffset: 1600;
+  animation: heroDraw 1800ms var(--ease-out) 650ms forwards;
+}
+.hero-profit { opacity: 0; animation: heroFade 1200ms var(--ease-out) 1900ms forwards; }
+
+.hero-bar {
+  transform-origin: 50% 100%;
+  transform: scaleY(0);
+  animation: heroRise 700ms var(--ease-out) forwards;
+}
+.hero-bar:nth-child(1)  { animation-delay: 700ms; }
+.hero-bar:nth-child(2)  { animation-delay: 760ms; }
+.hero-bar:nth-child(3)  { animation-delay: 820ms; }
+.hero-bar:nth-child(4)  { animation-delay: 880ms; }
+.hero-bar:nth-child(5)  { animation-delay: 940ms; }
+.hero-bar:nth-child(6)  { animation-delay: 1000ms; }
+.hero-bar:nth-child(7)  { animation-delay: 1060ms; }
+.hero-bar:nth-child(8)  { animation-delay: 1120ms; }
+.hero-bar:nth-child(9)  { animation-delay: 1180ms; }
+.hero-bar:nth-child(10) { animation-delay: 1240ms; }
+.hero-bar:nth-child(11) { animation-delay: 1300ms; }
+.hero-bar:nth-child(12) { animation-delay: 1360ms; }
+.hero-bar:nth-child(13) { animation-delay: 1420ms; }
+
+/* точка ставится там, где линии сошлись, и волна расходится один раз */
+.hero-point {
+  opacity: 0;
+  transform-origin: 690px 293px;
+  animation: heroFade 400ms linear 1750ms forwards,
+             heroPop 600ms var(--ease-spring) 1750ms backwards;
+}
+.hero-point__wave {
+  transform-origin: 690px 293px;
+  animation: heroWave 1600ms var(--ease-out) 2100ms forwards;
+}
+.hero-labels { opacity: 0; animation: heroFade 900ms var(--ease-out) 2300ms forwards; }
+
+@media (max-width: 900px) {
+  .hero-canvas {
+    opacity: .3;
+    height: clamp(360px, 78vw, 520px);
+    -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 92%);
+    mask-image: linear-gradient(to bottom, #000 45%, transparent 92%);
+  }
+  .hero-inner h1 { max-width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-grid, .hero-axis, .hero-cost, .hero-rev,
+  .hero-profit, .hero-bar, .hero-point, .hero-labels {
+    animation: none !important;
+    opacity: 1;
+    stroke-dashoffset: 0;
+    transform: none;
+  }
+  .hero-point__wave { display: none; }
+  .hero-canvas { transition: none; }
 }

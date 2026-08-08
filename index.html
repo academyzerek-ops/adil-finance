@@ -133,60 +133,81 @@
 <section class="page" data-route="/" data-title="Финансист">
 
   <div class="wrap sec sec--first hero">
-    <div class="hero-layout">
-      <div>
-        <span class="eyebrow" style="margin-bottom:14px">Финансовый консалтинг для РФ и РК</span>
-        <h1>Считаю экономику бизнеса до того, как в него вложены деньги</h1>
-        <p class="lead" style="margin-top:14px">Разработка финансовых моделей, бизнес-планов, дашбордов и постановка управленческого учета для малого бизнеса. Профессиональные расчеты, которые выдерживают любые вопросы инвесторов и банков.</p>
-        <div class="actions" style="margin-top:24px">
-          <a class="btn" href="#/contacts"><span>Начать проект</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-        </div>
-      </div>
-      <div class="hero-art-container rv">
-        <svg class="hero-art" width="320" height="240" viewBox="0 0 320 240" fill="none" aria-hidden="true">
-          <!-- Grid Background -->
-          <line x1="20" y1="35" x2="300" y2="35" stroke="var(--line)" stroke-width="0.8" stroke-dasharray="3 3"/>
-          <line x1="20" y1="105" x2="300" y2="105" stroke="var(--line)" stroke-width="0.8"/>
-          <line x1="20" y1="175" x2="300" y2="175" stroke="var(--line)" stroke-width="0.8" stroke-dasharray="3 3"/>
-          
-          <line x1="75" y1="35" x2="75" y2="195" stroke="var(--line)" stroke-width="0.8" stroke-dasharray="3 3"/>
-          <line x1="190" y1="35" x2="190" y2="195" stroke="var(--line)" stroke-width="0.8"/>
-          
-          <!-- Axis -->
-          <path d="M20 195 H300" stroke="var(--line-2)" stroke-width="1.2"/>
-          <path d="M20 35 V195" stroke="var(--line-2)" stroke-width="1.2"/>
-          
-          <!-- Monospaced metrics overlay -->
-          <text x="32" y="24" fill="var(--ink-3)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.05em">[ P&amp;L SIMULATION ]</text>
-          <text x="210" y="24" fill="var(--bronze)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.05em">[ MARGIN: 24.5% ]</text>
-          
-          <!-- Revenue Line (Bronze) -->
-          <path class="svg-line-rev" d="M20 180 C80 150 140 120 290 50" stroke="var(--bronze)" stroke-width="2.8" stroke-linecap="round"/>
-          
-          <!-- Total Cost Line (Ink) -->
-          <path class="svg-line-cost" d="M20 145 L290 95" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round"/>
-          
-          <!-- Equilibrium Intersection (Flashing point) -->
-          <line x1="190" y1="105" x2="190" y2="195" stroke="var(--bronze)" stroke-width="0.8" stroke-dasharray="2 2"/>
-          <circle class="pulse-equilibrium" cx="190" cy="105" r="5" stroke="var(--bronze)" stroke-width="1.5" fill="none"/>
-          <circle cx="190" cy="105" r="5.5" fill="var(--bronze)"/>
-          
-          <!-- Monthly Cash Flow Grow-Bars (Basement) -->
-          <g transform="translate(0, 195)">
-            <rect class="svg-bar" x="35" y="-12" width="10" height="12" fill="var(--line-2)" rx="2"/>
-            <rect class="svg-bar" x="55" y="-18" width="10" height="18" fill="var(--line-2)" rx="2"/>
-            <rect class="svg-bar" x="100" y="-28" width="10" height="28" fill="var(--line-2)" rx="2"/>
-            <rect class="svg-bar" x="120" y="-32" width="10" height="32" fill="var(--line-2)" rx="2"/>
-            <rect class="svg-bar" x="220" y="-48" width="10" height="48" fill="var(--bronze)" rx="2" opacity="0.85"/>
-            <rect class="svg-bar" x="240" y="-56" width="10" height="56" fill="var(--bronze)" rx="2"/>
-          </g>
-          
-          <!-- Bottom state tag -->
-          <text x="32" y="218" fill="var(--ink-3)" font-family="var(--font-mono)" font-size="9" letter-spacing="0.05em">[ STRESS-CAPACITY: OK ]</text>
-        </svg>
+    <div class="hero-canvas" id="heroCanvas" aria-hidden="true">
+      <svg class="hero-art" viewBox="0 0 1200 560" fill="none" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="profitFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="var(--accent)" stop-opacity=".38"/>
+            <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="revStroke" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0%" stop-color="var(--bronze)" stop-opacity=".45"/>
+            <stop offset="100%" stop-color="var(--accent)" stop-opacity="1"/>
+          </linearGradient>
+        </defs>
+
+        <!-- сетка -->
+        <g class="hero-grid" stroke="var(--line)" stroke-width="1">
+          <line x1="60" y1="120" x2="1140" y2="120" stroke-dasharray="2 8"/>
+          <line x1="60" y1="220" x2="1140" y2="220" stroke-dasharray="2 8"/>
+          <line x1="60" y1="320" x2="1140" y2="320" stroke-dasharray="2 8"/>
+          <line x1="60" y1="420" x2="1140" y2="420" stroke-dasharray="2 8"/>
+        </g>
+
+        <!-- ось -->
+        <path class="hero-axis" d="M60 470 H1140" stroke="var(--line-2)" stroke-width="1.4"/>
+
+        <!-- денежный поток по месяцам -->
+        <g class="hero-bars" transform="translate(0, 470)">
+          <rect class="hero-bar" x="120"  y="-26"  width="14" height="26"  rx="3" fill="var(--line-2)"/>
+          <rect class="hero-bar" x="196"  y="-38"  width="14" height="38"  rx="3" fill="var(--line-2)"/>
+          <rect class="hero-bar" x="272"  y="-34"  width="14" height="34"  rx="3" fill="var(--line-2)"/>
+          <rect class="hero-bar" x="348"  y="-52"  width="14" height="52"  rx="3" fill="var(--line-2)"/>
+          <rect class="hero-bar" x="424"  y="-46"  width="14" height="46"  rx="3" fill="var(--line-2)"/>
+          <rect class="hero-bar" x="500"  y="-64"  width="14" height="64"  rx="3" fill="var(--line-2)"/>
+          <rect class="hero-bar" x="576"  y="-58"  width="14" height="58"  rx="3" fill="var(--line-2)"/>
+          <rect class="hero-bar" x="652"  y="-78"  width="14" height="78"  rx="3" fill="var(--bronze)" opacity=".5"/>
+          <rect class="hero-bar" x="728"  y="-92"  width="14" height="92"  rx="3" fill="var(--bronze)" opacity=".58"/>
+          <rect class="hero-bar" x="804"  y="-86"  width="14" height="86"  rx="3" fill="var(--bronze)" opacity=".66"/>
+          <rect class="hero-bar" x="880"  y="-112" width="14" height="112" rx="3" fill="var(--bronze)" opacity=".74"/>
+          <rect class="hero-bar" x="956"  y="-128" width="14" height="128" rx="3" fill="var(--accent)" opacity=".8"/>
+          <rect class="hero-bar" x="1032" y="-146" width="14" height="146" rx="3" fill="var(--accent)" opacity=".9"/>
+        </g>
+
+        <!-- зона прибыли после точки безубыточности -->
+        <path class="hero-profit" d="M690 293 C 850 255, 1000 190, 1140 100 L1140 260 Z" fill="url(#profitFill)"/>
+
+        <!-- затраты -->
+        <path class="hero-cost" d="M60 340 L1140 260" stroke="var(--ink-3)" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+
+        <!-- выручка -->
+        <path class="hero-rev" d="M60 445 C 400 420, 700 300, 1140 100" stroke="url(#revStroke)" stroke-width="3.5" stroke-linecap="round"/>
+
+        <!-- точка безубыточности -->
+        <g class="hero-point">
+          <line x1="690" y1="293" x2="690" y2="470" stroke="var(--accent)" stroke-width="1" stroke-dasharray="3 5" opacity=".5"/>
+          <circle class="hero-point__wave" cx="690" cy="293" r="7" stroke="var(--accent)" stroke-width="1.5" fill="none"/>
+          <circle cx="690" cy="293" r="6" fill="var(--accent)"/>
+        </g>
+
+        <!-- подписи -->
+        <g class="hero-labels" font-family="var(--font-mono)" font-size="13" letter-spacing="0.14em">
+          <text x="712" y="286" fill="var(--accent)">ТОЧКА БЕЗУБЫТОЧНОСТИ</text>
+          <text x="1010" y="128" fill="var(--accent)" text-anchor="end">ВЫРУЧКА</text>
+          <text x="1090" y="246" fill="var(--ink-3)" text-anchor="end">ЗАТРАТЫ</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-inner">
+      <span class="eyebrow" style="margin-bottom:14px">Финансовый консалтинг для РФ и РК</span>
+      <h1>Считаю экономику бизнеса до того, как в него вложены деньги</h1>
+      <p class="lead" style="margin-top:14px">Разработка финансовых моделей, бизнес-планов, дашбордов и постановка управленческого учета для малого бизнеса. Профессиональные расчеты, которые выдерживают любые вопросы инвесторов и банков.</p>
+      <div class="actions" style="margin-top:24px">
+        <a class="btn" href="#/contacts"><span>Начать проект</span><span class="btn__ic"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
       </div>
     </div>
-    
+
     <div class="facts">
       <div class="fact rv">
         <span class="fact__num">01 · Audit &amp; Strategy</span>
@@ -761,6 +782,24 @@ ym(111172932, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true,
     var w = window.open(url, '_blank', 'noopener');
     if (!w) location.href = url;
   });
+
+  // hero: график мягко следует за курсором, создавая глубину
+  var heroCanvas = document.getElementById('heroCanvas');
+  var hero = heroCanvas && heroCanvas.closest('.hero');
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var coarse = window.matchMedia('(pointer: coarse)').matches;
+  if (heroCanvas && hero && !calm && !coarse) {
+    hero.addEventListener('mousemove', function (e) {
+      var b = hero.getBoundingClientRect();
+      var dx = (e.clientX - b.left) / b.width - 0.5;
+      var dy = (e.clientY - b.top) / b.height - 0.5;
+      heroCanvas.style.transform = 'translate3d(' + (dx * -18).toFixed(1) + 'px,' +
+                                   (dy * -10).toFixed(1) + 'px, 0)';
+    });
+    hero.addEventListener('mouseleave', function () {
+      heroCanvas.style.transform = 'translate3d(0, 0, 0)';
+    });
+  }
 
   // появление при прокрутке
   var io = ('IntersectionObserver' in window) && new IntersectionObserver(function (entries) {
