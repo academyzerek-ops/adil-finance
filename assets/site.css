@@ -1324,3 +1324,59 @@ body.dark .career__item--now .career__body { border-color: rgba(240, 169, 97, .3
 .shell--invite { border-style: dashed; border-color: rgba(169, 105, 30, .35); background: transparent; }
 .shell--invite .core { background: transparent; }
 body.dark .shell--invite { border-color: rgba(240, 169, 97, .3); }
+
+/* ============================================================
+   Книга Excel: визуал стандарта финмодели
+   ============================================================ */
+
+.workbook {
+  border: 1px solid var(--line-2);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card);
+  max-width: 760px;
+}
+.workbook__bar {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper-2);
+}
+.workbook__dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--line-2);
+}
+.workbook__name {
+  margin-left: 10px;
+  font-family: var(--font-mono);
+  font-size: 11.5px; color: var(--ink-3);
+}
+.workbook__tabs {
+  display: flex; flex-wrap: wrap;
+  padding: 14px 16px 0;
+  gap: 4px;
+}
+.workbook__tab {
+  font-family: var(--font-mono);
+  font-size: 11.5px; letter-spacing: .02em;
+  color: var(--ink-3);
+  padding: 8px 14px 10px;
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  background: var(--paper);
+  white-space: nowrap;
+}
+.workbook__tab.is-on {
+  background: var(--card);
+  color: var(--accent);
+  font-weight: 500;
+  border-color: var(--line-2);
+  position: relative;
+}
+.workbook__tab.is-on::after {
+  content: "";
+  position: absolute; left: 0; right: 0; top: -1px; height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
