@@ -246,7 +246,7 @@ h1{
 /* ============ Hero Layout (Split) ============ */
 .hero{position:relative}
 .hero-tight h1,.hero-tight .lead{max-width:34ch}
-.hero-tight .lead{max-width:52ch}
+.hero-tight .lead{max-width:60ch}
 
 /* ============ Кнопки: пилюля с вложенной стрелкой ============ */
 .actions{display:flex;gap:12px;flex-wrap:wrap}
@@ -1334,7 +1334,6 @@ body.dark .shell--invite { border-color: rgba(240, 169, 97, .3); }
   border-radius: 20px;
   overflow: hidden;
   background: var(--card);
-  max-width: 880px;
   box-shadow: 0 28px 56px -40px rgba(26, 23, 18, .5);
 }
 body.dark .workbook { box-shadow: 0 28px 56px -36px rgba(0, 0, 0, .7); }
@@ -1356,17 +1355,18 @@ body.dark .workbook { box-shadow: 0 28px 56px -36px rgba(0, 0, 0, .7); }
 }
 .workbook__tabs {
   display: flex; flex-wrap: wrap;
-  padding: 16px 18px 0;
-  gap: 5px;
+  padding: 16px 18px 12px;
+  gap: 8px;
 }
 .workbook__tab {
+  flex: 1 1 auto;
+  text-align: center;
   font-family: var(--font-mono);
-  font-size: 12.5px; letter-spacing: .02em;
+  font-size: 13px; letter-spacing: .02em;
   color: var(--ink-3);
-  padding: 10px 17px 12px;
+  padding: 12px 22px;
   border: 1px solid var(--line);
-  border-bottom: none;
-  border-radius: 9px 9px 0 0;
+  border-radius: 999px;
   background: var(--paper);
   white-space: nowrap;
 }
