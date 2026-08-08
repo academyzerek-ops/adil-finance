@@ -179,7 +179,7 @@ def shell(title, description, canonical, body, jsonld="", og_type="article"):
 <meta name="theme-color" content="#F5F2EA">
 {FAVICON}
 {FONTS}
-<link rel="stylesheet" href="/assets/site.css?v=10">
+<link rel="stylesheet" href="/assets/site.css?v=14">
 </head>
 <body>
 

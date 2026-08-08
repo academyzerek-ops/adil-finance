@@ -56,7 +56,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=10">
+<link rel="stylesheet" href="/assets/site.css?v=14">
 </head>
 <body>
 
@@ -612,15 +612,7 @@
   <div class="wrap sec">
     <div class="channels">
       <a class="channel rv" href="https://t.me/godoffin" target="_blank" rel="noopener">
-        <span class="channel__logo">
-          <svg viewBox="0 0 48 48" aria-hidden="true">
-            <defs><linearGradient id="tgGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#2AABEE"/><stop offset="100%" stop-color="#229ED9"/>
-            </linearGradient></defs>
-            <circle cx="24" cy="24" r="24" fill="url(#tgGrad)"/>
-            <path fill="#fff" d="M10.9 23.2c7-3 11.6-5 13.9-6 6.6-2.8 8-3.2 8.9-3.3.2 0 .6 0 .9.3.2.2.3.5.3.7 0 .2 0 .5-.1.7-.7 4.2-2.5 14.5-3.5 19.2-.4 2-1.2 2.7-2 2.7-1.7.2-3-1-4.6-2-2.6-1.7-4-2.7-6.5-4.4-2.9-1.9-1-2.9.6-4.6.4-.5 8-7.3 8.1-7.9 0-.1 0-.4-.2-.5-.2-.1-.4 0-.6 0-.3.1-4.5 2.9-12.7 8.4-1.2.8-2.3 1.2-3.3 1.2-1.1 0-3.2-.6-4.7-1.1-1.9-.6-3.4-1-3.3-2 .1-.6.9-1.1 2.3-1.7z"/>
-          </svg>
-        </span>
+        <span class="channel__logo"><img src="/assets/tg.webp" alt="" width="128" height="128" decoding="async"></span>
         <span class="channel__body">
           <span class="channel__kick">Быстрее всего</span>
           <span class="channel__name">Telegram</span>
@@ -690,9 +682,7 @@
 
       <div class="lead__foot">
         <button class="btn btn--tg" type="submit">
-          <span class="btn__tg" aria-hidden="true">
-            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#229ED9"/><path fill="#fff" d="M10.9 23.2c7-3 11.6-5 13.9-6 6.6-2.8 8-3.2 8.9-3.3.2 0 .6 0 .9.3.2.2.3.5.3.7 0 .2 0 .5-.1.7-.7 4.2-2.5 14.5-3.5 19.2-.4 2-1.2 2.7-2 2.7-1.7.2-3-1-4.6-2-2.6-1.7-4-2.7-6.5-4.4-2.9-1.9-1-2.9.6-4.6.4-.5 8-7.3 8.1-7.9 0-.1 0-.4-.2-.5-.2-.1-.4 0-.6 0-.3.1-4.5 2.9-12.7 8.4-1.2.8-2.3 1.2-3.3 1.2-1.1 0-3.2-.6-4.7-1.1-1.9-.6-3.4-1-3.3-2 .1-.6.9-1.1 2.3-1.7z"/></svg>
-          </span>
+          <span class="btn__tg" aria-hidden="true"><img src="/assets/tg.webp" alt="" width="128" height="128" decoding="async"></span>
           <span>Отправить заявку</span>
         </button>
         <p class="tiny" id="leadHint">Уйдет мне в Telegram. Номер обращения появится здесь же.</p>
@@ -710,10 +700,21 @@
     </form>
 
     <aside class="terms">
-      <p><strong>Что писать</strong>Своими словами: что за бизнес и что требуется. Формулировать точно не нужно, мне важно понять, о чем речь.</p>
-      <p><strong>Как начинаем</strong>Сначала обсуждаем задачу, техническое задание составляем после разговора. Помогу сформулировать.</p>
-      <p><strong>Условия</strong>Задачу и стоимость фиксируем письменно до начала работы.</p>
-      <p><strong>Данные</strong>Заявка нужна только для ответа вам, третьим лицам не передается.</p>
+      <ol class="steps">
+        <li>
+          <strong>Что писать</strong>
+          <span>Своими словами: что за бизнес и что требуется. Формулировать точно не нужно, мне важно понять, о чем речь.</span>
+        </li>
+        <li>
+          <strong>Что дальше</strong>
+          <span>Отвечаю в течение дня и задаю уточняющие вопросы. Обсуждаем задачу голосом или перепиской.</span>
+        </li>
+        <li>
+          <strong>Как договариваемся</strong>
+          <span>Техническое задание составляем после разговора, помогу сформулировать. Задачу и стоимость фиксируем письменно до начала работы.</span>
+        </li>
+      </ol>
+      <p class="terms__note">Заявка нужна только для ответа вам, третьим лицам не передается.</p>
     </aside>
    </div>
   </div>

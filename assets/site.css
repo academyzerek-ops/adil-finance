@@ -1094,17 +1094,17 @@ body.dark .hero-canvas { opacity: .52; }
 body.dark .channel:hover { box-shadow: 0 20px 40px -22px rgba(0, 0, 0, .7); }
 .channel:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
+/* логотипы живут без подложки: они сами по себе законченные фигуры */
 .channel__logo {
   display: grid; place-items: center;
-  width: 48px; height: 48px;
-  border-radius: 14px;
-  background: var(--paper-2);
+  width: 46px; height: 46px;
   transition: transform var(--dur-base) var(--ease-out);
 }
+.channel__logo img { width: 46px; height: 46px; }
+/* конверт Gmail шире круга Telegram, уравниваем оптическую массу */
+.channel__logo--mail svg { width: 40px; height: 30px; }
 .channel:hover .channel__logo { transform: scale(1.06); }
-.channel__logo svg { width: 28px; height: 28px; }
-/* конверт Gmail шире круга Telegram, выравниваем оптически */
-.channel__logo--mail svg { width: 26px; height: 20px; }
+
 
 .channel__body { display: flex; flex-direction: column; min-width: 0; }
 .channel__kick {
@@ -1158,10 +1158,9 @@ body.dark .channel:hover { box-shadow: 0 20px 40px -22px rgba(0, 0, 0, .7); }
 .btn--tg { padding-left: 8px; }
 .btn__tg {
   display: grid; place-items: center;
-  width: 34px; height: 34px; border-radius: 50%;
-  overflow: hidden; flex: none;
+  width: 34px; height: 34px; flex: none;
 }
-.btn__tg svg { width: 34px; height: 34px; }
+.btn__tg img { width: 32px; height: 32px; }
 
 /* --- подтверждение --- */
 .lead__done {
@@ -1199,31 +1198,55 @@ body.dark .channel:hover { box-shadow: 0 20px 40px -22px rgba(0, 0, 0, .7); }
 }
 .lead-layout .lead { max-width: none; }
 
-.terms { display: flex; flex-direction: column; }
-.terms p {
-  margin: 0;
-  padding: 18px 0;
-  font-size: 13.5px; line-height: 1.6; color: var(--ink-3);
-  border-top: 1px solid var(--line);
+/* три шага: номер в кружке, соединённые вертикальной линией */
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.steps li {
+  position: relative;
+  counter-increment: step;
+  padding: 0 0 28px 40px;
 }
-.terms p:first-child { padding-top: 0; border-top: none; }
-.terms p:last-child { padding-bottom: 0; }
-.terms strong {
+.steps li:last-child { padding-bottom: 0; }
+/* кружок с номером */
+.steps li::before {
+  content: counter(step);
+  position: absolute; left: 0; top: -1px;
+  display: grid; place-items: center;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: var(--paper);
+  font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+  color: var(--accent);
+  z-index: 1;
+}
+/* линия тянется от кружка к следующему шагу */
+.steps li::after {
+  content: "";
+  position: absolute; left: 13px; top: 26px; bottom: 4px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--line-2), var(--line));
+}
+.steps li:last-child::after { display: none; }
+.steps strong {
   display: block; margin-bottom: 6px;
   font-family: var(--font-mono);
   font-size: 10.5px; font-weight: 500;
   letter-spacing: .12em; text-transform: uppercase;
   color: var(--accent);
 }
+.steps span {
+  display: block;
+  font-size: 13.5px; line-height: 1.6; color: var(--ink-3);
+}
+.terms__note {
+  margin: 28px 0 0; padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 12.5px; line-height: 1.55; color: var(--ink-3);
+}
 
 @media (max-width: 1000px) {
   .lead-layout { grid-template-columns: 1fr; gap: 40px; }
-  .terms {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 0 32px;
-    padding-top: 24px; border-top: 1px solid var(--line);
-  }
-  .terms p { border-top: none; padding: 12px 0; }
+  .terms { padding-top: 32px; border-top: 1px solid var(--line); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1242,6 +1265,6 @@ body.dark .channel:hover { box-shadow: 0 20px 40px -22px rgba(0, 0, 0, .7); }
   font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
   font-size: 1.25em;
   line-height: 1;
-  vertical-align: -.12em;
-  margin: 0 .04em;
+  vertical-align: -.14em;
+  margin: 0 .14em;
 }
