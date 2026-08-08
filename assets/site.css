@@ -13,6 +13,8 @@
   --line:rgba(26,23,18,.10);
   --line-2:rgba(26,23,18,.17);
   --bronze:#8B6534;
+  --accent:#A9691E;        /* яркий оранжевый на светлом */
+  --accent-on-dark:#F0A961; /* яркий оранжевый на темном */
   --ox:#8D3B30;
   --ox-tint:rgba(141,59,48,.08);
   --ox-line:rgba(141,59,48,.25);
@@ -41,6 +43,7 @@ body.dark {
   --line:rgba(240,235,223,.12);
   --line-2:rgba(240,235,223,.22);
   --bronze:#C59B63;
+  --accent:#F0A961;
   --ox:#E55C4F;
   --ox-tint:rgba(229,92,79,.08);
   --ox-line:rgba(229,92,79,.25);
@@ -197,9 +200,22 @@ body.menu-open{overflow:hidden}
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;
   font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--bronze);
-  padding:6px 14px;border-radius:999px;border:1px solid var(--line-2);
-  background:rgba(255,255,255,.35);
+  color:var(--accent);
+  /* капс сидит оптически низко: снизу на 1px меньше */
+  padding:7px 14px 5px;border-radius:999px;
+  border:1px solid rgba(169,105,30,.28);
+  background:rgba(169,105,30,.07);
+}
+body.dark .eyebrow{
+  color:var(--accent-on-dark);
+  border-color:rgba(240,169,97,.30);
+  background:rgba(240,169,97,.09);
+}
+/* на темной полосе бейдж всегда светлый, в любой теме */
+.dark-band .eyebrow{
+  color:var(--accent-on-dark);
+  border-color:rgba(240,169,97,.30);
+  background:rgba(240,169,97,.09);
 }
 h1{
   font-family:var(--font-display);font-weight:600;
@@ -441,7 +457,6 @@ body.dark .fact:hover {
   padding:clamp(52px,7vw,92px) clamp(26px,6vw,84px);
   box-shadow:inset 0 1px 0 rgba(240,235,223,.06);
 }
-.dark-band .eyebrow{color:var(--bronze);border-color:var(--dark-line);background:rgba(240,235,223,.04)}
 .dark-band .quote{
   font-family:var(--font-display);font-weight:500;
   font-size:clamp(1.9rem,4.4vw,3.3rem);line-height:1.16;letter-spacing:-.01em;
@@ -979,3 +994,11 @@ body.dark .nextprev a:hover { box-shadow: 0 16px 30px -20px rgba(0, 0, 0, .6); }
 
 /* пустая шапка таблицы нужна разметке, но не нужна глазу */
 .calc thead { display: none; }
+
+/* в темной теме блок призыва сливался с фоном: приподнимаем его */
+body.dark .dark-band {
+  background: var(--paper-2);
+  border: 1px solid rgba(240, 169, 97, .14);
+  box-shadow: inset 0 1px 0 rgba(240, 235, 223, .05),
+              0 24px 48px -32px rgba(0, 0, 0, .8);
+}
