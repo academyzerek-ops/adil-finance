@@ -245,7 +245,7 @@ h1{
 /* ============ Hero Layout (Split) ============ */
 .hero{position:relative}
 .hero-tight h1,.hero-tight .lead{max-width:34ch}
-.hero-tight .lead{max-width:60ch}
+.hero-tight .lead{max-width:62ch}
 
 /* ============ Кнопки: пилюля с вложенной стрелкой ============ */
 .actions{display:flex;gap:12px;flex-wrap:wrap}
@@ -901,7 +901,7 @@ body.dark .hero-canvas { opacity: .52; }
   letter-spacing: -.028em;
   max-width: 17ch;
 }
-.hero-inner .lead { max-width: 46ch; }
+.hero-inner .lead { max-width: 58ch; }
 
 /* --- отрисовка: линии проводятся, а не появляются --- */
 @keyframes heroDraw   { to { stroke-dashoffset: 0; } }
@@ -1650,3 +1650,11 @@ body.dark .hint { border-color: rgba(240, 169, 97, .24); }
 .caro__btn.is-off { opacity: 0; pointer-events: none; }
 body.dark .caro__btn { box-shadow: 0 10px 24px -12px rgba(0, 0, 0, .6); }
 .fact__link { margin-top: 14px; font-size: 13px; }
+
+/* переносы слов — только там, где без них не выжить: на узких экранах */
+@media (min-width: 761px) {
+  .lead, .checks li, .core p, .post__sum, .steps span,
+  .channel__desc, .fact span, .lead-note {
+    hyphens: manual; -webkit-hyphens: manual;
+  }
+}
