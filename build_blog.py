@@ -51,8 +51,8 @@ MOON = ('<svg viewBox="0 0 24 24" class="theme-toggle-icon-moon" fill="none" str
         'stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>')
 
 MENU_ITEMS = [
-    ("/#/services", "Финмодели"),
     ("/#/research", "Аналитика рынка"),
+    ("/#/services", "Финмодели"),
     ("/#/bizplans", "Бизнес-планы"),
     ("/#/accounting", "Управленческий учет"),
     ("/#/dashboards", "Дашборды"),
