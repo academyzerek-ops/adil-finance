@@ -225,7 +225,6 @@ h1{
 .t-section{
   font-family:var(--font-display);font-weight:600;
   font-size:clamp(1.4rem,2.8vw,1.9rem);line-height:1.2;letter-spacing:-.005em;
-  max-width:24ch;
 }
 .lead{font-size:14.5px;color:var(--ink-2);max-width:56ch;font-weight:500;line-height:1.55}
 .tiny{font-size:12.5px;color:var(--ink-3);line-height:1.6}
@@ -1498,25 +1497,24 @@ body.dark .hint { border-color: rgba(240, 169, 97, .24); }
    Цепочка услуг: где эта ступень в общем пути
    ============================================================ */
 
+.flow-top { padding-top: 26px; }
 .flow {
   display: flex; flex-wrap: wrap; align-items: center;
-  gap: 12px 20px;
-  padding: 18px 24px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--card);
+  gap: 10px 18px;
+  padding: 0 0 14px;
+  border-bottom: 1px solid var(--line);
 }
 .flow__label {
   font-family: var(--font-mono);
-  font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase;
+  font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
   color: var(--ink-3);
   flex: none;
 }
-.flow__chain { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.flow__chain { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
 .flow__step {
   font-family: var(--font-mono);
-  font-size: 12px; letter-spacing: .02em;
-  padding: 7px 15px;
+  font-size: 11.5px; letter-spacing: .02em;
+  padding: 5px 12px;
   border: 1px solid var(--line-2);
   border-radius: 999px;
   color: var(--ink-3);
@@ -1528,14 +1526,16 @@ body.dark .hint { border-color: rgba(240, 169, 97, .24); }
   background: var(--ink); color: var(--paper);
   border-color: var(--ink); font-weight: 500;
 }
-.flow__arr { color: var(--ink-3); font-size: 13px; }
+.flow__arr { color: var(--ink-3); font-size: 12px; }
 .flow__cap {
-  font-size: 12.5px; line-height: 1.5;
+  font-size: 12px; line-height: 1.5;
   color: var(--ink-3);
-  flex: 1 1 240px;
+  margin-left: auto;
   text-align: right;
 }
-@media (max-width: 900px) {
-  .flow { border-radius: 20px; }
-  .flow__cap { text-align: left; flex-basis: 100%; }
+@media (max-width: 980px) {
+  .flow__cap { margin-left: 0; text-align: left; flex-basis: 100%; }
 }
+
+/* цепочка на месте плашки-заголовка страницы */
+.flow--eyebrow { border-bottom: none; padding: 0; gap: 8px 14px; }
