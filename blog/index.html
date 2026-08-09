@@ -109,7 +109,9 @@
 
   <div class="wrap sec sec--last">
     <div class="filters"><button class="filter is-on" data-filter="all">Все</button><button class="filter" data-filter="kz">🇰🇿 Казахстан</button><button class="filter" data-filter="ru">🇷🇺 Россия</button></div>
-    <div class="posts">
+    <div class="caro">
+      <button class="caro__btn caro__btn--prev" aria-label="Назад"><svg viewBox="0 0 16 16"><path d="M10 3 5 8l5 5"/></svg></button>
+      <div class="posts" id="postsCaro">
       <a class="post rv" href="/blog/kofeynya-19-mln-bez-rynka/" data-region="kz">
         <span class="post__meta">🇰🇿 Кофейня</span>
         <h2 class="post__title">Кофейня за 19 миллионов в городе, где кофе не пили</h2>
@@ -146,6 +148,35 @@
           <span class="post__go">Разбор <svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
         </span>
       </a>
+      <a class="post rv" href="/blog/fudmoll-na-chuzhom-trafike/" data-region="kz">
+        <span class="post__meta">🇰🇿 Общепит</span>
+        <h2 class="post__title">Фудмолл жил на чужом трафике и не дожил до плана</h2>
+        <p class="post__sum">Большой фудмаркет в крупном ТРЦ Алматы закрылся, не сойдясь экономически за два года до официального финала. Разбираем две чужие гипотезы, на которых он стоял.</p>
+        <span class="post__foot">
+          <span class="post__num">закрытие</span>
+          <span class="post__go">Разбор <svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+        </span>
+      </a>
+      <a class="post rv" href="/blog/prodali-30-domov-postroit-ne-smogli/" data-region="ru">
+        <span class="post__meta">🇷🇺 Строительство</span>
+        <h2 class="post__title">Продали 30 домов, а построить не смогли</h2>
+        <p class="post__sum">Компания посчитала спрос, финансы и маркетинг, продала все запланированные дома и стала заложником собственного роста. Не посчитали одно.</p>
+        <span class="post__foot">
+          <span class="post__num">сорванные сроки</span>
+          <span class="post__go">Разбор <svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+        </span>
+      </a>
+      <a class="post rv" href="/blog/klining-b2b-drugoy-biznes/" data-region="ru">
+        <span class="post__meta">🇷🇺 Клининг</span>
+        <h2 class="post__title">Клининг шагнул в корпоративный сегмент и чуть не утонул</h2>
+        <p class="post__sum">Лидер квартирной уборки в своем городе взял крупные контракты по логике частных заказов. Оказалось, что B2C и B2B в клининге — два разных бизнеса.</p>
+        <span class="post__foot">
+          <span class="post__num">маржа сгорела за полгода</span>
+          <span class="post__go">Разбор <svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+        </span>
+      </a>
+      </div>
+      <button class="caro__btn caro__btn--next" aria-label="Вперед"><svg viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg></button>
     </div>
   </div>
 </div>
@@ -170,6 +201,6 @@ ym(111172932, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true,
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111172932" style="position:absolute; left:-9999px;" alt=""></div></noscript>
 <script src="/assets/typo.js?v=2"></script>
-<script src="/assets/blog.js?v=2"></script>
+<script src="/assets/blog.js?v=3"></script>
 </body>
 </html>

@@ -195,7 +195,7 @@ def shell(title, description, canonical, body, jsonld="", og_type="article"):
 
 {METRIKA}
 <script src="/assets/typo.js?v=2"></script>
-<script src="/assets/blog.js?v=2"></script>
+<script src="/assets/blog.js?v=3"></script>
 </body>
 </html>
 """
@@ -380,8 +380,12 @@ def index_page(posts):
 
   <div class="wrap sec sec--last">
     <div class="filters">{"".join(filters)}</div>
-    <div class="posts">
+    <div class="caro">
+      <button class="caro__btn caro__btn--prev" aria-label="Назад"><svg viewBox="0 0 16 16"><path d="M10 3 5 8l5 5"/></svg></button>
+      <div class="posts" id="postsCaro">
 {chr(10).join(cards)}
+      </div>
+      <button class="caro__btn caro__btn--next" aria-label="Вперед"><svg viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg></button>
     </div>
   </div>
 </div>"""

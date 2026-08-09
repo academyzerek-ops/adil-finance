@@ -1602,3 +1602,51 @@ body.dark .hint { border-color: rgba(240, 169, 97, .24); }
   .svcrow { grid-template-columns: 40px minmax(0, 1fr) 32px; }
   .svcrow__tag { display: none; }
 }
+
+/* ============================================================
+   Карусель разборов: прокрутка со стрелками по бокам
+   ============================================================ */
+
+.caro { position: relative; }
+.caro .posts {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 16px;
+  padding: 4px 4px 20px;
+  margin: 0 -4px;
+  -ms-overflow-style: none; scrollbar-width: none;
+}
+.caro .posts::-webkit-scrollbar { display: none; }
+.caro .post {
+  flex: 0 0 min(360px, 82vw);
+  scroll-snap-align: start;
+}
+.caro__btn {
+  position: absolute; top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: grid; place-items: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--line-2);
+  background: var(--card);
+  color: var(--ink-2);
+  cursor: pointer;
+  box-shadow: 0 10px 24px -14px rgba(26, 23, 18, .4);
+  transition: color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              opacity var(--dur-base) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+.caro__btn svg {
+  width: 15px; height: 15px;
+  fill: none; stroke: currentColor; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.caro__btn:hover { color: var(--accent); border-color: var(--accent); }
+.caro__btn--prev { left: -14px; }
+.caro__btn--next { right: -14px; }
+.caro__btn.is-off { opacity: 0; pointer-events: none; }
+body.dark .caro__btn { box-shadow: 0 10px 24px -12px rgba(0, 0, 0, .6); }
+.fact__link { margin-top: 14px; font-size: 13px; }

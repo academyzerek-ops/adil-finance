@@ -51,6 +51,7 @@
   // фильтр списка разборов по стране
   var filters = document.querySelectorAll('.filter');
   var posts = document.querySelectorAll('.post');
+  var caroTrack = document.getElementById('postsCaro');
   filters.forEach(function (f) {
     f.addEventListener('click', function () {
       var val = f.dataset.filter;
@@ -58,8 +59,28 @@
       posts.forEach(function (p) {
         p.style.display = (val === 'all' || p.dataset.region === val) ? '' : 'none';
       });
+      if (caroTrack) caroTrack.scrollTo({ left: 0, behavior: 'smooth' });
     });
   });
+
+  // карусель: стрелки листают на ширину видимой области
+  if (caroTrack) {
+    var prev = document.querySelector('.caro__btn--prev');
+    var next = document.querySelector('.caro__btn--next');
+    function page(dir) {
+      caroTrack.scrollBy({ left: dir * (caroTrack.clientWidth - 80), behavior: 'smooth' });
+    }
+    if (prev) prev.addEventListener('click', function () { page(-1); });
+    if (next) next.addEventListener('click', function () { page(1); });
+    // стрелки гаснут на краях
+    function edges() {
+      var max = caroTrack.scrollWidth - caroTrack.clientWidth - 4;
+      if (prev) prev.classList.toggle('is-off', caroTrack.scrollLeft <= 4);
+      if (next) next.classList.toggle('is-off', caroTrack.scrollLeft >= max);
+    }
+    caroTrack.addEventListener('scroll', edges, { passive: true });
+    edges();
+  }
 
   // полоса прочитанного на странице разбора
   var bar = document.querySelector('.progress__bar');
