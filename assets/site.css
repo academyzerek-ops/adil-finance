@@ -486,12 +486,13 @@ body.dark .note:hover {
 .field span{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
 .field input,.field select,.field textarea{
   font-family:var(--font-body);font-size:15px;color:var(--ink);
-  background:rgba(255,255,255,.55);border:1px solid var(--line-2);border-radius:14px;
+  background:var(--card);border:1px solid var(--line-2);border-radius:14px;
   padding:13px 16px;outline:none;width:100%;
   transition:border-color .4s var(--ease),background .4s var(--ease);
 }
 .field textarea{min-height:120px;resize:vertical}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--bronze);background:#fff}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--bronze)}
+.field ::placeholder{color:var(--ink-3);opacity:.8}
 
 /* ============ Контактные плитки ============ */
 .contact-tile .core{gap:8px}
