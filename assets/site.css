@@ -1658,3 +1658,12 @@ body.dark .caro__btn { box-shadow: 0 10px 24px -12px rgba(0, 0, 0, .6); }
     hyphens: manual; -webkit-hyphens: manual;
   }
 }
+
+/* мобильная дисциплина: ничто не распирает страницу вширь */
+html, body { overflow-x: hidden; overflow-x: clip; }
+@media (max-width: 760px) {
+  .caro__btn--prev { left: 4px; }
+  .caro__btn--next { right: 4px; }
+  .hero-canvas { left: 0; right: 0; }
+  .caro .posts { margin: 0; padding-left: 0; padding-right: 0; }
+}
