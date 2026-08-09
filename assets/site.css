@@ -1539,3 +1539,5 @@ body.dark .hint { border-color: rgba(240, 169, 97, .24); }
 
 /* цепочка на месте плашки-заголовка страницы */
 .flow--eyebrow { border-bottom: none; padding: 0; gap: 8px 14px; }
+
+.hint__links { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
