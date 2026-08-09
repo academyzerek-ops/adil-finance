@@ -1542,3 +1542,63 @@ body.dark .hint { border-color: rgba(240, 169, 97, .24); }
 .flow--eyebrow { border-bottom: none; padding: 0; gap: 8px 14px; }
 
 .hint__links { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+
+/* ============================================================
+   Услуги на главной: оглавление-реестр вместо карточек
+   ============================================================ */
+
+.svcindex { border-top: 1px solid var(--line-2); }
+.svcrow {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto 32px;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 8px;
+  border-bottom: 1px solid var(--line);
+  transition: background var(--dur-base) var(--ease-out),
+              padding-left var(--dur-base) var(--ease-out);
+}
+.svcrow:hover { background: var(--card); padding-left: 20px; }
+.svcrow__num {
+  font-family: var(--font-mono);
+  font-size: 13px; color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.svcrow:hover .svcrow__num { color: var(--accent); }
+.svcrow__body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.svcrow__name {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(20px, 2.2vw, 25px); line-height: 1.15;
+  letter-spacing: -.01em;
+}
+.svcrow__desc { font-size: 13.5px; line-height: 1.5; color: var(--ink-3); }
+.svcrow__tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.svcrow__go {
+  display: grid; place-items: center;
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1px solid var(--line-2); color: var(--ink-3);
+  transition: transform var(--dur-base) var(--ease-out),
+              color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+.svcrow__go svg {
+  width: 11px; height: 11px;
+  fill: none; stroke: currentColor; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.svcrow:hover .svcrow__go {
+  transform: translate(2px, -2px);
+  color: var(--accent); border-color: var(--accent);
+}
+/* последняя строка: приглашение, пунктир слева от номера */
+.svcrow:last-child .svcrow__num { color: var(--accent); }
+@media (max-width: 760px) {
+  .svcrow { grid-template-columns: 40px minmax(0, 1fr) 32px; }
+  .svcrow__tag { display: none; }
+}

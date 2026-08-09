@@ -56,7 +56,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=42">
+<link rel="stylesheet" href="/assets/site.css?v=43">
 </head>
 <body>
 
@@ -235,49 +235,61 @@
       <span class="eyebrow">Услуги</span>
       <h2 class="t-section">Чем могу быть полезен</h2>
     </div>
-    <div class="grid3">
-      <a class="shell rv" href="#/research"><div class="core">
-        <span class="kicker">01 · До вложений</span>
-        <h3>Аналитика рынка</h3>
-        <p>Исследования ниш и конкурентов: емкость, чек, барьеры входа, спрос. Основа честных вводных для финмодели.</p>
-        <div class="spacer"></div>
-        <span class="card-link">Подробнее <svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
-      </div></a>
-      <a class="shell rv" href="#/services"><div class="core">
-        <span class="kicker">02 · Расчет проекта</span>
-        <h3>Финансовая модель</h3>
-        <p>Индивидуальная модель на вводных из аналитики: точка безубыточности, P&amp;L, движение денег, стресс-тест. Ядро будущего бизнес-плана.</p>
-        <div class="spacer"></div>
-        <span class="card-link">Подробнее <svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
-      </div></a>
-      <a class="shell rv" href="#/bizplans"><div class="core">
-        <span class="kicker">03 · Инвесторам и банкам</span>
-        <h3>Бизнес-план</h3>
-        <p>Документ вокруг финмодели: для кредита, инвестора или гранта. Обоснованные допущения, три формы отчетности, NPV, IRR и анализ рисков.</p>
-        <div class="spacer"></div>
-        <span class="card-link">Подробнее <svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
-      </div></a>
-      <a class="shell rv" href="#/accounting"><div class="core">
-        <span class="kicker">04 · Действующему бизнесу</span>
-        <h3>Управленческий учет</h3>
-        <p>Когда бизнес уже работает: реальная прибыль вместо ощущений, контроль кассовых разрывов, ежемесячный разбор цифр.</p>
-        <div class="spacer"></div>
-        <span class="card-link">Подробнее <svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
-      </div></a>
-      <a class="shell rv" href="#/dashboards"><div class="core">
-        <span class="kicker">05 · Витрина учета</span>
-        <h3>Дашборд</h3>
-        <p>Показывает то, что собрал управленческий учет: выручка, маржа, юнит-экономика и воронка на одном экране.</p>
-        <div class="spacer"></div>
-        <span class="card-link">Подробнее <svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
-      </div></a>
-      <a class="shell shell--invite rv" href="#/contacts"><div class="core">
-        <span class="kicker">06 · Ваша задача</span>
-        <h3>Не нашли свое?</h3>
-        <p>Опишите задачу своими словами. Разберемся, что нужно, и зафиксируем объем и стоимость до начала работы.</p>
-        <div class="spacer"></div>
-        <span class="card-link">Написать <svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
-      </div></a>
+    <div class="svcindex">
+      <a class="svcrow rv" href="#/research">
+        <span class="svcrow__num">01</span>
+        <span class="svcrow__body">
+          <span class="svcrow__name">Аналитика рынка</span>
+          <span class="svcrow__desc">Емкость, чек, конкуренты: честные вводные для будущей модели</span>
+        </span>
+        <span class="svcrow__tag">до вложений</span>
+        <span class="svcrow__go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+      </a>
+      <a class="svcrow rv" href="#/services">
+        <span class="svcrow__num">02</span>
+        <span class="svcrow__body">
+          <span class="svcrow__name">Финансовая модель</span>
+          <span class="svcrow__desc">Точка безубыточности, P&L, движение денег, стресс-тест</span>
+        </span>
+        <span class="svcrow__tag">расчет проекта</span>
+        <span class="svcrow__go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+      </a>
+      <a class="svcrow rv" href="#/bizplans">
+        <span class="svcrow__num">03</span>
+        <span class="svcrow__body">
+          <span class="svcrow__name">Бизнес-план</span>
+          <span class="svcrow__desc">Сборка для банка, инвестора или гранта: три формы, NPV, IRR</span>
+        </span>
+        <span class="svcrow__tag">инвесторам и банкам</span>
+        <span class="svcrow__go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+      </a>
+      <a class="svcrow rv" href="#/accounting">
+        <span class="svcrow__num">04</span>
+        <span class="svcrow__body">
+          <span class="svcrow__name">Управленческий учет</span>
+          <span class="svcrow__desc">Реальная прибыль вместо ощущений, контроль кассовых разрывов</span>
+        </span>
+        <span class="svcrow__tag">действующему бизнесу</span>
+        <span class="svcrow__go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+      </a>
+      <a class="svcrow rv" href="#/dashboards">
+        <span class="svcrow__num">05</span>
+        <span class="svcrow__body">
+          <span class="svcrow__name">Дашборд</span>
+          <span class="svcrow__desc">Витрина учета: выручка, маржа, юнит-экономика на одном экране</span>
+        </span>
+        <span class="svcrow__tag">витрина учета</span>
+        <span class="svcrow__go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+      </a>
+      <a class="svcrow rv" href="#/contacts">
+        <span class="svcrow__num">06</span>
+        <span class="svcrow__body">
+          <span class="svcrow__name">Не нашли свое?</span>
+          <span class="svcrow__desc">Опишите задачу своими словами: объем и стоимость зафиксируем письменно</span>
+        </span>
+        <span class="svcrow__tag">ваша задача</span>
+        <span class="svcrow__go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M6 4h6v6"/></svg></span>
+      </a>
     </div>
   </div>
 
@@ -678,7 +690,7 @@
   <div class="wrap sec sec--first hero-tight">
     <span class="eyebrow">Обо мне</span>
     <h1 style="margin-top:26px">Путь через все этажи финансов</h1>
-    <p class="lead" style="margin-top:24px">Высшее финансовое образование, степень MBA и больше двадцати лет практики. Корпорации, Национальный Банк РК, аудит и консалтинг «Большой четверки», собственный бизнес. Теперь считаю экономику для тех, кто рискует своими деньгами.</p>
+    <p class="lead" style="margin-top:24px">Меня зовут Адиль. За плечами высшее финансовое образование, степень MBA и больше двадцати лет практики: корпорации, Национальный Банк РК, аудит и консалтинг «Большой четверки», собственный бизнес. Теперь считаю экономику для тех, кто рискует своими деньгами.</p>
   </div>
 
   <div class="wrap sec">
